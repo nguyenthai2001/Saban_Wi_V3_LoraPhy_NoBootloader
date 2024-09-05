@@ -1,0 +1,30 @@
+SET PATH=C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\MinGW\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\Users\TULA_KT01\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\TULA_KT01\AppData\Local\GitHubDesktop\bin;C:\Users\TULA_KT01\.dotnet\tools;C:\Users\TULA_KT01\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\ucrt64\bin;
+SET CPU_TYPE=NUC220LE3AN
+SET CPU_VENDOR=Nuvoton
+SET UV2_TARGET=SabanWi_Master
+SET CPU_CLOCK=0x00B71B00
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\startup_nuc200series._ac"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\main.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\systerm.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\gpio_driver.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\spi_driver.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\uart_driver.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\usb_driver.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\wdt_driver.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\descriptors.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\hid_transfer.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\clk.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\fmc.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\gpio_1.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\retarget.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\spi.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\sys.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\timer.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\uart.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\wdt.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\usbd.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmClang.exe" @".\objects\system_nuc200series.__i"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\ArmLink" --Via ".\Objects\SabanWi_Master.lnp"
+"C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin\fromelf.exe" ".\Objects\SabanWi_Master.axf" --i32combined --output ".\Objects\SabanWi_Master.hex"
+fromelf --bin ".\Objects\SabanWi_Master.axf" --output ".\Objects\SabanWi_Master.bin"
+fromelf --text -c ".\Objects\SabanWi_Master.axf" --output ".\Objects\SabanWi_Master.txt"
