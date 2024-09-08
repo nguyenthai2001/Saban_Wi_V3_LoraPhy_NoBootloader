@@ -315,7 +315,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>7</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -332,8 +332,8 @@
             <useXO>0</useXO>
             <v6Lang>0</v6Lang>
             <v6LangP>2</v6LangP>
-            <vShortEn>0</vShortEn>
-            <vShortWch>0</vShortWch>
+            <vShortEn>1</vShortEn>
+            <vShortWch>1</vShortWch>
             <v6Lto>0</v6Lto>
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Drivers\CMSIS\Include;..\..\Drivers\Device\Nuvoton\NUC200Series\Include;..\..\Drivers\StdDriver\inc;..\..\App;..\..\Core\inc;..\..\App\HID_Transfer\inc;..\..\Middlewares\Usb_Hid\inc</IncludePath>
+              <IncludePath>..\..\Drivers\CMSIS\Include;..\..\Drivers\Device\Nuvoton\NUC200Series\Include;..\..\Drivers\StdDriver\inc;..\..\App;..\..\Core\inc;..\..\App\HID_Transfer\inc;..\..\Middlewares\Usb_Hid\inc;..\..\Middlewares\DataFlash\inc;..\..\Middlewares\LoRa_Phy\App;..\..\Middlewares\LoRa_Phy\Target;..\..\Security\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -553,7 +553,89 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Middleware/Lora_Phy</GroupName>
+          <GroupName>Middleware/DataFlash_Stack</GroupName>
+          <Files>
+            <File>
+              <FileName>DataFlash_stack.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\DataFlash\src\DataFlash_stack.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middleware/Lora_Phy/App</GroupName>
+          <Files>
+            <File>
+              <FileName>radio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\LoRa_Phy\App\radio.c</FilePath>
+            </File>
+            <File>
+              <FileName>SX1278.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\LoRa_Phy\App\SX1278.c</FilePath>
+            </File>
+            <File>
+              <FileName>SX1278-Fsk.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\LoRa_Phy\App\SX1278-Fsk.c</FilePath>
+            </File>
+            <File>
+              <FileName>SX1278-LoRa.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\LoRa_Phy\App\SX1278-LoRa.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middleware/Lora_Phy/Target</GroupName>
+          <Files>
+            <File>
+              <FileName>SX1278_HW.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.c</FilePath>
+            </File>
+            <File>
+              <FileName>SX1278Fsk_Misc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\LoRa_Phy\Target\SX1278Fsk_Misc.c</FilePath>
+            </File>
+            <File>
+              <FileName>SX1278LoRa_Misc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\LoRa_Phy\Target\SX1278LoRa_Misc.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Security</GroupName>
+          <Files>
+            <File>
+              <FileName>aes.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Security\src\aes.c</FilePath>
+            </File>
+            <File>
+              <FileName>des.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Security\src\des.c</FilePath>
+            </File>
+            <File>
+              <FileName>hmac.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Security\src\hmac.c</FilePath>
+            </File>
+            <File>
+              <FileName>sha.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Security\src\sha.c</FilePath>
+            </File>
+            <File>
+              <FileName>crc_modbus.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Security\src\crc_modbus.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

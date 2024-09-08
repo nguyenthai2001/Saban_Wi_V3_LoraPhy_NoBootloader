@@ -25,6 +25,19 @@
 ".\objects\usbd.o"
 ".\objects\system_nuc200series.o"
 ".\objects\usb_stack.o"
+".\objects\dataflash_stack.o"
+".\objects\radio.o"
+".\objects\sx1278.o"
+".\objects\sx1278-fsk.o"
+".\objects\sx1278-lora.o"
+".\objects\sx1278_hw.o"
+".\objects\sx1278fsk_misc.o"
+".\objects\sx1278lora_misc.o"
+".\objects\aes.o"
+".\objects\des.o"
+".\objects\hmac.o"
+".\objects\sha.o"
+".\objects\crc_modbus.o"
 --library_type=microlib --ro-base 0x00000000 --entry 0x00000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Listings\SabanWi_Master.map" -o .\Objects\SabanWi_Master.axf
