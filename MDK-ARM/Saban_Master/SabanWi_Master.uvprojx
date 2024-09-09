@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Drivers\CMSIS\Include;..\..\Drivers\Device\Nuvoton\NUC200Series\Include;..\..\Drivers\StdDriver\inc;..\..\App;..\..\Core\inc;..\..\App\HID_Transfer\inc;..\..\Middlewares\Usb_Hid\inc;..\..\Middlewares\DataFlash\inc;..\..\Middlewares\LoRa_Phy\App;..\..\Middlewares\LoRa_Phy\Target;..\..\Security\inc</IncludePath>
+              <IncludePath>..\..\Drivers\CMSIS\Include;..\..\Drivers\Device\Nuvoton\NUC200Series\Include;..\..\Drivers\StdDriver\inc;..\..\App;..\..\Core\inc;..\..\App\HID_Transfer\inc;..\..\Middlewares\Usb_Hid\inc;..\..\Middlewares\DataFlash\inc;..\..\Middlewares\LoRa_Phy\App;..\..\Middlewares\LoRa_Phy\Target;..\..\Security\inc;..\..\App\RF_Transfer\inc;..\..\App\Operation\inc;..\..\App\GPIO_Control\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -463,6 +463,16 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>App/User/Operation</GroupName>
+          <Files>
+            <File>
+              <FileName>operation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\App\Operation\src\operation.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>App/User/HID_Transfer</GroupName>
           <Files>
             <File>
@@ -474,6 +484,26 @@
               <FileName>hid_transfer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\App\HID_Transfer\src\hid_transfer.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>App/User/RF_Transfer</GroupName>
+          <Files>
+            <File>
+              <FileName>RF_Transfer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\App\RF_Transfer\src\RF_Transfer.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>App/User/GPIO_Control</GroupName>
+          <Files>
+            <File>
+              <FileName>gpio_control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\App\GPIO_Control\src\gpio_control.c</FilePath>
             </File>
           </Files>
         </Group>

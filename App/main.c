@@ -5,7 +5,11 @@
 #include "usb_driver.h"
 #include "wdt_driver.h"
 #include "timer_driver.h"
-#include "dataflash_driver.h"
+#include "spi_driver.h"
+#include "DataFlash_stack.h"
+#include "operation.h"
+
+Saban device[200] ;
 
 int main (void)
 {
@@ -13,21 +17,24 @@ int main (void)
 	  SB_SYS_Init(); 
 	  
 	  SB_Uart_Driver_Init(UART1,115200,8,0);
-	 /* Enable FMC ISP function */
-		FMC_Open();
-		/* Set Data Flash base address */
-		if (SetDataFlashBase(DATA_FLASH_EEPROM_BASE) < 0)
-		{
-					printf("Failed to set Data Flash base address!\n");
-					while (1) {}
-		}
-		/* Read Data Flash base address */
-		BaseAddr = FMC_ReadDataFlashBaseAddr();
-		printf("[Simulate EEPROM base address at Data Flash 0x%x]\n\n", BaseAddr);
+	  SB_SPI_Driver_Init();
+	  SB_WDT_Driver_Init();
+	  SB_Timer_Driver_Init();
+	  SB_Usb_Driver_Init();
+	  SB_Master_GPIO_Init();
+	
+	  All_Led_ON();
+	  CLK_SysTickDelay(1000000);
+	  All_Led_Off();
+	  
+	  DataFlash_Master_Init();
+	
+	  Radio_Start();
 	 
-		while(1)
+		while(TRUE)
 		{
-			  g_u32WDTINTCounts = 0 ;			 
+			  g_u32WDTINTCounts = 0 ;	
+        OnMaster();			
 		}
 			
 		return 0 ;

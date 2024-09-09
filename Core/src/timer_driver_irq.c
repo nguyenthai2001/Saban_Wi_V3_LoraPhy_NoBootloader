@@ -1,5 +1,5 @@
 #include "timer_driver.h"
-
+#include "gpio_control.h"
 /*-----------------------------------------------------------------------*/
 /* Timer use for Lora Rxtimeout */
 /*-----------------------------------------------------------------------*/
@@ -17,10 +17,15 @@ void TMR0_IRQHandler(void)
 /*----------------------------------------------------------------------*/
 void TMR1_IRQHandler(void)
 {
+	  uint16_t pos = 0 ;
 		if(TIMER_GetIntFlag(TIMER1) == 1)
 		{                      
 				TIMER_ClearIntFlag(TIMER1);
-				tick_timer1 ++ ;				
+				tick_timer1 ++ ;	
+        for(pos = 0; pos<20;pos++)
+				{
+						Led_Display(pos);                  
+				}  			
 		}
 }
 

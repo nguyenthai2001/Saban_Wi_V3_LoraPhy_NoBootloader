@@ -1,8 +1,8 @@
 Dependencies for Project 'SabanWi_Master', Target 'SabanWi_Master': (DO NOT MODIFY !)
 CompilerVersion: 6220000::V6.22::ARMCLANG
 F (..\..\Drivers\Device\Nuvoton\NUC200Series\Source\ARM\startup_NUC200Series.s)(0x66D9ABDE)(--target=arm-arm-none-eabi -mcpu=cortex-m0 -masm=auto  -Wa,armasm,--diag_suppress=A1950W -c-gdwarf-4 -Wa,armasm,--pd,"__MICROLIB SETA 1" -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 540" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_nuc200series.o)
-F (..\..\App\main.c)(0x66DDCC55)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/main.o -MMD)
-I (..\..\App\main.h)(0x66D9ABDE)
+F (..\..\App\main.c)(0x66DF3101)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/main.o -MMD)
+I (..\..\App\main.h)(0x66DF22DB)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
@@ -35,66 +35,13 @@ I (..\..\Core\inc\usb_driver.h)(0x66D9ABDE)
 I (..\..\App\HID_Transfer\inc\hid_transfer.h)(0x66D9ABDE)
 I (..\..\Core\inc\wdt_driver.h)(0x66D9ABDE)
 I (..\..\Core\inc\timer_driver.h)(0x66D9ABDE)
-I (..\..\Core\inc\dataflash_driver.h)(0x66D9ABDE)
-F (..\..\Core\src\systerm.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/systerm.o -MMD)
-I (..\..\Core\inc\Systerm.h)(0x66D9ABDE)
-I (..\..\App\main.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Core\src\gpio_driver.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/gpio_driver.o -MMD)
-I (..\..\Core\inc\gpio_driver.h)(0x66D9ABDE)
-I (..\..\App\main.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Core\src\spi_driver.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/spi_driver.o -MMD)
 I (..\..\Core\inc\spi_driver.h)(0x66D9ABDE)
-I (..\..\App\main.h)(0x66D9ABDE)
+I (..\..\Middlewares\DataFlash\inc\DataFlash_stack.h)(0x66DF0AD0)
+I (..\..\Core\inc\dataflash_driver.h)(0x66D9ABDE)
+I (..\..\App\Operation\inc\operation.h)(0x66DF2B26)
+F (..\..\Core\src\systerm.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/systerm.o -MMD)
+I (..\..\Core\inc\Systerm.h)(0x66D9ABDE)
+I (..\..\App\main.h)(0x66DF22DB)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
@@ -120,9 +67,65 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Core\src\uart_driver.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/uart_driver.o -MMD)
+F (..\..\Core\src\gpio_driver.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/gpio_driver.o -MMD)
+I (..\..\Core\inc\gpio_driver.h)(0x66D9ABDE)
+I (..\..\App\main.h)(0x66DF22DB)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+F (..\..\Core\src\spi_driver.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/spi_driver.o -MMD)
+I (..\..\Core\inc\spi_driver.h)(0x66D9ABDE)
+I (..\..\App\main.h)(0x66DF22DB)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+F (..\..\Core\src\uart_driver.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/uart_driver.o -MMD)
 I (..\..\Core\inc\uart_driver.h)(0x66D9ABDE)
-I (..\..\App\main.h)(0x66D9ABDE)
+I (..\..\App\main.h)(0x66DF22DB)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
@@ -148,9 +151,9 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Core\src\usb_driver.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/usb_driver.o -MMD)
+F (..\..\Core\src\usb_driver.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/usb_driver.o -MMD)
 I (..\..\Core\inc\usb_driver.h)(0x66D9ABDE)
-I (..\..\App\main.h)(0x66D9ABDE)
+I (..\..\App\main.h)(0x66DF22DB)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
@@ -177,9 +180,9 @@ I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
 I (..\..\App\HID_Transfer\inc\hid_transfer.h)(0x66D9ABDE)
-F (..\..\Core\src\wdt_driver.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/wdt_driver.o -MMD)
+F (..\..\Core\src\wdt_driver.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/wdt_driver.o -MMD)
 I (..\..\Core\inc\wdt_driver.h)(0x66D9ABDE)
-I (..\..\App\main.h)(0x66D9ABDE)
+I (..\..\App\main.h)(0x66DF22DB)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
@@ -205,9 +208,9 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Core\src\timer_driver.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/timer_driver.o -MMD)
+F (..\..\Core\src\timer_driver.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/timer_driver.o -MMD)
 I (..\..\Core\inc\timer_driver.h)(0x66D9ABDE)
-I (..\..\App\main.h)(0x66D9ABDE)
+I (..\..\App\main.h)(0x66DF22DB)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
@@ -233,9 +236,9 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Core\src\dataflash_driver.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/dataflash_driver.o -MMD)
+F (..\..\Core\src\dataflash_driver.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/dataflash_driver.o -MMD)
 I (..\..\Core\inc\dataflash_driver.h)(0x66D9ABDE)
-I (..\..\App\main.h)(0x66D9ABDE)
+I (..\..\App\main.h)(0x66DF22DB)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
@@ -261,8 +264,8 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Core\src\wdt_driver_irq.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/wdt_driver_irq.o -MMD)
-I (..\..\App\main.h)(0x66D9ABDE)
+F (..\..\Core\src\wdt_driver_irq.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/wdt_driver_irq.o -MMD)
+I (..\..\App\main.h)(0x66DF22DB)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
@@ -288,9 +291,9 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Core\src\timer_driver_irq.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/timer_driver_irq.o -MMD)
+F (..\..\Core\src\timer_driver_irq.c)(0x66DF30B9)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/timer_driver_irq.o -MMD)
 I (..\..\Core\inc\timer_driver.h)(0x66D9ABDE)
-I (..\..\App\main.h)(0x66D9ABDE)
+I (..\..\App\main.h)(0x66DF22DB)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
@@ -316,7 +319,46 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\App\HID_Transfer\src\descriptors.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/descriptors.o -MMD)
+I (..\..\App\GPIO_Control\inc\gpio_control.h)(0x66DF2F4A)
+F (..\..\App\Operation\src\operation.c)(0x66DF2A47)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/operation.o -MMD)
+I (..\..\App\Operation\inc\operation.h)(0x66DF2B26)
+I (..\..\App\main.h)(0x66DF22DB)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+I (..\..\Middlewares\DataFlash\inc\DataFlash_stack.h)(0x66DF0AD0)
+I (..\..\Core\inc\dataflash_driver.h)(0x66D9ABDE)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278Fsk_Misc.h)(0x66D1DD34)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278-Fsk.h)(0x66DDC8B9)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278LoRa_Misc.h)(0x66DDC977)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66DDC85C)
+I (..\..\Core\inc\timer_driver.h)(0x66D9ABDE)
+I (..\..\Middlewares\LoRa_Phy\App\radio.h)(0x66DDBE8A)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66DDBFD2)
+I (..\..\App\RF_Transfer\inc\RF_Transfer.h)(0x66DF2A47)
+F (..\..\App\HID_Transfer\src\descriptors.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/descriptors.o -MMD)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
@@ -343,8 +385,8 @@ I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
 I (..\..\App\HID_Transfer\inc\hid_transfer.h)(0x66D9ABDE)
-F (..\..\App\HID_Transfer\src\hid_transfer.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/hid_transfer.o -MMD)
-I (..\..\App\main.h)(0x66D9ABDE)
+F (..\..\App\HID_Transfer\src\hid_transfer.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/hid_transfer.o -MMD)
+I (..\..\App\main.h)(0x66DF22DB)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
@@ -371,8 +413,10 @@ I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
 I (..\..\App\HID_Transfer\inc\hid_transfer.h)(0x66D9ABDE)
-I (..\..\Middlewares\Usb_Hid\inc\usb_stack.h)(0x66DDAE57)
-F (..\..\Drivers\StdDriver\src\clk.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/clk.o -MMD)
+I (..\..\Middlewares\Usb_Hid\inc\usb_stack.h)(0x66DF1080)
+F (..\..\App\RF_Transfer\src\RF_Transfer.c)(0x66DF2391)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/rf_transfer.o -MMD)
+I (..\..\App\RF_Transfer\inc\RF_Transfer.h)(0x66DF2A47)
+I (..\..\App\main.h)(0x66DF22DB)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
 I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
@@ -398,546 +442,621 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Drivers\StdDriver\src\fmc.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/fmc.o -MMD)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Drivers\StdDriver\src\gpio.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/gpio_1.o -MMD)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Drivers\StdDriver\src\retarget.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/retarget.o -MMD)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Drivers\StdDriver\src\spi.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/spi.o -MMD)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Drivers\StdDriver\src\sys.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sys.o -MMD)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Drivers\StdDriver\src\timer.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/timer.o -MMD)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Drivers\StdDriver\src\uart.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/uart.o -MMD)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Drivers\StdDriver\src\wdt.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/wdt.o -MMD)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Drivers\StdDriver\src\usbd.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/usbd.o -MMD)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Drivers\Device\Nuvoton\NUC200Series\Source\system_NUC200Series.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/system_nuc200series.o -MMD)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Middlewares\Usb_Hid\src\usb_stack.c)(0x66DDAE57)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/usb_stack.o -MMD)
-I (..\..\Middlewares\Usb_Hid\inc\usb_stack.h)(0x66DDAE57)
-I (..\..\App\main.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Middlewares\DataFlash\src\DataFlash_stack.c)(0x66DDBC42)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/dataflash_stack.o -MMD)
-I (..\..\Middlewares\DataFlash\inc\DataFlash_stack.h)(0x66DDBC42)
-I (..\..\App\main.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+I (..\..\Middlewares\DataFlash\inc\DataFlash_stack.h)(0x66DF0AD0)
 I (..\..\Core\inc\dataflash_driver.h)(0x66D9ABDE)
-F (..\..\Middlewares\LoRa_Phy\App\radio.c)(0x66DDBE8A)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/radio.o -MMD)
-I (..\..\Middlewares\LoRa_Phy\App\radio.h)(0x66DDBE8A)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66DDBFD2)
-F (..\..\Middlewares\LoRa_Phy\App\SX1278.c)(0x66DDBFD2)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278.o -MMD)
-I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66DDBFD2)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66DDC60E)
-I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66DDC85C)
 I (..\..\Core\inc\timer_driver.h)(0x66D9ABDE)
-I (..\..\App\main.h)(0x66D9ABDE)
-I (..\..\Middlewares\LoRa_Phy\App\SX1278-Fsk.h)(0x66DDC8B9)
-F (..\..\Middlewares\LoRa_Phy\App\SX1278-Fsk.c)(0x66DDC901)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278-fsk.o -MMD)
-I (..\..\Middlewares\LoRa_Phy\App\SX1278-Fsk.h)(0x66DDC8B9)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-I (..\..\Middlewares\LoRa_Phy\App\radio.h)(0x66DDBE8A)
-I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66DDBFD2)
-I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66DDC60E)
-I (..\..\Middlewares\LoRa_Phy\Target\SX1278Fsk_Misc.h)(0x66D1DD34)
-I (..\..\Core\inc\timer_driver.h)(0x66D9ABDE)
-I (..\..\App\main.h)(0x66D9ABDE)
-F (..\..\Middlewares\LoRa_Phy\App\SX1278-LoRa.c)(0x66DDC884)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278-lora.o -MMD)
-I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66DDC85C)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-I (..\..\Core\inc\timer_driver.h)(0x66D9ABDE)
-I (..\..\App\main.h)(0x66D9ABDE)
-I (..\..\Middlewares\LoRa_Phy\App\radio.h)(0x66DDBE8A)
-I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66DDBFD2)
-I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66DDC60E)
-I (..\..\Middlewares\LoRa_Phy\Target\SX1278LoRa_Misc.h)(0x66DDC977)
-F (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.c)(0x66DDC5BA)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278_hw.o -MMD)
-I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66DDC60E)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-F (..\..\Middlewares\LoRa_Phy\Target\SX1278Fsk_Misc.c)(0x66D1DD34)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278fsk_misc.o -MMD)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-I (..\..\Middlewares\LoRa_Phy\App\radio.h)(0x66DDBE8A)
-I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66DDBFD2)
-I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66DDC60E)
-I (..\..\Middlewares\LoRa_Phy\Target\SX1278Fsk_Misc.h)(0x66D1DD34)
-I (..\..\Middlewares\LoRa_Phy\App\SX1278-Fsk.h)(0x66DDC8B9)
-F (..\..\Middlewares\LoRa_Phy\Target\SX1278LoRa_Misc.c)(0x66DDC99C)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278lora_misc.o -MMD)
-I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66DDC60E)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
-I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
-I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
-I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
-I (..\..\Middlewares\LoRa_Phy\Target\SX1278LoRa_Misc.h)(0x66DDC977)
-I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66DDC85C)
-I (..\..\Core\inc\timer_driver.h)(0x66D9ABDE)
-I (..\..\App\main.h)(0x66D9ABDE)
-F (..\..\Security\src\aes.c)(0x66DDD12C)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/aes.o -MMD)
 I (..\..\Security\inc\aes.h)(0x66DDD117)
-F (..\..\Security\src\des.c)(0x66DDD073)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/des.o -MMD)
+I (..\..\Security\inc\sha.h)(0x66DDD386)
+I (..\..\Security\inc\crc_modbus.h)(0x66DDD2BF)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278Fsk_Misc.h)(0x66D1DD34)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278LoRa_Misc.h)(0x66DDC977)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66DDC85C)
+I (..\..\Middlewares\LoRa_Phy\App\radio.h)(0x66DDBE8A)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66DDBFD2)
+F (..\..\App\GPIO_Control\src\gpio_control.c)(0x66DF2F9D)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/gpio_control.o -MMD)
+I (..\..\App\GPIO_Control\inc\gpio_control.h)(0x66DF2F4A)
+I (..\..\App\main.h)(0x66DF22DB)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+I (..\..\App\RF_Transfer\inc\RF_Transfer.h)(0x66DF2A47)
+I (..\..\Core\inc\gpio_driver.h)(0x66D9ABDE)
+F (..\..\Drivers\StdDriver\src\clk.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/clk.o -MMD)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+F (..\..\Drivers\StdDriver\src\fmc.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/fmc.o -MMD)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+F (..\..\Drivers\StdDriver\src\gpio.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/gpio_1.o -MMD)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+F (..\..\Drivers\StdDriver\src\retarget.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/retarget.o -MMD)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+F (..\..\Drivers\StdDriver\src\spi.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/spi.o -MMD)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+F (..\..\Drivers\StdDriver\src\sys.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sys.o -MMD)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+F (..\..\Drivers\StdDriver\src\timer.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/timer.o -MMD)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+F (..\..\Drivers\StdDriver\src\uart.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/uart.o -MMD)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+F (..\..\Drivers\StdDriver\src\wdt.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/wdt.o -MMD)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+F (..\..\Drivers\StdDriver\src\usbd.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/usbd.o -MMD)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+F (..\..\Drivers\Device\Nuvoton\NUC200Series\Source\system_NUC200Series.c)(0x66D9ABDE)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/system_nuc200series.o -MMD)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+F (..\..\Middlewares\Usb_Hid\src\usb_stack.c)(0x66DF115A)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/usb_stack.o -MMD)
+I (..\..\Middlewares\Usb_Hid\inc\usb_stack.h)(0x66DF1080)
+I (..\..\App\main.h)(0x66DF22DB)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+I (..\..\App\HID_Transfer\inc\hid_transfer.h)(0x66D9ABDE)
+I (..\..\Middlewares\DataFlash\inc\DataFlash_stack.h)(0x66DF0AD0)
+I (..\..\Core\inc\dataflash_driver.h)(0x66D9ABDE)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66DDBFD2)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278Fsk_Misc.h)(0x66D1DD34)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278LoRa_Misc.h)(0x66DDC977)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66DDC85C)
+I (..\..\Core\inc\timer_driver.h)(0x66D9ABDE)
+F (..\..\Middlewares\DataFlash\src\DataFlash_stack.c)(0x66DF0AD0)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/dataflash_stack.o -MMD)
+I (..\..\Middlewares\DataFlash\inc\DataFlash_stack.h)(0x66DF0AD0)
+I (..\..\App\main.h)(0x66DF22DB)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+I (..\..\Core\inc\dataflash_driver.h)(0x66D9ABDE)
+F (..\..\Middlewares\LoRa_Phy\App\radio.c)(0x66DDBE8A)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/radio.o -MMD)
+I (..\..\Middlewares\LoRa_Phy\App\radio.h)(0x66DDBE8A)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66DDBFD2)
+F (..\..\Middlewares\LoRa_Phy\App\SX1278.c)(0x66DDBFD2)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278.o -MMD)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66DDBFD2)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66DDC60E)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66DDC85C)
+I (..\..\Core\inc\timer_driver.h)(0x66D9ABDE)
+I (..\..\App\main.h)(0x66DF22DB)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278-Fsk.h)(0x66DDC8B9)
+F (..\..\Middlewares\LoRa_Phy\App\SX1278-Fsk.c)(0x66DDC901)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278-fsk.o -MMD)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278-Fsk.h)(0x66DDC8B9)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+I (..\..\Middlewares\LoRa_Phy\App\radio.h)(0x66DDBE8A)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66DDBFD2)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66DDC60E)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278Fsk_Misc.h)(0x66D1DD34)
+I (..\..\Core\inc\timer_driver.h)(0x66D9ABDE)
+I (..\..\App\main.h)(0x66DF22DB)
+F (..\..\Middlewares\LoRa_Phy\App\SX1278-LoRa.c)(0x66DDC884)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278-lora.o -MMD)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66DDC85C)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+I (..\..\Core\inc\timer_driver.h)(0x66D9ABDE)
+I (..\..\App\main.h)(0x66DF22DB)
+I (..\..\Middlewares\LoRa_Phy\App\radio.h)(0x66DDBE8A)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66DDBFD2)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66DDC60E)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278LoRa_Misc.h)(0x66DDC977)
+F (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.c)(0x66DDC5BA)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278_hw.o -MMD)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66DDC60E)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+F (..\..\Middlewares\LoRa_Phy\Target\SX1278Fsk_Misc.c)(0x66D1DD34)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278fsk_misc.o -MMD)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+I (..\..\Middlewares\LoRa_Phy\App\radio.h)(0x66DDBE8A)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66DDBFD2)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66DDC60E)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278Fsk_Misc.h)(0x66D1DD34)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278-Fsk.h)(0x66DDC8B9)
+F (..\..\Middlewares\LoRa_Phy\Target\SX1278LoRa_Misc.c)(0x66DDC99C)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278lora_misc.o -MMD)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66DDC60E)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmInstr.h)(0x66D9ABDE)
+I (..\..\Drivers\CMSIS\Include\core_cmFunc.h)(0x66D9ABDE)
+I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\system_NUC200Series.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sys.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\adc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\fmc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\gpio.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2c.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pwm.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\spi.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\crc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\timer.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\wwdt.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\rtc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\uart.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\i2s.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\usbd.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\pdma.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\sc.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\clk.h)(0x66D9ABDE)
+I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66D9ABDE)
+I (..\..\Middlewares\LoRa_Phy\Target\SX1278LoRa_Misc.h)(0x66DDC977)
+I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66DDC85C)
+I (..\..\Core\inc\timer_driver.h)(0x66D9ABDE)
+I (..\..\App\main.h)(0x66DF22DB)
+F (..\..\Security\src\aes.c)(0x66DDD12C)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/aes.o -MMD)
+I (..\..\Security\inc\aes.h)(0x66DDD117)
+F (..\..\Security\src\des.c)(0x66DDD073)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/des.o -MMD)
 I (..\..\Security\inc\des.h)(0x66DDD332)
-F (..\..\Security\src\hmac.c)(0x66DDD0C9)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/hmac.o -MMD)
+F (..\..\Security\src\hmac.c)(0x66DDD0C9)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/hmac.o -MMD)
 I (..\..\Security\inc\hmac.h)(0x66DDD332)
 I (..\..\Security\inc\sha.h)(0x66DDD386)
-F (..\..\Security\src\sha.c)(0x66DDD386)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sha.o -MMD)
+F (..\..\Security\src\sha.c)(0x66DDD386)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sha.o -MMD)
 I (..\..\Security\inc\sha.h)(0x66DDD386)
-F (..\..\Security\src\crc_modbus.c)(0x66DDD2AF)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/crc_modbus.o -MMD)
+F (..\..\Security\src\crc_modbus.c)(0x66DDD2AF)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc-I./RTE/_SabanWi_Master-IC:/Users/nguye/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/nguye/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/crc_modbus.o -MMD)
 I (..\..\Security\inc\crc_modbus.h)(0x66DDD2BF)
