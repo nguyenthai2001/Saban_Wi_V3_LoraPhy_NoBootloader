@@ -324,7 +324,7 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>3</wLevel>
+            <wLevel>0</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Drivers\CMSIS\Include;..\..\Drivers\Device\Nuvoton\NUC200Series\Include;..\..\Drivers\StdDriver\inc;..\..\App;..\..\Core\inc;..\..\App\HID_Transfer\inc;..\..\Middlewares\Usb_Hid\inc;..\..\Middlewares\DataFlash\inc;..\..\Middlewares\LoRa_Phy\App;..\..\Middlewares\LoRa_Phy\Target;..\..\Security\inc;..\..\App\RF_Transfer\inc;..\..\App\Operation\inc;..\..\App\GPIO_Control\inc</IncludePath>
+              <IncludePath>..\..\Drivers\CMSIS\Include;..\..\Drivers\Device\Nuvoton\NUC200Series\Include;..\..\Drivers\StdDriver\inc;..\..\App;..\..\Core\inc;..\..\App\HID_Transfer\inc;..\..\Middlewares\Usb_Hid\inc;..\..\Middlewares\DataFlash\inc;..\..\Middlewares\LoRa_Phy\App;..\..\Middlewares\LoRa_Phy\Target;..\..\Security\inc;..\..\App\RF_Transfer\inc;..\..\App\Operation\inc;..\..\App\GPIO_Control\inc;..\..\Middlewares\Modbus_Master\App;..\..\Middlewares\Modbus_Master\Target;..\..\Middlewares\Modbus_Slave\App;..\..\Middlewares\Modbus_Slave\Target\modbus_src\include;..\..\Middlewares\Modbus_Slave\Target\modbus_src\rtu;..\..\Middlewares\Modbus_Slave\Target\port_src</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -459,6 +459,11 @@
               <FileName>timer_driver_irq.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Core\src\timer_driver_irq.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart_driver_irq.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Core\src\uart_driver_irq.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -664,6 +669,121 @@
               <FileName>crc_modbus.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Security\src\crc_modbus.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middleware/Modbus_Master/App</GroupName>
+          <Files>
+            <File>
+              <FileName>modbus_master.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Master\App\modbus_master.c</FilePath>
+            </File>
+            <File>
+              <FileName>ringbuffer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Master\App\ringbuffer.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middleware/Modbus_Master/Target</GroupName>
+          <Files>
+            <File>
+              <FileName>bsp_board.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Master\Target\bsp_board.c</FilePath>
+            </File>
+            <File>
+              <FileName>trans_recieve_buff_control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Master\Target\trans_recieve_buff_control.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middleware/Modbus_Slave/App</GroupName>
+          <Files>
+            <File>
+              <FileName>Modbus_User.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\App\Modbus_User.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middleware/Modbus_Slave/Target</GroupName>
+          <Files>
+            <File>
+              <FileName>mb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\Target\modbus_src\mb.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbcrc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\Target\modbus_src\rtu\mbcrc.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbrtu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\Target\modbus_src\rtu\mbrtu.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfunccoils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\Target\modbus_src\functions\mbfunccoils.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncdiag.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\Target\modbus_src\functions\mbfuncdiag.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncdisc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\Target\modbus_src\functions\mbfuncdisc.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncinput.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\Target\modbus_src\functions\mbfuncinput.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncother.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\Target\modbus_src\functions\mbfuncother.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbfuncholding.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\Target\modbus_src\functions\mbfuncholding.c</FilePath>
+            </File>
+            <File>
+              <FileName>mbutils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\Target\modbus_src\functions\mbutils.c</FilePath>
+            </File>
+            <File>
+              <FileName>port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\Target\port_src\port.c</FilePath>
+            </File>
+            <File>
+              <FileName>portevent.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\Target\port_src\portevent.c</FilePath>
+            </File>
+            <File>
+              <FileName>portserial.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\Target\port_src\portserial.c</FilePath>
+            </File>
+            <File>
+              <FileName>porttimer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Middlewares\Modbus_Slave\Target\port_src\porttimer.c</FilePath>
             </File>
           </Files>
         </Group>

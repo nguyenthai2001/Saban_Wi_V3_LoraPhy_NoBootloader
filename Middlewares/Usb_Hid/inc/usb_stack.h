@@ -31,6 +31,7 @@ extern "C" {
 #define CMD_TEST_MODBUS           0x0B
 
 int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen);
+void SendBackTestModbus (uint8_t * result );
 void HID_GetOutReport(uint8_t *pu8EpBuf, uint32_t u32Size);
 void HID_SetInReport(void) ;
 

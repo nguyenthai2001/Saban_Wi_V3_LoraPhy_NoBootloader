@@ -7,7 +7,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stdio.h"
+#include <stdio.h>
 #include "NUC200Series.h"
 
 /* Private includes ----------------------------------------------------------*/

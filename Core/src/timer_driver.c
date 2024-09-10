@@ -20,18 +20,17 @@ void SB_Timer0_Init(void)
 
 void SB_Timer1_Init(void)
 {      
-      /* Select HCLK as the clock source of SPI0 */
+       /* Select HCLK as the clock source of SPI0 */
       CLK_SetModuleClock(TMR1_MODULE, CLK_CLKSEL1_TMR1_S_HIRC, MODULE_NoMsk);
       /* Enable SPI0 peripheral clock */
-      CLK_EnableModuleClock(TMR1_MODULE);      
-      
+      CLK_EnableModuleClock(TMR1_MODULE);            
       SYS_ResetModule(TMR1_RST);
 	    TIMER1->TCSR &= ~TIMER_TCSR_CRST_Msk; // Reset TIMER1
       TIMER_Open(TIMER1, TIMER_PERIODIC_MODE, 1);   // 1tick
       TIMER_SET_PRESCALE_VALUE(TIMER1,0x17);        // 23
       TIMER_SET_CMP_VALUE(TIMER1,0x3E8);            // 1ms
-      TIMER_EnableInt(TIMER1);     
-      TIMER_Start(TIMER1);
+      TIMER_EnableInt(TIMER1);
+      tick_timer1 = 0 ;      
 	    NVIC_EnableIRQ(TMR1_IRQn);
 }
 
@@ -48,14 +47,16 @@ void SB_Timer2_Init(void)
       TIMER_SET_PRESCALE_VALUE(TIMER2,0x17);        // 23
       TIMER_SET_CMP_VALUE(TIMER2,0x3E8);            // 500ms
       TIMER_EnableInt(TIMER2);
-      TIMER_Start(TIMER2);
 	    NVIC_EnableIRQ(TMR2_IRQn);
+	    NVIC_SetPriority(TMR2_IRQn,5);
+	    tick_timer2 = 0 ;      
+//	    TIMER_Start(TIMER2);
 }
 
 void SB_Timer3_Init(void)
 {
       /* Select HCLK as the clock source of SPI0 */
-      CLK_SetModuleClock(TMR3_MODULE, CLK_CLKSEL1_TMR3_S_LIRC, MODULE_NoMsk);
+      CLK_SetModuleClock(TMR3_MODULE, CLK_CLKSEL1_TMR3_S_HIRC, MODULE_NoMsk);
       /* Enable SPI0 peripheral clock */
       CLK_EnableModuleClock(TMR3_MODULE);      
       
@@ -64,7 +65,7 @@ void SB_Timer3_Init(void)
       TIMER_Open(TIMER3, TIMER_PERIODIC_MODE, 1);   // 1tick
       TIMER_SET_PRESCALE_VALUE(TIMER3,0x17);        // 23
       TIMER_SET_CMP_VALUE(TIMER3,0x1);            // 1ms
-      TIMER_EnableInt(TIMER3);    
+      TIMER_EnableInt(TIMER3);  
     	NVIC_EnableIRQ(TMR3_IRQn);
 }
 
@@ -85,7 +86,7 @@ void Timer_ResetTickMs(void)
       tick = 0;
 }
 
-void Timer_1_SetTickMs(uint16_t ms)
+void Timer_1_SetTickMs(void)
 {
       TIMER_Start(TIMER1);
       tick_timer1 = 0 ;
@@ -100,6 +101,17 @@ void Timer1_ResetTickMs(void)
 {
       TIMER_Stop(TIMER1);
       tick_timer1 = 0;
+}
+
+uint16_t Timer2_GetTickMs(void)
+{
+      return tick_timer2 ;
+}
+
+void Timer2_ResetTickMs(void)
+{
+      TIMER_Stop(TIMER2);
+      tick_timer2 = 0;
 }
 
 void Timer3_SetTickMs(void)
@@ -123,7 +135,6 @@ void SB_Timer_Driver_Init(void)
 {
 	   SB_Timer0_Init();
 	   SB_Timer1_Init();
-	   SB_Timer2_Init();
 	   SB_Timer3_Init();
 }
 

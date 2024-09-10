@@ -8,5 +8,5 @@ void SB_Usb_Driver_Init(void)
 		HID_Init();
 		USBD_Start();
 		NVIC_EnableIRQ(USBD_IRQn);
-		NVIC_SetPriority(USBD_IRQn , 1);
+//		NVIC_SetPriority(USBD_IRQn , 1);
 }

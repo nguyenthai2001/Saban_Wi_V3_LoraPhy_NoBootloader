@@ -20,14 +20,21 @@ extern "C" {
 
 void SB_Timer_Driver_Init(void);
 
+void SB_Timer0_Init(void);
 void Timer_SetTickMs(uint16_t ms);
 uint16_t Timer_GetTickMs(void);
 void Timer_ResetTickMs(void);
 
-void Timer_1_SetTickMs(uint16_t ms);
+void SB_Timer1_Init(void);
+void Timer_1_SetTickMs(void);
 uint16_t Timer_1_GetTickMs(void);
 void Timer1_ResetTickMs(void);
 
+void SB_Timer2_Init(void);
+uint16_t Timer2_GetTickMs(void);
+void Timer2_ResetTickMs(void);
+
+void SB_Timer3_Init(void);
 void Timer3_SetTickMs(void);
 uint16_t Timer3_GetTickMs(void);
 void Timer3_ResetTickMs(void);

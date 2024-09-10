@@ -20,6 +20,9 @@ extern "C" {
 
 void Radio_Start(void);
 void OnMaster(void);
+void Modbus_Init(void);
+void Modbus_Start(void);
+void Modbus_Test_PC(void);
 
 /* USER CODE BEGIN Prototypes */
 

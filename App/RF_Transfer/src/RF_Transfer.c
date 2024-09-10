@@ -10,12 +10,12 @@
 #include "SX1278_LoRa.h"
 #include "radio.h"
 
-uint8_t DATA_H = 0;
-uint8_t DATA_L = 0 ;
+uint8_t DATA_H ;
+uint8_t DATA_L  ;
 
 uint8_t SLAVE_ID ;
 
-unsigned char Mode1  = 0 ;
+uint8_t Mode1  = 0 ;
 
 /*-----------------------------------------------------------------------------------------------------------------*/
 /* Su dung CRC xac thuc , khong co ma hoa  */

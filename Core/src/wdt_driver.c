@@ -22,5 +22,5 @@ void SB_WDT_Driver_Init(void)
 		/* Enable WDT interrupt */
 		WDT_EnableInt();
 		NVIC_EnableIRQ(WDT_IRQn);	
-		NVIC_SetPriority(WDT_IRQn,1);
+//		NVIC_SetPriority(WDT_IRQn,1);
 }

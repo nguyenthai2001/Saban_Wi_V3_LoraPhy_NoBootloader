@@ -1,5 +1,9 @@
+
 #include "timer_driver.h"
 #include "gpio_control.h"
+#include "mb.h"
+#include "mbport.h"
+
 /*-----------------------------------------------------------------------*/
 /* Timer use for Lora Rxtimeout */
 /*-----------------------------------------------------------------------*/
@@ -34,7 +38,21 @@ void TMR1_IRQHandler(void)
 /*-------------------------------------------------------------*/
 void TMR2_IRQHandler(void)
 {
-		tick_timer2 ++ ;
+	  if(device[1].Modbus_mode == 0)
+		{
+		    /* Clear Timer0 interrupt flag */
+				TIMER2->TISR |= TIMER_TISR_TIF_Msk;
+				(void)pxMBPortCBTimerExpired();
+		}
+	  if(device[1].Modbus_mode == 1)
+		{
+				if (TIMER_GetIntFlag(TIMER2) == 1)
+				{
+						/* Clear Timer0 time-out interrupt flag */
+						TIMER_ClearIntFlag(TIMER2);
+						tick_timer2++;
+				}
+	  }
 }
 
 /*-----------------------------------------------------------------------*/

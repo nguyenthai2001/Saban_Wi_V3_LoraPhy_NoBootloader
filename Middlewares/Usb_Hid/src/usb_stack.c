@@ -215,6 +215,14 @@ void SendBackDevicesStatus( uint8_t length)
 			USBD_SET_PAYLOAD_LEN(EP2, EP2_MAX_PKT_SIZE);
 }
 
+void SendBackTestModbus (uint8_t * result )
+{
+	    uint8_t *ptr;
+	    ptr = (uint8_t *)(USBD_BUF_BASE + USBD_GET_EP_BUF_ADDR(EP2));
+      USBD_MemCopy(ptr, result, EP2_MAX_PKT_SIZE);
+      USBD_SET_PAYLOAD_LEN(EP2, EP2_MAX_PKT_SIZE);
+}
+
 int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
 {
 		WDT_Close();

@@ -20,12 +20,12 @@ void DataFlash_Master_Init(void)
       /* Set Data Flash base address */
       if (SetDataFlashBase(DATA_FLASH_EEPROM_BASE) < 0)
       {
-//            printf("Failed to set Data Flash base address!\n");
+            printf("Failed to set Data Flash base address!\n");
             while (1) {}
       }
       /* Read Data Flash base address */
       BaseAddr = FMC_ReadDataFlashBaseAddr();
-//      printf("\n[Simulate EEPROM base address at Data Flash 0x%x]\n\n", BaseAddr);
+      printf("\n[Simulate EEPROM base address at Data Flash 0x%x]\n\n", BaseAddr);
       
       MasterDataFlash[1].RfFrequence = SIM_EEPROM_READ(0);
       MasterDataFlash[1].RFPower = SIM_EEPROM_READ(1);
