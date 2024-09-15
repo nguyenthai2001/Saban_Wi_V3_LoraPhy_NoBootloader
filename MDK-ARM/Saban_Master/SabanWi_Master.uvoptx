@@ -682,7 +682,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Middlewares\Usb_Hid\src\usb_stack.c</PathWithFileName>
+      <PathWithFileName>..\..\Middlewares\Master_Usb_Hid\src\usb_stack.c</PathWithFileName>
       <FilenameWithoutPath>usb_stack.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -691,7 +691,7 @@
 
   <Group>
     <GroupName>Middleware/DataFlash_Stack</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -702,7 +702,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Middlewares\DataFlash\src\DataFlash_stack.c</PathWithFileName>
+      <PathWithFileName>..\..\Middlewares\Mater_DataFlash\src\DataFlash_stack.c</PathWithFileName>
       <FilenameWithoutPath>DataFlash_stack.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
