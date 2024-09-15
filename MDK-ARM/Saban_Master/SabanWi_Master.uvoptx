@@ -263,7 +263,7 @@
 
   <Group>
     <GroupName>App/User/Core/main</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -283,7 +283,7 @@
 
   <Group>
     <GroupName>App/User/Core/driver_init</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -387,7 +387,7 @@
 
   <Group>
     <GroupName>App/User/Core/driver_irq</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -431,7 +431,7 @@
 
   <Group>
     <GroupName>App/User/Operation</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -514,7 +514,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\App\GPIO_Control\src\gpio_control.c</PathWithFileName>
+      <PathWithFileName>..\..\App\Master_GPIO_Control\src\gpio_control.c</PathWithFileName>
       <FilenameWithoutPath>gpio_control.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -691,7 +691,7 @@
 
   <Group>
     <GroupName>Middleware/DataFlash_Stack</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

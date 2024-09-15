@@ -10,6 +10,11 @@
 #include "SX1278_LoRa.h"
 #include "radio.h"
 
+#if SABAN_CLIENT
+  #include "gpio_control.h"
+#else
+#endif
+
 uint8_t DATA_H ;
 uint8_t DATA_L  ;
 
@@ -169,14 +174,17 @@ uint8_t Decode_Packet_Receive_CRC ( uint8_t mode , unsigned char * packet_src )
 //                        printf(" Data : %2X " , device[SlaveID].data_h);
 //                        printf("%2X " , device[SlaveID].data_l);
 									err= 1 ;
-						}                                   
+						}   
+      #endif 							
       }
-      return err ;  
-#endif 			
+      return err ;  		
 }
 
 void Rf_Send_Request_CRC (uint8_t deviceId , uint8_t u8cmd , uint8_t u8mccode)
 {      
+	#if SABAN_CLIENT 
+	#else
+	
       Mode1 = SX1276GetMode();
       unsigned char TxBuf[6]={0};
       uint8_t test_cout = 0;
@@ -204,6 +212,7 @@ void Rf_Send_Request_CRC (uint8_t deviceId , uint8_t u8cmd , uint8_t u8mccode)
 //      {
 //            printf("%02X ",TxBuf[test_cout]);
 //      }
+#endif
 }
 
 void Rf_Send_Feedback_CRC (void)
@@ -422,14 +431,16 @@ uint8_t Decode_Packet_Receive_AESCRC ( unsigned char mode  ,unsigned char * pack
 									printf(" Data : %2X " , device[SlaveID].data_h);
 									printf("%2X " , device[SlaveID].data_l);
 									err= 1 ;
-						}                                   
+						}
+#endif						
       }
-#endif
       return err ;                
 }
 
 void Rf_Send_Request_AESCRC (uint8_t deviceId , uint8_t u8cmd , uint8_t u8mccode)
-{      
+{
+#if SABAN_CLIENT
+#else	
       unsigned char TxBuf[18]={0};  
       
       uint32_t TimeOnAir =0;
@@ -457,6 +468,7 @@ void Rf_Send_Request_AESCRC (uint8_t deviceId , uint8_t u8cmd , uint8_t u8mccode
 //      {
 //            printf("%02X ",TxBuf[test_cout]);
 //      }
+#endif
 }
 
 void Rf_Send_Feedback_AESCRC (void)
@@ -659,6 +671,8 @@ uint8_t Decode_Packet_Receive_SHA (unsigned char mode ,unsigned char * packet_sr
 
 void Rf_Send_Request_SHA (uint8_t deviceId , uint8_t u8cmd , uint8_t u8mccode)
 {      
+#if SABAN_CLIENT
+#else
       unsigned char TxBuf[36]={0};        
       
       uint32_t TimeOnAir =0;
@@ -686,6 +700,7 @@ void Rf_Send_Request_SHA (uint8_t deviceId , uint8_t u8cmd , uint8_t u8mccode)
 //      {
 //            printf("%02X ",TxBuf[test_cout]);
 //      }
+#endif
 
 }
 
@@ -910,7 +925,9 @@ uint8_t Decode_Packet_Receive_AESSHA (unsigned char mode , unsigned char * packe
 }
 
 void Rf_Send_Request_AESSHA (uint8_t deviceId , uint8_t u8cmd , uint8_t u8mccode)
-{      
+{    
+#if SABAN_CLIENT
+#else  
       unsigned char TxBuf[48]={0};
       uint32_t TimeOnAir =0;
       
@@ -937,6 +954,7 @@ void Rf_Send_Request_AESSHA (uint8_t deviceId , uint8_t u8cmd , uint8_t u8mccode
 //      {
 //            printf("%02X ",TxBuf[test_cout]);
 //      }
+#endif
 }
 
 void Rf_Send_Feedback_AESSHA (void)
