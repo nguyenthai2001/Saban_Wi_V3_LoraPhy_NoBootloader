@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\SabanWi_Master.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\SabanWi_Master.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Tue Sep 10 16:34:49 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6220000: Last Updated: Sun Sep 15 22:47:38 2024
 <BR><P>
 <H3>Maximum Stack Usage =        924 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -32,8 +32,8 @@ Function Pointers
  <LI><a href="#[13]">EINT1_IRQHandler</a> from startup_nuc200series.o(.text) referenced from startup_nuc200series.o(RESET)
  <LI><a href="#[14]">GPAB_IRQHandler</a> from startup_nuc200series.o(.text) referenced from startup_nuc200series.o(RESET)
  <LI><a href="#[15]">GPCDEF_IRQHandler</a> from startup_nuc200series.o(.text) referenced from startup_nuc200series.o(RESET)
- <LI><a href="#[37]">GPIO_SetMode</a> from gpio_1.o(.text.GPIO_SetMode) referenced from gpio_driver.o(.text.SB_Master_GPIO_Init)
- <LI><a href="#[37]">GPIO_SetMode</a> from gpio_1.o(.text.GPIO_SetMode) referenced from sx1278_hw.o(.text.SX1276InitIO)
+ <LI><a href="#[37]">GPIO_SetMode</a> from gpio.o(.text.GPIO_SetMode) referenced from gpio_driver.o(.text.SB_Master_GPIO_Init)
+ <LI><a href="#[37]">GPIO_SetMode</a> from gpio.o(.text.GPIO_SetMode) referenced from sx1278_hw.o(.text.SX1276InitIO)
  <LI><a href="#[38]">HID_ClassRequest</a> from hid_transfer.o(.text.HID_ClassRequest) referenced from usb_driver.o(.text.SB_Usb_Driver_Init)
  <LI><a href="#[c]">HardFault_Handler</a> from retarget.o(.text.HardFault_Handler) referenced from startup_nuc200series.o(RESET)
  <LI><a href="#[36]">Hard_Fault_Handler</a> from retarget.o(.text.Hard_Fault_Handler) referenced from retarget.o(.text.HardFault_Handler)
@@ -826,7 +826,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetDataFlashBase
 </UL>
 
-<P><STRONG><a name="[37]"></a>GPIO_SetMode</STRONG> (Thumb, 42 bytes, Stack size 20 bytes, gpio_1.o(.text.GPIO_SetMode))
+<P><STRONG><a name="[37]"></a>GPIO_SetMode</STRONG> (Thumb, 42 bytes, Stack size 20 bytes, gpio.o(.text.GPIO_SetMode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = GPIO_SetMode
 </UL>
 <BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main

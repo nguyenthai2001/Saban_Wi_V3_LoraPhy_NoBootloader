@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Drivers\CMSIS\Include;..\..\Drivers\Device\Nuvoton\NUC200Series\Include;..\..\Drivers\StdDriver\inc;..\..\App;..\..\Core\inc;..\..\App\HID_Transfer\inc;..\..\Middlewares\Usb_Hid\inc;..\..\Middlewares\DataFlash\inc;..\..\Middlewares\LoRa_Phy\App;..\..\Middlewares\LoRa_Phy\Target;..\..\Security\inc;..\..\App\RF_Transfer\inc;..\..\App\Operation\inc;..\..\App\GPIO_Control\inc;..\..\Middlewares\Modbus_Master\App;..\..\Middlewares\Modbus_Master\Target;..\..\Middlewares\Modbus_Slave\App;..\..\Middlewares\Modbus_Slave\Target\modbus_src\include;..\..\Middlewares\Modbus_Slave\Target\modbus_src\rtu;..\..\Middlewares\Modbus_Slave\Target\port_src</IncludePath>
+              <IncludePath>..\..\Drivers\CMSIS\Include;..\..\Drivers\Device\Nuvoton\NUC200Series\Include;..\..\Drivers\StdDriver\inc;..\..\App;..\..\Core\inc;..\..\App\HID_Transfer\inc;..\..\Middlewares\Usb_Hid\inc;..\..\Middlewares\DataFlash\inc;..\..\Middlewares\LoRa_Phy\App;..\..\Middlewares\LoRa_Phy\Target;..\..\Security\inc;..\..\App\RF_Transfer\inc;..\..\App\Operation\inc;..\..\App\GPIO_Control\inc;..\..\Middlewares\Modbus_Master\App;..\..\Middlewares\Modbus_Master\Target;..\..\Middlewares\Modbus_Slave\App;..\..\Middlewares\Modbus_Slave\Target\modbus_src\include;..\..\Middlewares\Modbus_Slave\Target\modbus_src\rtu;..\..\Middlewares\Modbus_Slave\Target\port_src;..\..\App\Master_main;..\..\Core\inc\Master_GPIO_Driver</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -398,7 +398,7 @@
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\App\main.c</FilePath>
+              <FilePath>..\..\App\Master_main\main.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -409,11 +409,6 @@
               <FileName>systerm.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Core\src\systerm.c</FilePath>
-            </File>
-            <File>
-              <FileName>gpio_driver.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Core\src\gpio_driver.c</FilePath>
             </File>
             <File>
               <FileName>spi_driver.c</FileName>
@@ -445,6 +440,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\Core\src\dataflash_driver.c</FilePath>
             </File>
+            <File>
+              <FileName>gpio_driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Core\src\Master_GPIO_Driver\gpio_driver.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -456,14 +456,14 @@
               <FilePath>..\..\Core\src\wdt_driver_irq.c</FilePath>
             </File>
             <File>
-              <FileName>timer_driver_irq.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Core\src\timer_driver_irq.c</FilePath>
-            </File>
-            <File>
               <FileName>uart_driver_irq.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Core\src\uart_driver_irq.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer_driver_irq.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Core\src\Master_Timer_Driver_Irq\timer_driver_irq.c</FilePath>
             </File>
           </Files>
         </Group>
