@@ -65,7 +65,7 @@ eMBFuncReadInputRegister(UCHAR * pucFrame, USHORT * usLen)
     eMBException    eStatus = MB_EX_NONE;
     eMBErrorCode    eRegStatus;
 
-    if(*usLen == (MB_PDU_FUNC_READ_SIZE + MB_PDU_SIZE_MIN))
+    if (*usLen == (MB_PDU_FUNC_READ_SIZE + MB_PDU_SIZE_MIN))
     {
         usRegAddress = (USHORT)(pucFrame[MB_PDU_FUNC_READ_ADDR_OFF] << 8);
         usRegAddress |= (USHORT)(pucFrame[MB_PDU_FUNC_READ_ADDR_OFF + 1]);
@@ -77,7 +77,7 @@ eMBFuncReadInputRegister(UCHAR * pucFrame, USHORT * usLen)
         /* Check if the number of registers to read is valid. If not
          * return Modbus illegal data value exception.
          */
-        if((usRegCount >= 1)
+        if ((usRegCount >= 1)
                 && (usRegCount < MB_PDU_FUNC_READ_REGCNT_MAX))
         {
             /* Set the current PDU data pointer to the beginning. */
@@ -96,7 +96,7 @@ eMBFuncReadInputRegister(UCHAR * pucFrame, USHORT * usLen)
                 eMBRegInputCB(pucFrameCur, usRegAddress, usRegCount);
 
             /* If an error occurred convert it into a Modbus exception. */
-            if(eRegStatus != MB_ENOERR)
+            if (eRegStatus != MB_ENOERR)
             {
                 eStatus = prveMBError2Exception(eRegStatus);
             }

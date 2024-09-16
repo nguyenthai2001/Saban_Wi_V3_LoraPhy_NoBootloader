@@ -50,30 +50,30 @@ xMBPortTimersInit(USHORT usTim1Timerout50us)
     /* Enable Timer0 interrupt */
     TIMER_EnableInt(TIMER2);
     /* Enable Timer0 NVIC */
-    NVIC_EnableIRQ(TMR2_IRQn);      
-      
+    NVIC_EnableIRQ(TMR2_IRQn);
+
     return TRUE;
 }
 
 void
 vMBPortTimersEnable()
 {
-   /* Reset Timer0 counter */
+    /* Reset Timer0 counter */
     TIMER2->TCSR |= TIMER_TCSR_CRST_Msk;
     /* Enable Timer0 */
     TIMER2->TCSR |= TIMER_TCSR_CEN_Msk;
-      
+
 }
 
 void
 vMBPortTimersDisable()
 {
 
-     /* Disable Timer0 */
+    /* Disable Timer0 */
     TIMER2->TCSR &= ~TIMER_TCSR_CEN_Msk;
-     /* Reset Timer0 counter */
+    /* Reset Timer0 counter */
     TIMER2->TCSR |= TIMER_TCSR_CRST_Msk;
-      
+
 }
 
 //#ifdef MODBUS_SLAVE_V1
@@ -83,7 +83,7 @@ vMBPortTimersDisable()
 //    TIMER2->TISR |= TIMER_TISR_TIF_Msk;
 
 //    (void)pxMBPortCBTimerExpired();
-//             	 
+//
 ////}
 //#endif
 

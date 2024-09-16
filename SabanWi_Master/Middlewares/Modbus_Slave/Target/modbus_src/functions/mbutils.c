@@ -118,23 +118,23 @@ prveMBError2Exception(eMBErrorCode eErrorCode)
 {
     eMBException    eStatus;
 
-    switch(eErrorCode)
+    switch (eErrorCode)
     {
-        case MB_ENOERR:
-            eStatus = MB_EX_NONE;
-            break;
+    case MB_ENOERR:
+        eStatus = MB_EX_NONE;
+        break;
 
-        case MB_ENOREG:
-            eStatus = MB_EX_ILLEGAL_DATA_ADDRESS;
-            break;
+    case MB_ENOREG:
+        eStatus = MB_EX_ILLEGAL_DATA_ADDRESS;
+        break;
 
-        case MB_ETIMEDOUT:
-            eStatus = MB_EX_SLAVE_BUSY;
-            break;
+    case MB_ETIMEDOUT:
+        eStatus = MB_EX_SLAVE_BUSY;
+        break;
 
-        default:
-            eStatus = MB_EX_SLAVE_DEVICE_FAILURE;
-            break;
+    default:
+        eStatus = MB_EX_SLAVE_DEVICE_FAILURE;
+        break;
     }
 
     return eStatus;

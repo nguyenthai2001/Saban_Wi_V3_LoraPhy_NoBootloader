@@ -9,7 +9,7 @@
 /*-----------------------------------------------------------------------*/
 void TMR0_IRQHandler(void)
 {
-    if(TIMER_GetIntFlag(TIMER0) == 1)
+    if (TIMER_GetIntFlag(TIMER0) == 1)
     {
         tick ++ ;
         TIMER_ClearIntFlag(TIMER0);
@@ -22,11 +22,11 @@ void TMR0_IRQHandler(void)
 void TMR1_IRQHandler(void)
 {
     uint16_t pos = 0 ;
-    if(TIMER_GetIntFlag(TIMER1) == 1)
+    if (TIMER_GetIntFlag(TIMER1) == 1)
     {
         TIMER_ClearIntFlag(TIMER1);
         tick_timer1 ++ ;
-        for(pos = 0; pos<20; pos++)
+        for (pos = 0; pos < 20; pos++)
         {
             Led_Display(pos);
         }
@@ -38,13 +38,13 @@ void TMR1_IRQHandler(void)
 /*-------------------------------------------------------------*/
 void TMR2_IRQHandler(void)
 {
-    if(device[1].Modbus_mode == 0)
+    if (device[1].Modbus_mode == 0)
     {
         /* Clear Timer0 interrupt flag */
         TIMER2->TISR |= TIMER_TISR_TIF_Msk;
         (void)pxMBPortCBTimerExpired();
     }
-    if(device[1].Modbus_mode == 1)
+    if (device[1].Modbus_mode == 1)
     {
         if (TIMER_GetIntFlag(TIMER2) == 1)
         {
@@ -60,7 +60,7 @@ void TMR2_IRQHandler(void)
 /*-----------------------------------------------------------------------*/
 void TMR3_IRQHandler(void)
 {
-    if(TIMER_GetIntFlag(TIMER3) == 1)
+    if (TIMER_GetIntFlag(TIMER3) == 1)
     {
         tick_timer3 ++ ;
         TIMER_ClearIntFlag(TIMER3);

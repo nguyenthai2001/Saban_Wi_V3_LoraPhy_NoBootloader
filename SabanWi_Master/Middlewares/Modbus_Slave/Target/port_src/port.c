@@ -33,12 +33,12 @@ EnterCriticalSection()
 {
     //VIC_Temp = VICIntEnable;    /* Save VICIntEnable */
     //VICIntEnClr = VIC_Temp;     /* Disable Interruptions */
-      __disable_irq();
+    __disable_irq();
 }
 
 void
 ExitCriticalSection()
 {
     //VICIntEnable = VIC_Temp;    /* Restore VICIntEnable */
-      __enable_irq();	
+    __enable_irq();
 }

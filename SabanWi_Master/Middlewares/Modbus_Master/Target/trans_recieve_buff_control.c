@@ -60,11 +60,11 @@ uint8_t Modbus_Master_Read(void)
 
 uint8_t Modbus_Master_Write(uint8_t *buf, uint8_t length)
 {
-      PA8 = 1 ;
-      UART_Write(UART1, (uint8_t *)buf, length);
-      UART_WAIT_TX_EMPTY(UART1) ;
-      PA8 = 0 ;          
-      return HAL_OK;
+    PA8 = 1 ;
+    UART_Write(UART1, (uint8_t *)buf, length);
+    UART_WAIT_TX_EMPTY(UART1) ;
+    PA8 = 0 ;
+    return HAL_OK;
 }
 
 

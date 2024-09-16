@@ -90,7 +90,7 @@ usMBCRC16(UCHAR * pucFrame, USHORT usLen)
     UCHAR           ucCRCLo = 0xFF;
     int             iIndex;
 
-    while(usLen--)
+    while (usLen--)
     {
         iIndex = ucCRCLo ^ *(pucFrame++);
         ucCRCLo = (UCHAR)(ucCRCHi ^ aucCRCHi[iIndex]);
@@ -106,7 +106,8 @@ uint16_t CRC16(uint8_t *buffer, uint16_t buffer_length)
     unsigned int i; /* will index into CRC lookup */
 
     /* pass through message buffer */
-    while (buffer_length--) {
+    while (buffer_length--)
+    {
         i = crc_lo ^ *buffer++; /* calculate the CRC  */
         crc_lo = crc_hi ^ aucCRCHi[i];
         crc_hi = aucCRCLo[i];

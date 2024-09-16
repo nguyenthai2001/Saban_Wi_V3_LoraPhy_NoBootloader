@@ -11,11 +11,11 @@
 
 Saban device[200] ;
 
-int main (void)
+int main(void)
 {
     SB_SYS_Init();
 
-    SB_Uart_Driver_Init(UART1,115200,8,0);
+    SB_Uart_Driver_Init(UART1, 115200, 8, 0);
     SB_SPI_Driver_Init();
     SB_WDT_Driver_Init();
     SB_Timer_Driver_Init();
@@ -25,7 +25,7 @@ int main (void)
     All_Led_ON();
     CLK_SysTickDelay(1000000);
     All_Led_Off();
-    GPIO_SetMode(PA,BIT8,GPIO_PMD_OUTPUT);
+    GPIO_SetMode(PA, BIT8, GPIO_PMD_OUTPUT);
 
     DataFlash_Master_Init();
 
@@ -33,10 +33,10 @@ int main (void)
 
     Radio_Start();
 
-    while(TRUE)
+    while (TRUE)
     {
         g_u32WDTINTCounts = 0 ;
-        if(device[1].Modbus_test == 0x00)
+        if (device[1].Modbus_test == 0x00)
         {
             OnMaster();
             Modbus_Start();

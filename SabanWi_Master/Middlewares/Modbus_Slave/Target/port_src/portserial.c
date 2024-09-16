@@ -34,29 +34,29 @@ void  vMBPortSerialEnable(BOOL xRxEnable, BOOL xTxEnable)
 {
     __disable_irq();
 
-    if(xRxEnable)
-    {          
+    if (xRxEnable)
+    {
         UART_ENABLE_INT(UART1, UART_IER_RDA_IEN_Msk);
-          PA8 = 0;
+        PA8 = 0;
     }
     else
     {
-          PA8 = 1;
+        PA8 = 1;
         UART_DISABLE_INT(UART1, UART_IER_RDA_IEN_Msk);
     }
-    if(xTxEnable)
-    {           
+    if (xTxEnable)
+    {
         UART_ENABLE_INT(UART1, UART_IER_THRE_IEN_Msk);
     }
     else
-    {         
+    {
         UART_DISABLE_INT(UART1, UART_IER_THRE_IEN_Msk);
     }
-        
+
     NVIC_EnableIRQ(UART1_IRQn);
-		NVIC_SetPriority(UART1_IRQn,2);
+    NVIC_SetPriority(UART1_IRQn, 2);
     __enable_irq();
-    
+
 }
 
 void vMBPortClose(void)
@@ -68,21 +68,21 @@ void vMBPortClose(void)
 
 BOOL xMBPortSerialInit(UCHAR ucPORT, ULONG ulBaudRate, UCHAR ucDataBits, eMBParity eParity)
 {
-      
-    GPIO_SetMode(PA,BIT8,GPIO_PMD_OUTPUT);                // PA8 = 1 send PA8 = 0 recv 
-      
-    if(ucPORT != 0) return FALSE;
-    switch(eParity)
+
+    GPIO_SetMode(PA, BIT8, GPIO_PMD_OUTPUT);              // PA8 = 1 send PA8 = 0 recv
+
+    if (ucPORT != 0) return FALSE;
+    switch (eParity)
     {
-        case MB_PAR_NONE:
-            SB_Uart_Driver_Init(UART1,ulBaudRate,ucDataBits,0);
-            break;
-        case MB_PAR_EVEN:
-            SB_Uart_Driver_Init(UART1,ulBaudRate,ucDataBits,1);
-            break;
-        case MB_PAR_ODD:
-            SB_Uart_Driver_Init(UART1,ulBaudRate,ucDataBits,2);
-            break;
+    case MB_PAR_NONE:
+        SB_Uart_Driver_Init(UART1, ulBaudRate, ucDataBits, 0);
+        break;
+    case MB_PAR_EVEN:
+        SB_Uart_Driver_Init(UART1, ulBaudRate, ucDataBits, 1);
+        break;
+    case MB_PAR_ODD:
+        SB_Uart_Driver_Init(UART1, ulBaudRate, ucDataBits, 2);
+        break;
     }
     return TRUE;
 }
@@ -91,14 +91,14 @@ BOOL xMBPortSerialPutByte(CHAR ucByte)
 {
 
     UART1->THR = (uint8_t) ucByte;
-    while(UART_GET_TX_EMPTY(UART1) != 0x00); //check Tx Empty
+    while (UART_GET_TX_EMPTY(UART1) != 0x00); //check Tx Empty
     return TRUE;
 }
 
 BOOL xMBPortSerialGetByte(CHAR * pucByte)
 {
 
-    while(UART_GET_RX_FULL(UART1) != 0x00); //check Rx Empty
+    while (UART_GET_RX_FULL(UART1) != 0x00); //check Rx Empty
     *pucByte = UART1->RBR;
     return TRUE;
 }

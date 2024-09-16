@@ -80,7 +80,7 @@ eMBFuncWriteHoldingRegister(UCHAR * pucFrame, USHORT * usLen)
     eMBException    eStatus = MB_EX_NONE;
     eMBErrorCode    eRegStatus;
 
-    if(*usLen == (MB_PDU_FUNC_WRITE_SIZE + MB_PDU_SIZE_MIN))
+    if (*usLen == (MB_PDU_FUNC_WRITE_SIZE + MB_PDU_SIZE_MIN))
     {
         usRegAddress = (USHORT)(pucFrame[MB_PDU_FUNC_WRITE_ADDR_OFF] << 8);
         usRegAddress |= (USHORT)(pucFrame[MB_PDU_FUNC_WRITE_ADDR_OFF + 1]);
@@ -91,7 +91,7 @@ eMBFuncWriteHoldingRegister(UCHAR * pucFrame, USHORT * usLen)
                                      usRegAddress, 1, MB_REG_WRITE);
 
         /* If an error occurred convert it into a Modbus exception. */
-        if(eRegStatus != MB_ENOERR)
+        if (eRegStatus != MB_ENOERR)
         {
             eStatus = prveMBError2Exception(eRegStatus);
         }
@@ -116,7 +116,7 @@ eMBFuncWriteMultipleHoldingRegister(UCHAR * pucFrame, USHORT * usLen)
     eMBException    eStatus = MB_EX_NONE;
     eMBErrorCode    eRegStatus;
 
-    if(*usLen >= (MB_PDU_FUNC_WRITE_MUL_SIZE_MIN + MB_PDU_SIZE_MIN))
+    if (*usLen >= (MB_PDU_FUNC_WRITE_MUL_SIZE_MIN + MB_PDU_SIZE_MIN))
     {
         usRegAddress = (USHORT)(pucFrame[MB_PDU_FUNC_WRITE_MUL_ADDR_OFF] << 8);
         usRegAddress |= (USHORT)(pucFrame[MB_PDU_FUNC_WRITE_MUL_ADDR_OFF + 1]);
@@ -127,7 +127,7 @@ eMBFuncWriteMultipleHoldingRegister(UCHAR * pucFrame, USHORT * usLen)
 
         ucRegByteCount = pucFrame[MB_PDU_FUNC_WRITE_MUL_BYTECNT_OFF];
 
-        if((usRegCount >= 1) &&
+        if ((usRegCount >= 1) &&
                 (usRegCount <= MB_PDU_FUNC_WRITE_MUL_REGCNT_MAX) &&
                 (ucRegByteCount == (UCHAR)(2 * usRegCount)))
         {
@@ -137,7 +137,7 @@ eMBFuncWriteMultipleHoldingRegister(UCHAR * pucFrame, USHORT * usLen)
                                 usRegAddress, usRegCount, MB_REG_WRITE);
 
             /* If an error occurred convert it into a Modbus exception. */
-            if(eRegStatus != MB_ENOERR)
+            if (eRegStatus != MB_ENOERR)
             {
                 eStatus = prveMBError2Exception(eRegStatus);
             }
@@ -176,7 +176,7 @@ eMBFuncReadHoldingRegister(UCHAR * pucFrame, USHORT * usLen)
     eMBException    eStatus = MB_EX_NONE;
     eMBErrorCode    eRegStatus;
 
-    if(*usLen == (MB_PDU_FUNC_READ_SIZE + MB_PDU_SIZE_MIN))
+    if (*usLen == (MB_PDU_FUNC_READ_SIZE + MB_PDU_SIZE_MIN))
     {
         usRegAddress = (USHORT)(pucFrame[MB_PDU_FUNC_READ_ADDR_OFF] << 8);
         usRegAddress |= (USHORT)(pucFrame[MB_PDU_FUNC_READ_ADDR_OFF + 1]);
@@ -188,7 +188,7 @@ eMBFuncReadHoldingRegister(UCHAR * pucFrame, USHORT * usLen)
         /* Check if the number of registers to read is valid. If not
          * return Modbus illegal data value exception.
          */
-        if((usRegCount >= 1) && (usRegCount <= MB_PDU_FUNC_READ_REGCNT_MAX))
+        if ((usRegCount >= 1) && (usRegCount <= MB_PDU_FUNC_READ_REGCNT_MAX))
         {
             /* Set the current PDU data pointer to the beginning. */
             pucFrameCur = &pucFrame[MB_PDU_FUNC_OFF];
@@ -205,7 +205,7 @@ eMBFuncReadHoldingRegister(UCHAR * pucFrame, USHORT * usLen)
             /* Make callback to fill the buffer. */
             eRegStatus = eMBRegHoldingCB(pucFrameCur, usRegAddress, usRegCount, MB_REG_READ);
             /* If an error occurred convert it into a Modbus exception. */
-            if(eRegStatus != MB_ENOERR)
+            if (eRegStatus != MB_ENOERR)
             {
                 eStatus = prveMBError2Exception(eRegStatus);
             }
@@ -244,7 +244,7 @@ eMBFuncReadWriteMultipleHoldingRegister(UCHAR * pucFrame, USHORT * usLen)
     eMBException    eStatus = MB_EX_NONE;
     eMBErrorCode    eRegStatus;
 
-    if(*usLen >= (MB_PDU_FUNC_READWRITE_SIZE_MIN + MB_PDU_SIZE_MIN))
+    if (*usLen >= (MB_PDU_FUNC_READWRITE_SIZE_MIN + MB_PDU_SIZE_MIN))
     {
         usRegReadAddress = (USHORT)(pucFrame[MB_PDU_FUNC_READWRITE_READ_ADDR_OFF] << 8U);
         usRegReadAddress |= (USHORT)(pucFrame[MB_PDU_FUNC_READWRITE_READ_ADDR_OFF + 1]);
@@ -262,7 +262,7 @@ eMBFuncReadWriteMultipleHoldingRegister(UCHAR * pucFrame, USHORT * usLen)
 
         ucRegWriteByteCount = pucFrame[MB_PDU_FUNC_READWRITE_BYTECNT_OFF];
 
-        if((usRegReadCount >= 1) && (usRegReadCount <= 0x7D) &&
+        if ((usRegReadCount >= 1) && (usRegReadCount <= 0x7D) &&
                 (usRegWriteCount >= 1) && (usRegWriteCount <= 0x79) &&
                 ((2 * usRegWriteCount) == ucRegWriteByteCount))
         {
@@ -270,7 +270,7 @@ eMBFuncReadWriteMultipleHoldingRegister(UCHAR * pucFrame, USHORT * usLen)
             eRegStatus = eMBRegHoldingCB(&pucFrame[MB_PDU_FUNC_READWRITE_WRITE_VALUES_OFF],
                                          usRegWriteAddress, usRegWriteCount, MB_REG_WRITE);
 
-            if(eRegStatus == MB_ENOERR)
+            if (eRegStatus == MB_ENOERR)
             {
                 /* Set the current PDU data pointer to the beginning. */
                 pucFrameCur = &pucFrame[MB_PDU_FUNC_OFF];
@@ -287,12 +287,12 @@ eMBFuncReadWriteMultipleHoldingRegister(UCHAR * pucFrame, USHORT * usLen)
                 /* Make the read callback. */
                 eRegStatus =
                     eMBRegHoldingCB(pucFrameCur, usRegReadAddress, usRegReadCount, MB_REG_READ);
-                if(eRegStatus == MB_ENOERR)
+                if (eRegStatus == MB_ENOERR)
                 {
                     *usLen += 2 * usRegReadCount;
                 }
             }
-            if(eRegStatus != MB_ENOERR)
+            if (eRegStatus != MB_ENOERR)
             {
                 eStatus = prveMBError2Exception(eRegStatus);
             }

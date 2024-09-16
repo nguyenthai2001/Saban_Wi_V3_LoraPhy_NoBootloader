@@ -193,11 +193,11 @@ uint16_t crc16(char *data, uint32_t size)
 {
     uint32_t i;
     uint16_t crc = 0xFFFF;
-    // lap qau tung byte trong mang 
+    // lap qau tung byte trong mang
     while (size--)
     {
         crc ^= *data++;                       // XOR CRC voi byte hien tai
-        // Xu ly tung bit trong byte hien tai 
+        // Xu ly tung bit trong byte hien tai
         for (i = 0; i < 8; i++)
         {
             if (crc & 0x01)                     // neu bit co trong so thap nhat cua CRC la 1
@@ -272,7 +272,7 @@ void CRC_Test (void)
 
     for(i = 0 ;i<64;i++)
     {
-        printf(" %02X \n\n",test[i] );        
+        printf(" %02X \n\n",test[i] );
     }
 
     CRCResult = crc32_by_table(test , u32Strlen);
