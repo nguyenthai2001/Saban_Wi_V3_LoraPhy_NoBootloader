@@ -91,3 +91,44 @@ void SB_Client_GPIO_Init(void)
     }
 
 }
+
+/*--------------------------- LED Control Functions------------------------------------*/
+void All_Led_Off(void)
+{
+    LED1 = 1;
+    LED2 = 1;
+    LED3 = 1;
+    LED4 = 1;
+    LED5 = 1;
+    LED6 = 1;
+    LED7 = 1;
+    LED8 = 1;
+    LED9 = 0;
+    LED10 = 0;
+    LED11 = 0;
+    LED12 = 0;
+    LED13 = 0;
+    LED14 = 0;
+    LED15 = 0;
+    LED16 = 0;
+}
+
+void All_Led_ON(void)
+{
+    LED1 = 0;
+    LED2 = 0;
+    LED3 = 0;
+    LED4 = 0;
+    LED5 = 0;
+    LED6 = 0;
+    LED7 = 0;
+    LED8 = 0;
+    LED9 = 1;
+    LED10 = 1;
+    LED11 = 1;
+    LED12 = 1;
+    LED13 = 1;
+    LED14 = 1;
+    LED15 = 1;
+    LED16 = 1;
+}

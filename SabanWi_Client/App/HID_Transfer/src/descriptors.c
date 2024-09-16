@@ -123,7 +123,7 @@ uint8_t gu8ProductStringDesc[] =
 {
     30,             /* bLength          */
     DESC_STRING,    /* bDescriptorType  */
-    'S', 0, 'a', 0, 'b', 0, 'a', 0, 'n', 0,'W',0 ,'i',0,'-', 0,'M', 0, 'a', 0, 's', 0, 't', 0, 'e', 0, 'r', 0
+    'S', 0, 'a', 0, 'b', 0, 'a', 0, 'n', 0,'W',0 ,'i',0,'-', 0,'C', 0, 'l', 0, 'i', 0, 'e', 0, 'n', 0, 't', 0
 };
 
 const uint8_t gu8StringSerial[26] =

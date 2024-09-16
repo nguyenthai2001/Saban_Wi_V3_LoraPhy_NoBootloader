@@ -1,4 +1,7 @@
 SET PATH=C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\MinGW\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2021.10\bin;C:\Users\TULA_KT01\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Azure Data Studio\bin;C:\Users\TULA_KT01\AppData\Local\GitHubDesktop\bin;C:\Users\TULA_KT01\.dotnet\tools;C:\Users\TULA_KT01\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\ucrt64\bin;
+SET ARMCC6_ASMOPT=--diag_suppress=9931
+SET ARMCC6_CCOPT=--diag_suppress=9931
+SET ARMCC6_LINKOPT=--diag_suppress=9931
 SET CPU_TYPE=NUC220LE3AN
 SET CPU_VENDOR=Nuvoton
 SET UV2_TARGET=SabanWi_Client

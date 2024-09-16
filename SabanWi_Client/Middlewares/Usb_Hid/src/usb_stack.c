@@ -107,16 +107,6 @@ void SendBack(uint8_t result)
     TxData[0] = 0x2;
     TxData[1] = result;
 
-    uint32_t TimeonAir ;
-
-    TimeonAir = SX1276GetTimeOnAir();
-    SX1276LoRaSetRxPacketTimeout(TimeonAir + 20);
-
-    TxData[2] = ((TimeonAir >> 24) & 0xFF);
-    TxData[3] = ((TimeonAir >> 16) & 0xFF);
-    TxData[4] = ((TimeonAir >> 8) & 0xFF);
-    TxData[5] = (TimeonAir & 0xFF);
-
     ptr = (uint8_t *)(USBD_BUF_BASE + USBD_GET_EP_BUF_ADDR(EP2));
     USBD_MemCopy(ptr, TxData, EP2_MAX_PKT_SIZE);
     USBD_SET_PAYLOAD_LEN(EP2, EP2_MAX_PKT_SIZE);
@@ -196,7 +186,7 @@ int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
         }
         CLK_SysTickDelay(1000);
         /* Reset CPU */
-        SYS_ResetCPU();
+        SYS_ResetChip();
         break ;
 
     case CMD_WRITE_INPUT_TYPE :
@@ -217,7 +207,7 @@ int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
             SendBack(0);
             CLK_SysTickDelay(1000);
             /* Reset CPU */
-            SYS_ResetCPU();
+            SYS_ResetChip();
         }
         break ;
 
@@ -269,9 +259,9 @@ int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
             SX1276LoRaSetSpreadingFactor(ClientDataFlash[1].RFSpreadingFactor);
             SX1276LoRaSetErrorCoding(ClientDataFlash[1].ErrCode);
             SendBack(0);
-            CLK_SysTickDelay(1000);
-            /* Reset CPU */
-            SYS_ResetCPU();
+            CLK_SysTickDelay(10000);
+//            /* Reset CPU */
+            SYS_ResetChip();
         }
         break;
     case CMD_WRITE_MODBSU_CONFIG :
@@ -291,9 +281,9 @@ int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
         {
             SendBack(0);
         }
-        CLK_SysTickDelay(1000);
+        CLK_SysTickDelay(100000);
         /* Reset CPU */
-        SYS_ResetCPU();
+        SYS_ResetChip();
         break ;
 
     case CMD_TEST_MODBUS :

@@ -72,6 +72,8 @@ extern "C" {
 /* USER CODE END Private defines */
 
 void SB_Client_GPIO_Init(void);
+void All_Led_Off(void);
+void All_Led_ON(void);
 /* USER CODE BEGIN Prototypes */
 
 /* USER CODE END Prototypes */

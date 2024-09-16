@@ -9,7 +9,7 @@
 #define __USBD_HID_H__
 
 /* Define the vendor id and product id */
-#define USBD_VID        0x4000
+#define USBD_VID        0x4001
 #define USBD_PID        0x5FFA
 
 /*!<Define HID Class Specific Request */

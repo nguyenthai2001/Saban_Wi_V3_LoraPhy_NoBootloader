@@ -57,7 +57,7 @@ void Radio_Start(void)
         SX1276StartCad();
     }
 
-    if (Mode == 0)
+    if (Mode == FSK)
     {
         version = SX1276FskGetVersion();
         while (version != 0x12)
@@ -204,6 +204,7 @@ void OnClient(void)
 
 void Modbus_Init(void)
 {
+    GPIO_SetMode(PA, BIT8, GPIO_PMD_OUTPUT);
     if (device[1].Modbus_mode == 0)
     {
         eMBErrorCode eStatus = MB_ENOERR;
@@ -232,7 +233,7 @@ void Modbus_Start(void)
     }
     if (device[1].Modbus_mode == 1)
     {
-        result = ModbusMaster_readHoldingRegisters(ClientDataFlash[1].Modbus_SlaveID, ClientDataFlash[1].Modbus_Address, 15);  //master send readInputRegisters command to slave
+        result = ModbusMaster_readHoldingRegisters(ClientDataFlash[1].Modbus_SlaveID, 0x01, 15);  //master send readInputRegisters command to slave
         if (result == 0x00)
         {
             Modbus_result[0] = ModbusMaster_getResponseBuffer(0);
@@ -245,13 +246,13 @@ void Modbus_Test_PC(void)
 {
     uint8_t result = 0 ;
     uint8_t Modbus_result[16] = {0} ;
-    uint16_t u16Modbus_result[1] = {0};
+    uint16_t u16Modbus_result[2] = {0};
     uint16_t u16Modbus_total[16] = {0};
     int i = 0;
 
-    if (device[1].Modbus_test == 0x01)
+    if (device[1].Modbus_test == 0x02)
     {
-        result = ModbusMaster_readHoldingRegisters(0xF7, 0x01, 15); //master send readInputRegisters command to slave
+        result = ModbusMaster_readHoldingRegisters(ClientDataFlash[1].Modbus_SlaveID, 0x01, 15); //master send readInputRegisters command to slave
         if (result == 0x00)
         {
             for (i = 0 ; i <= ClientDataFlash[1].Modbus_Address ; i++)
@@ -261,10 +262,10 @@ void Modbus_Test_PC(void)
             }
         }
     }
-    if (device[1].Modbus_test == 0x02)
+    if (device[1].Modbus_test == 0x01)
     {
         (void)eMBPoll();                              // receive function code and response to Master
-        for (i = 0; i < 16; i++)
+        for (i = 0; i < ClientDataFlash[1].Modbus_Address; i++)
         {
             MBGetData16Bits(REG_HOLDING, i, u16Modbus_result) ;
             SendBackTestModbus(i, u16Modbus_result);

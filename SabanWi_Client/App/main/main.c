@@ -22,8 +22,9 @@ int main(void)
     SB_Timer_Driver_Init();
     SB_Usb_Driver_Init();
     SB_Client_GPIO_Init();
-
-    GPIO_SetMode(PA, BIT8, GPIO_PMD_OUTPUT);
+    All_Led_ON();
+    CLK_SysTickDelay(5000000);
+    All_Led_Off();
 
     DataFlash_Client_Init();
 
@@ -44,4 +45,5 @@ int main(void)
             Modbus_Test_PC();
         }
     }
+    return 0 ;
 }
