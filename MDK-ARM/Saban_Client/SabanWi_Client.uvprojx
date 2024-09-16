@@ -431,11 +431,6 @@
               <FilePath>..\..\Core\src\uart_driver.c</FilePath>
             </File>
             <File>
-              <FileName>uart_driver_irq.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Core\src\uart_driver_irq.c</FilePath>
-            </File>
-            <File>
               <FileName>usb_driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Core\src\usb_driver.c</FilePath>
@@ -444,11 +439,6 @@
               <FileName>wdt_driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Core\src\wdt_driver.c</FilePath>
-            </File>
-            <File>
-              <FileName>wdt_driver_irq.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Core\src\wdt_driver_irq.c</FilePath>
             </File>
             <File>
               <FileName>gpio_driver.c</FileName>
