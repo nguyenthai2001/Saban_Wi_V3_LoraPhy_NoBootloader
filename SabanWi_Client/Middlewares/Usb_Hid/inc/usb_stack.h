@@ -34,7 +34,7 @@ extern "C" {
 #define INFO_FLASH_START 0x1F200
 
 int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen);
-void SendBackTestModbus (uint8_t * result );
+void SendBackTestModbus (uint8_t address , uint16_t *result);
 void HID_GetOutReport(uint8_t *pu8EpBuf, uint32_t u32Size);
 void HID_SetInReport(void) ;
 

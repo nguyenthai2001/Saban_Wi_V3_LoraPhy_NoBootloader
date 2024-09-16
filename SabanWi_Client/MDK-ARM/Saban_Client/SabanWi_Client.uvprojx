@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Drivers\CMSIS\Include;..\..\Drivers\Device\Nuvoton\NUC200Series\Include;..\..\Drivers\StdDriver\inc;..\..\Core\inc;..\..\App\HID_Transfer\inc;..\..\Middlewares\LoRa_Phy\App;..\..\Middlewares\LoRa_Phy\Target;..\..\Security\inc;..\..\Middlewares\Modbus_Master\App;..\..\Middlewares\Modbus_Master\Target;..\..\Middlewares\Modbus_Slave\App;..\..\Middlewares\Modbus_Slave\Target\modbus_src\include;..\..\Middlewares\Modbus_Slave\Target\modbus_src\rtu;..\..\Middlewares\Modbus_Slave\Target\port_src;..\..\App\RF_Transfer\inc;..\..\App\main;..\..\App\GPIO_Control\inc;..\..\Middlewares\Usb_Hid\inc;..\..\Middlewares\DataFlash\inc</IncludePath>
+              <IncludePath>..\..\Drivers\CMSIS\Include;..\..\Drivers\Device\Nuvoton\NUC200Series\Include;..\..\Drivers\StdDriver\inc;..\..\Core\inc;..\..\App\HID_Transfer\inc;..\..\Middlewares\LoRa_Phy\App;..\..\Middlewares\LoRa_Phy\Target;..\..\Security\inc;..\..\Middlewares\Modbus_Master\App;..\..\Middlewares\Modbus_Master\Target;..\..\Middlewares\Modbus_Slave\App;..\..\Middlewares\Modbus_Slave\Target\modbus_src\include;..\..\Middlewares\Modbus_Slave\Target\modbus_src\rtu;..\..\Middlewares\Modbus_Slave\Target\port_src;..\..\App\RF_Transfer\inc;..\..\App\main;..\..\App\GPIO_Control\inc;..\..\Middlewares\Usb_Hid\inc;..\..\Middlewares\DataFlash\inc;..\..\App\Operation\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -460,10 +460,22 @@
               <FileType>1</FileType>
               <FilePath>..\..\Core\src\uart_driver_irq.c</FilePath>
             </File>
+            <File>
+              <FileName>timer_driver_irq.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Core\src\timer_driver_irq.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>App/User/Operation</GroupName>
+          <Files>
+            <File>
+              <FileName>operation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\App\Operation\src\operation.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>App/User/HID_Transfer</GroupName>

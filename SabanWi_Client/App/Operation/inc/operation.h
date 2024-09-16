@@ -19,7 +19,7 @@ extern "C" {
 /* USER CODE END Private defines */
 
 void Radio_Start(void);
-void OnMaster(void);
+void OnClient (void) ;
 void Modbus_Init(void);
 void Modbus_Start(void);
 void Modbus_Test_PC(void);

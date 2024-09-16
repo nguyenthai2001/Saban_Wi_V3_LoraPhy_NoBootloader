@@ -10,10 +10,7 @@
 #include "SX1278_LoRa.h"
 #include "radio.h"
 
-#if SABAN_CLIENT
-  #include "gpio_control.h"
-#else
-#endif
+#include "gpio_control.h"
 
 uint8_t DATA_H ;
 uint8_t DATA_L  ;
@@ -44,12 +41,12 @@ uint8_t Creat_Packet_Request_CRC(unsigned char MasterID , unsigned char Commnad 
       // kiem tra gia tri ma he thong 
       if(MasterID >=16 || Commnad >=4 || MCCode >= 4)
       {
-//            printf(" SYSTERM CODE ERR !!! \n" );
+      //printf(" SYSTERM CODE ERR !!! \n" );
             err = 1 ;
       }
       else
       {
-//            printf(" SYSTERM CODE OK !!! " );
+      //printf(" SYSTERM CODE OK !!! " );
             // creat 1 byte ma he thong 
             system_code = (MasterID <<4) | (Commnad << 2) | MCCode ;
             // Creat packet data 
@@ -73,7 +70,7 @@ uint8_t Creat_Packet_Request_CRC(unsigned char MasterID , unsigned char Commnad 
             TimeStop = Timer3_GetTickMs();
             Timer3_ResetTickMs();
             
-//            printf(" PACKET CREAT DONE !!! [%d] us" , TimeStop - TimeStart);
+            //printf(" PACKET CREAT DONE !!! [%d] us" , TimeStop - TimeStart);
             err = 0;
       }
       return err ;      
@@ -130,14 +127,13 @@ uint8_t Decode_Packet_Receive_CRC ( uint8_t mode , unsigned char * packet_src )
       if(calculated_crc != receive_crc )
       {
             err = 0;
-//            printf(" DECODE DATA ERR !!! ");
+      //printf(" DECODE DATA ERR !!! ");
       }
       else
       {           
             TimeStop = Timer3_GetTickMs();
             Timer3_ResetTickMs();
-//            printf(" DECODE DATA SLAVE [%2X] OK !!! [%d] us " , SlaveID , TimeStop - TimeStart);
-#if SABAN_CLIENT            
+            //printf(" DECODE DATA SLAVE [%2X] OK !!! [%d] us " , SlaveID , TimeStop - TimeStart);          
 						masteridcurrent = (ClientDataFlash[1].System_code >> 4)&0x0F ;
 						SLAVE_ID = ClientDataFlash[1].SlaveID;                
 						if(  MCCode == MCCODE_REQUEST_FEEDBACK  && SLAVE_ID == SlaveID && masteridcurrent == MasterID)             // decode for slave
@@ -149,75 +145,24 @@ uint8_t Decode_Packet_Receive_CRC ( uint8_t mode , unsigned char * packet_src )
 									device[SLAVE_ID].data_h = u16cmd ;
 									device[SLAVE_ID].data_l = Data ;
 									device[SLAVE_ID].crcResult = receive_crc ;
-//                        printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
-//                        printf(" Command : %2X " , device[SLAVE_ID].cmd);
-//                        printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
-//                        printf(" Data : %2X " , device[SLAVE_ID].data_h);
-//												printf("%2X " , device[SLAVE_ID].data_l);
+									//printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
+									//printf(" Command : %2X " , device[SLAVE_ID].cmd);
+									//printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
+									//printf(" Data : %2X " , device[SLAVE_ID].data_h);
+									//printf("%2X " , device[SLAVE_ID].data_l);
 									Update_DataFlash_From_Master();
 									err= 1 ;
-						}
-            
-#else                        
-						if(MCCode == MCCODE_SLAVE_FEEDBACK && MasterDataFlash[1].Masterid == MasterID  )               // decode for master 
-						{
-									device[SlaveID].masterID = MasterID ; 
-									device[SlaveID].cmd = Commnad ;
-									device[SlaveID].mccode = MCCode ;
-									device[SlaveID].slaveID = SlaveID ;
-									device[SlaveID].data_h = u16cmd ;
-									device[SlaveID].data_l = Data ;
-									device[SlaveID].crcResult = receive_crc ;
-//                        printf(" SlaveID : %2X " , device[SlaveID].slaveID);
-//                        printf(" Command : %2X " , device[SlaveID].cmd);
-//                        printf(" MCcode : %2X " , device[SlaveID].mccode);
-//                        printf(" Data : %2X " , device[SlaveID].data_h);
-//                        printf("%2X " , device[SlaveID].data_l);
-									err= 1 ;
-						}   
-      #endif 							
+						}						
       }
       return err ;  		
 }
 
 void Rf_Send_Request_CRC (uint8_t deviceId , uint8_t u8cmd , uint8_t u8mccode)
 {      
-	#if SABAN_CLIENT 
-	#else
-	
-      Mode1 = SX1276GetMode();
-      unsigned char TxBuf[6]={0};
-      uint8_t test_cout = 0;
-      uint32_t TimeOnAir = 0;
-      
-      if(Mode1 == LORA)
-      {
-            SX1276LoRaSetPayloadLength(8);
-            TimeOnAir = SX1276GetTimeOnAir();      
-            SX1276LoRaSetRxPacketTimeout(TimeOnAir+40);
-      }
-      if(Mode1 == FSK)
-      {
-            SX1276FskSetPayloadLength(8);                        
-      }
-      
-      device[deviceId].masterID = MasterDataFlash[1].Masterid ;
-      device[deviceId].cmd = u8cmd ;
-      device[deviceId].mccode = u8mccode ;   
-      device[deviceId].slaveID = deviceId ; 
-      Creat_Packet_Request_CRC(device[deviceId].masterID,device[deviceId].cmd,device[deviceId].mccode,
-                           device[deviceId].slaveID , DATA_H , DATA_L , TxBuf);
-      SX1276SetTxPacket(TxBuf,sizeof(TxBuf));
-//      for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
-//      {
-//            printf("%02X ",TxBuf[test_cout]);
-//      }
-#endif
 }
 
 void Rf_Send_Feedback_CRC (void)
 {
-#if  SABAN_CLIENT
       unsigned char TxBuf[6]={0};
       uint8_t test_cout = 0;
       uint32_t TimeOnAir = 0;
@@ -242,11 +187,10 @@ void Rf_Send_Feedback_CRC (void)
                            device[SLAVE_ID].slaveID , DATA_H , DATA_L , TxBuf);
       SX1276SetTxPacket(TxBuf,sizeof(TxBuf));
       
-//      for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
-//      {
-//            printf("%02X ",TxBuf[test_cout]);
-//      }
-#endif 
+			//for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
+			//{
+			//printf("%02X ",TxBuf[test_cout]);
+			//}
 }
 
 
@@ -280,12 +224,12 @@ uint8_t Creat_Packet_Request_AESCRC(unsigned char MasterID , unsigned char Commn
       // kiem tra gia tri ma he thong 
       if(MasterID >=16 || Commnad >=4 || MCCode >= 4)
       {
-//            printf(" SYSTERM CODE ERR !!! \n" );
+            //printf(" SYSTERM CODE ERR !!! \n" );
             err = 1 ;
       }
       else
       {
-//            printf(" SYSTERM CODE OK !!! " );
+            //printf(" SYSTERM CODE OK !!! " );
             // creat 1 byte ma he thong 
             system_code = (MasterID <<4) | (Commnad << 2) | MCCode ;
             // Creat packet data 
@@ -314,7 +258,7 @@ uint8_t Creat_Packet_Request_AESCRC(unsigned char MasterID , unsigned char Commn
             
             TimeStop = Timer3_GetTickMs();
             Timer3_ResetTickMs();
-//            printf(" PACKET CREAT DONE !!! [%d] us" , TimeStop - TimeStart);
+            //printf(" PACKET CREAT DONE !!! [%d] us" , TimeStop - TimeStart);
             err = 0;
       }
       
@@ -386,15 +330,14 @@ uint8_t Decode_Packet_Receive_AESCRC ( unsigned char mode  ,unsigned char * pack
       if(calculated_crc != receive_crc )
       {
             err = 0;
-//            printf(" DECODE DATA ERR !!! ");
+            //printf(" DECODE DATA ERR !!! ");
       }
       else
       {           
             TimeStop = Timer3_GetTickMs();
             Timer3_ResetTickMs();
-//            printf(" DECODE DATA SLAVE [%2X] OK !!! [%d] us " , SlaveID ,TimeStop - TimeStart);
-            
-#if SABAN_CLIENT                                          
+            //printf(" DECODE DATA SLAVE [%2X] OK !!! [%d] us " , SlaveID ,TimeStop - TimeStart);
+                                    
 						masteridcurrent = (ClientDataFlash[1].System_code >> 4)&0x0F ;
 						SLAVE_ID = ClientDataFlash[1].SlaveID;
 						if( MCCode == MCCODE_REQUEST_FEEDBACK  && SLAVE_ID == SlaveID && masteridcurrent == MasterID)             // decode for slave
@@ -406,75 +349,25 @@ uint8_t Decode_Packet_Receive_AESCRC ( unsigned char mode  ,unsigned char * pack
 									device[SLAVE_ID].data_h = u16cmd ;
 									device[SLAVE_ID].data_l = Data ;
 									device[SLAVE_ID].crcResult = receive_crc ;
-//                              printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
-//                              printf(" Command : %2X " , device[SLAVE_ID].cmd);
-//                              printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
-//                              printf(" Data : %2X " , device[SLAVE_ID].data_h);
-//                              printf("%2X " , device[SLAVE_ID].data_l);
+									//printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
+									//printf(" Command : %2X " , device[SLAVE_ID].cmd);
+									//printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
+									//printf(" Data : %2X " , device[SLAVE_ID].data_h);
+									//printf("%2X " , device[SLAVE_ID].data_l);
 									Update_DataFlash_From_Master();
 									err= 1 ;
-						}
-                  
-#else                                  
-						if(MCCode == MCCODE_SLAVE_FEEDBACK && MasterDataFlash[1].Masterid == MasterID )               // decode for master 
-						{
-									device[SlaveID].masterID = MasterID ; 
-									device[SlaveID].cmd = Commnad ;
-									device[SlaveID].mccode = MCCode ;
-									device[SlaveID].slaveID = SlaveID ;
-									device[SlaveID].data_h = u16cmd ;
-									device[SlaveID].data_l = Data ;
-									device[SlaveID].crcResult = receive_crc ;
-									printf(" SlaveID : %2X " , device[SlaveID].slaveID);
-									printf(" Command : %2X " , device[SlaveID].cmd);
-									printf(" MCcode : %2X " , device[SlaveID].mccode);
-									printf(" Data : %2X " , device[SlaveID].data_h);
-									printf("%2X " , device[SlaveID].data_l);
-									err= 1 ;
-						}
-#endif						
+						}                  
       }
       return err ;                
 }
 
 void Rf_Send_Request_AESCRC (uint8_t deviceId , uint8_t u8cmd , uint8_t u8mccode)
 {
-#if SABAN_CLIENT
-#else	
-      unsigned char TxBuf[18]={0};  
-      
-      uint32_t TimeOnAir =0;
-      
-      Mode1 = SX1276GetMode();
-      if(Mode1 == LORA)
-      {
-            SX1276LoRaSetPayloadLength(18);
-            TimeOnAir = SX1276GetTimeOnAir();      
-            SX1276LoRaSetRxPacketTimeout(TimeOnAir+60);
-      }
-      if(Mode1 == FSK)
-      {
-            SX1276FskSetPayloadLength(18);                        
-      }                
-      
-      device[deviceId].masterID = MasterDataFlash[1].Masterid ;
-      device[deviceId].cmd = u8cmd ;
-      device[deviceId].mccode = u8mccode ;   
-      device[deviceId].slaveID = deviceId ; 
-      Creat_Packet_Request_AESCRC(device[deviceId].masterID,device[deviceId].cmd,device[deviceId].mccode,
-                           device[deviceId].slaveID , DATA_H , DATA_L , TxBuf);
-      SX1276SetTxPacket(TxBuf,sizeof(TxBuf));
-//      for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
-//      {
-//            printf("%02X ",TxBuf[test_cout]);
-//      }
-#endif
+
 }
 
 void Rf_Send_Feedback_AESCRC (void)
 {
-
-	#if SABAN_CLIENT 
       unsigned char TxBuf[18]={0};
       uint8_t test_cout = 0;      
       uint32_t TimeOnAir =0;
@@ -499,12 +392,10 @@ void Rf_Send_Feedback_AESCRC (void)
                            device[SLAVE_ID].slaveID , DATA_H , DATA_L , TxBuf);
       SX1276SetTxPacket(TxBuf,sizeof(TxBuf));
       
-//      for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
-//      {
-//            printf("%02X ",TxBuf[test_cout]);
-//      }
-#else 
-#endif
+			//for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
+			//{
+			//printf("%02X ",TxBuf[test_cout]);
+			//}
 }
 
 /*--------------------------------------------------------------------------------------------------------*/
@@ -529,12 +420,12 @@ uint8_t Creat_Packet_Request_SHA(unsigned char MasterID , unsigned char Commnad 
       // kiem tra gia tri ma he thong 
       if(MasterID >=16 || Commnad >=4 || MCCode >= 4)
       {
-//            printf(" SYSTERM CODE ERR !!! \n" );
+            //printf(" SYSTERM CODE ERR !!! \n" );
             err = 1 ;
       }
       else
       {
-//            printf(" SYSTERM CODE OK !!! " );
+            //printf(" SYSTERM CODE OK !!! " );
             // creat 1 byte ma he thong 
             system_code = (MasterID <<4) | (Commnad << 2) | MCCode ;
             // Creat packet data 
@@ -558,15 +449,14 @@ uint8_t Creat_Packet_Request_SHA(unsigned char MasterID , unsigned char Commnad 
             
             TimeStop = Timer3_GetTickMs();
             Timer3_ResetTickMs();
-//            printf(" PACKET CREAT SHA DONE !!! [%d] us" , TimeStop - TimeStart);
+            //printf(" PACKET CREAT SHA DONE !!! [%d] us" , TimeStop - TimeStart);
             err = 0;
       }
       return err ;      
 }
 
 uint8_t Decode_Packet_Receive_SHA (unsigned char mode ,unsigned char * packet_src )
-{
-      
+{      
       int TimeStart = 0 ;
       int TimeStop = 0 ;
       
@@ -621,15 +511,13 @@ uint8_t Decode_Packet_Receive_SHA (unsigned char mode ,unsigned char * packet_sr
       if(0 != memcmp((char*) receive_sha, (char*) sha256Hash.bytes, 32) )
       {
             err = 0;
-//            printf(" DECODE DATA SHA ERR !!! ");
+            //printf(" DECODE DATA SHA ERR !!! ");
       }
       else
       {           
             TimeStop = Timer3_GetTickMs();
             Timer3_ResetTickMs();
-//            printf(" DECODE DATA SHA SLAVE [%2X] OK !!! [%d] us" , SlaveID , TimeStop - TimeStart);
-            
-#if SABAN_CLIENT                                         
+            //printf(" DECODE DATA SHA SLAVE [%2X] OK !!! [%d] us" , SlaveID , TimeStop - TimeStart);                                  
 						masteridcurrent = (ClientDataFlash[1].System_code >> 4)&0x0F ;
 						SLAVE_ID = ClientDataFlash[1].SlaveID;
 						if( MCCode == MCCODE_REQUEST_FEEDBACK  && SLAVE_ID == SlaveID && masteridcurrent == MasterID)             // decode for slave
@@ -640,73 +528,25 @@ uint8_t Decode_Packet_Receive_SHA (unsigned char mode ,unsigned char * packet_sr
 									device[SLAVE_ID].slaveID = SlaveID ;
 									device[SLAVE_ID].data_h = u16cmd ;
 									device[SLAVE_ID].data_l = Data ;                  
-//                              printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
-//                              printf(" Command : %2X " , device[SLAVE_ID].cmd);
-//                              printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
-//                              printf(" Data : %2X " , device[SLAVE_ID].data_h);
-//                              printf(" \n Data  : %2X " , device[SLAVE_ID].data_l);
+									//printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
+									//printf(" Command : %2X " , device[SLAVE_ID].cmd);
+									//printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
+									//printf(" Data : %2X " , device[SLAVE_ID].data_h);
+									//printf(" \n Data  : %2X " , device[SLAVE_ID].data_l);
 									Update_DataFlash_From_Master();
 									err= 1 ;
-						}
-#else                                               
-						if(MCCode == MCCODE_SLAVE_FEEDBACK && MasterDataFlash[1].Masterid == MasterID )               // decode for master 
-						{
-									device[SlaveID].masterID = MasterID ; 
-									device[SlaveID].cmd = Commnad ;
-									device[SlaveID].mccode = MCCode ;
-									device[SlaveID].slaveID = SlaveID ;
-									device[SlaveID].data_h = u16cmd ;
-									device[SlaveID].data_l = Data ;
-//                              printf(" SlaveID : %2X " , device[SlaveID].slaveID);
-//                              printf(" Command : %2X " , device[SlaveID].cmd);
-//                              printf(" MCcode : %2X " , device[SlaveID].mccode);
-//                              printf(" Data : %2X " , device[SlaveID].data_h);
-//                              printf("%2X " , device[SlaveID].data_l);
-									err= 1 ;
-						}
-#endif												              
+						}									              
       }
       return err ;                
 }
 
 void Rf_Send_Request_SHA (uint8_t deviceId , uint8_t u8cmd , uint8_t u8mccode)
 {      
-#if SABAN_CLIENT
-#else
-      unsigned char TxBuf[36]={0};        
-      
-      uint32_t TimeOnAir =0;
-      
-      Mode1 = SX1276GetMode();
-      if(Mode1 == LORA)
-      {
-            SX1276LoRaSetPayloadLength(36);
-            TimeOnAir = SX1276GetTimeOnAir();      
-            SX1276LoRaSetRxPacketTimeout(TimeOnAir+30);
-      }
-      if(Mode1 == FSK)
-      {
-            SX1276FskSetPayloadLength(36);                        
-      }                
-      
-      device[deviceId].masterID = MasterDataFlash[1].Masterid ;
-      device[deviceId].cmd = u8cmd ;
-      device[deviceId].mccode = u8mccode ;   
-      device[deviceId].slaveID = deviceId ; 
-      Creat_Packet_Request_SHA(device[deviceId].masterID,device[deviceId].cmd,device[deviceId].mccode,
-                           device[deviceId].slaveID , DATA_H , DATA_L , TxBuf);
-      SX1276SetTxPacket(TxBuf,sizeof(TxBuf));
-//      for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
-//      {
-//            printf("%02X ",TxBuf[test_cout]);
-//      }
-#endif
 
 }
 
 void Rf_Send_Feedback_SHA (void)
 {
-#if SABAN_CLIENT
       unsigned char TxBuf[36]={0};
       uint8_t test_cout = 0;      
       
@@ -731,13 +571,12 @@ void Rf_Send_Feedback_SHA (void)
       Creat_Packet_Request_SHA(device[SLAVE_ID].masterID,device[SLAVE_ID].cmd,device[SLAVE_ID].mccode,
                            device[SLAVE_ID].slaveID , DATA_H , DATA_L , TxBuf);
       SX1276SetTxPacket(TxBuf,sizeof(TxBuf));
-      
-//      for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
-//      {
-//            printf("%02X ",TxBuf[test_cout]);
-//      }
-#else
-#endif
+						
+			//for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
+			//{
+			//printf("%02X ",TxBuf[test_cout]);
+			//}
+
 }
 
 /*---------------------------------------------------------------------------------------------------------------------*/
@@ -771,12 +610,12 @@ uint8_t Creat_Packet_Request_AESSHA(unsigned char MasterID , unsigned char Commn
       // kiem tra gia tri ma he thong 
       if(MasterID >=16 || Commnad >=4 || MCCode >= 4)
       {
-//            printf(" SYSTERM CODE ERR !!! \n" );
+            //printf(" SYSTERM CODE ERR !!! \n" );
             err = 1 ;
       }
       else
       {
-//            printf(" SYSTERM CODE OK !!! " );
+            //printf(" SYSTERM CODE OK !!! " );
             // creat 1 byte ma he thong 
             system_code = (MasterID <<4) | (Commnad << 2) | MCCode ;
             // Creat packet data 
@@ -805,7 +644,7 @@ uint8_t Creat_Packet_Request_AESSHA(unsigned char MasterID , unsigned char Commn
             }           
             TimeStop = Timer3_GetTickMs();
             Timer3_ResetTickMs();
-//            printf(" PACKET CREAT DONE !!! [ %d ] us",TimeStop - TimeStart );
+            //printf(" PACKET CREAT DONE !!! [ %d ] us",TimeStop - TimeStart );
             err = 0;
       }
       return err ;      
@@ -844,7 +683,7 @@ uint8_t Decode_Packet_Receive_AESSHA (unsigned char mode , unsigned char * packe
       
       memcpy(packet, packet_src, 16);           
       
-//      printf(" \n Receive SHA :  !!! ");
+      //printf(" \n Receive SHA :  !!! ");
       for( i=0; i<32; i++ )
       {
           receive_crc[i] = packet_src[i+16] ;         
@@ -879,14 +718,13 @@ uint8_t Decode_Packet_Receive_AESSHA (unsigned char mode , unsigned char * packe
       if(0 != memcmp((char*) receive_crc, (char*) sha256Hash.bytes, 32) )
       {
             err = 0;
-//            printf(" DECODE DATA ERR !!! ");
+            //printf(" DECODE DATA ERR !!! ");
       }
       else
       {           
             Timer3_GetTickMs();
             Timer3_ResetTickMs();
-//            printf(" DECODE DATA SLAVE [%2X] OK !!! [%d] us " , SlaveID , TimeStop - TimeStart);   
-#if SABAN_CLIENT                                              
+            //printf(" DECODE DATA SLAVE [%2X] OK !!! [%d] us " , SlaveID , TimeStop - TimeStart);                                              
 						if( MCCode == MCCODE_REQUEST_FEEDBACK  && SlaveID ==  ClientDataFlash[1].SlaveID  &&  MasterID == ((ClientDataFlash[1].System_code >> 4)&0x0F) )             // decode for slave
 						{
 									device[SlaveID].masterID = MasterID ; 
@@ -895,71 +733,25 @@ uint8_t Decode_Packet_Receive_AESSHA (unsigned char mode , unsigned char * packe
 									device[SlaveID].slaveID = SlaveID ;
 									device[SlaveID].data_h = u16cmd ;
 									device[SlaveID].data_l = Data ;
-//                              printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
-//                              printf(" Command : %2X " , device[SLAVE_ID].cmd);
-//                              printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
-//                              printf(" Data : %2X " , device[SLAVE_ID].data_h);
-//                              printf("%2X " , device[SLAVE_ID].data_l);
+									//printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
+									//printf(" Command : %2X " , device[SLAVE_ID].cmd);
+									//printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
+									//printf(" Data : %2X " , device[SLAVE_ID].data_h);
+									//printf("%2X " , device[SLAVE_ID].data_l);
 									Update_DataFlash_From_Master();
 									err= 1 ;
-						}
-#else                                                             
-						if(MCCode == MCCODE_SLAVE_FEEDBACK &&  MasterID == MasterDataFlash[1].Masterid )               // decode for master 
-						{
-									device[SlaveID].masterID = MasterID ; 
-									device[SlaveID].cmd = Commnad ;
-									device[SlaveID].mccode = MCCode ;
-									device[SlaveID].slaveID = SlaveID ;
-									device[SlaveID].data_h = u16cmd ;
-									device[SlaveID].data_l = Data ;
-//                              printf(" SlaveID : %2X " , device[SlaveID].slaveID);
-//                              printf(" Command : %2X " , device[SlaveID].cmd);
-//                              printf(" MCcode : %2X " , device[SlaveID].mccode);
-//                              printf(" Data : %2X " , device[SlaveID].data_h);
-//                              printf("%2X " , device[SlaveID].data_l);
-									err= 1 ;
-						}
-#endif                    
+						}               
       }           
       return err ;                
 }
 
 void Rf_Send_Request_AESSHA (uint8_t deviceId , uint8_t u8cmd , uint8_t u8mccode)
 {    
-#if SABAN_CLIENT
-#else  
-      unsigned char TxBuf[48]={0};
-      uint32_t TimeOnAir =0;
-      
-      Mode1 = SX1276GetMode();
-      if(Mode1 == LORA)
-      {
-            SX1276LoRaSetPayloadLength(48);
-            TimeOnAir = SX1276GetTimeOnAir();      
-            SX1276LoRaSetRxPacketTimeout(TimeOnAir+60);
-      }
-      if(Mode1 == FSK)
-      {
-            SX1276FskSetPayloadLength(48);                        
-      }       
-      
-      device[deviceId].masterID = MasterDataFlash[1].Masterid ;
-      device[deviceId].cmd = u8cmd ;
-      device[deviceId].mccode = u8mccode ;   
-      device[deviceId].slaveID = deviceId ; 
-      Creat_Packet_Request_AESSHA(device[deviceId].masterID,device[deviceId].cmd,device[deviceId].mccode,
-                           device[deviceId].slaveID , DATA_H , DATA_L , TxBuf);
-      SX1276SetTxPacket(TxBuf,sizeof(TxBuf));
-//      for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
-//      {
-//            printf("%02X ",TxBuf[test_cout]);
-//      }
-#endif
+
 }
 
 void Rf_Send_Feedback_AESSHA (void)
 {
-	#if SABAN_CLIENT
       unsigned char TxBuf[48]={0};
       uint8_t test_cout = 0;
       uint32_t TimeOnAir =0;
@@ -984,12 +776,10 @@ void Rf_Send_Feedback_AESSHA (void)
                            device[SLAVE_ID].slaveID , DATA_H , DATA_L , TxBuf);
       SX1276SetTxPacket(TxBuf,sizeof(TxBuf));
       
-//      for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
-//      {
-//            printf("%02X ",TxBuf[test_cout]);
-//      }
-#else
-#endif
+			//for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
+			//{
+			//printf("%02X ",TxBuf[test_cout]);
+			//}
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -1039,7 +829,6 @@ void Saban_Mode_RS485 (uint8_t ClientID , uint8_t ModbusMaterID , uint8_t Data ,
 
 void Saban_Feedback_Mode_IOStandand(uint8_t security)
 {
-	#if SABAN_CLIENT
       DATA_H = 0; 
       DATA_L = 0 ;
       
@@ -1061,8 +850,6 @@ void Saban_Feedback_Mode_IOStandand(uint8_t security)
             case 3: Rf_Send_Feedback_AESSHA();
                   break ; 
       }          
-#else
-#endif
 }
 
 void Saban_Feedback_Mode_RS485(uint8_t rs485address , uint8_t rs485data , uint8_t security )
@@ -1084,51 +871,3 @@ void Saban_Feedback_Mode_RS485(uint8_t rs485address , uint8_t rs485data , uint8_
                   break ; 
       }   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

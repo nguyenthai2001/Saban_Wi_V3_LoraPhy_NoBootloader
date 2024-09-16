@@ -11,6 +11,8 @@
 ".\objects\gpio_driver.o"
 ".\objects\wdt_driver_irq.o"
 ".\objects\uart_driver_irq.o"
+".\objects\timer_driver_irq.o"
+".\objects\operation.o"
 ".\objects\descriptors.o"
 ".\objects\hid_transfer.o"
 ".\objects\rf_transfer.o"

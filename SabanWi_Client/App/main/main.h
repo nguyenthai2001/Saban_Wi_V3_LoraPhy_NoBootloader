@@ -38,19 +38,19 @@ extern volatile uint32_t g_u32WDTINTCounts;
 extern volatile uint32_t g_u8IsWDTWakeupINT ;
 
 typedef struct
-{ 
-		uint8_t masterID;
-		uint8_t cmd;
-		uint8_t mccode ;
-		uint8_t slaveID;
-		uint8_t data_h;                         
-		uint8_t data_l;                        
-		uint8_t input_type ;                   // 0: NORMAL 1: FLASH 
-		uint16_t crcResult;
-	  uint8_t Modbus_test ;                  // 0: Normal 1: Test Modbus Slave 02 : Test Modbus Master 
-	  uint8_t Modbus_mode ;                  // 1: Master 0: Slave
-	  uint16_t Modbus_value[16] ;
-		int err ;
+{
+    uint8_t masterID;
+    uint8_t cmd;
+    uint8_t mccode ;
+    uint8_t slaveID;
+    uint8_t data_h;
+    uint8_t data_l;
+    uint8_t input_type ;                   // 0: NORMAL 1: FLASH
+    uint16_t crcResult;
+    uint8_t Modbus_test ;                  // 0: Normal 1: Test Modbus Slave 02 : Test Modbus Master
+    uint8_t Modbus_mode ;                  // 1: Master 0: Slave
+    uint16_t Modbus_value[16] ;
+    int err ;
 } Saban;
 
 extern Saban device[200] ;
