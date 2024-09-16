@@ -7,7 +7,7 @@
  */
 extern unsigned char SX1276Regs[0x70];
 
-uint8_t SX1276SetMode(uint8_t mode );
+uint8_t SX1276SetMode(uint8_t mode);
 
 uint8_t SX1276GetMode(void);
 

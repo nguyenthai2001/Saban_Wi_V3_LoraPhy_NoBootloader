@@ -7,7 +7,7 @@
  * SX1272 and SX1276 General parameters definition
  */
 #define LORA 1
-#define FSK 0 
+#define FSK 0
 
 /*!
  * RF process function return codes
@@ -30,7 +30,7 @@ typedef enum
 /*!
  * Radio driver structure defining the different function pointers
  */
-typedef struct 
+typedef struct
 {
     void (*Init)(void);
     void (*Reset)(void);

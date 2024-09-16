@@ -24,7 +24,7 @@ typedef struct sLoRaSettings
     unsigned long int TxPacketTimeout;
     unsigned long int RxPacketTimeout;
     unsigned char PayloadLength;
-    unsigned char PreambleLength;               
+    unsigned char PreambleLength;
 } tLoRaSettings;
 
 /*!
@@ -48,7 +48,7 @@ typedef enum
     RFLR_STATE_TX_RUNNING,      //6
     RFLR_STATE_TX_DONE,         //7
     RFLR_STATE_TX_TIMEOUT,      //8
-    RFLR_STATE_CAD_INIT,        //9 
+    RFLR_STATE_CAD_INIT,        //9
     RFLR_STATE_CAD_RUNNING,     //10
 } tRFLRStates;
 
@@ -791,7 +791,7 @@ typedef struct sSX1276LR
 
 extern tSX1276LR *SX1276LR;
 
-uint8_t SX1276LoRaGetVersion (void);
+uint8_t SX1276LoRaGetVersion(void);
 
 /*!
  * \brief Initializes the SX1276
@@ -906,12 +906,12 @@ void SX1276LoRaSetRFState(unsigned char state);
  */
 unsigned long int SX1276LoRaProcess(void);
 
-static uint32_t SX1276GetLoRaTimeOnAirNumerator( uint32_t bandwidth,
-                              uint32_t datarate, uint8_t coderate,
-                              uint16_t preambleLen, uint8_t payloadLen,
-                              uint8_t crcOn );
+static uint32_t SX1276GetLoRaTimeOnAirNumerator(uint32_t bandwidth,
+        uint32_t datarate, uint8_t coderate,
+        uint16_t preambleLen, uint8_t payloadLen,
+        uint8_t crcOn);
 uint32_t SX1276GetTimeOnAir(void);
-static uint32_t SX1276GetLoRaBandwidthInHz( uint32_t bw );
+static uint32_t SX1276GetLoRaBandwidthInHz(uint32_t bw);
 
 uint8_t SX1276CheckLoRaConfigError(void);
 
