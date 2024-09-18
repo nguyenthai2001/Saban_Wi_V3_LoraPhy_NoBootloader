@@ -9,7 +9,16 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include <stdlib.h>  // C?n d? dùng malloc và free
 /* USER CODE BEGIN Includes */
+
+typedef struct {
+    uint8_t cmd;               // 1 byte for command
+    uint8_t addrHMI;       // 1 byte for total device 
+    uint8_t HMIData[60];   // Array address slave hmi 
+    uint16_t crc;              // 2 bytes for CRC
+} RF_HMI_Package_Send;
+extern RF_HMI_Package_Send hmi_pkg ;  
 
 /* USER CODE END Includes */
 
@@ -29,6 +38,7 @@ extern "C" {
 #define CMD_READ_SYS_STATUS			  0x09	
 #define CMD_WRITE_MODBUS_CONFIG   0x0A
 #define CMD_TEST_MODBUS           0x0B
+#define CMD_GET_HMI_STATUS        0x0C 
 
 int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen);
 void SendBackTestModbus (uint8_t * result );

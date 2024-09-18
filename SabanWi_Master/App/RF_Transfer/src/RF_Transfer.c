@@ -44,12 +44,12 @@ uint8_t Creat_Packet_Request_CRC(unsigned char MasterID, unsigned char Commnad, 
     // kiem tra gia tri ma he thong
     if (MasterID >= 16 || Commnad >= 4 || MCCode >= 4)
     {
-//            printf(" SYSTERM CODE ERR !!! \n" );
+        //printf(" SYSTERM CODE ERR !!! \n" );
         err = 1 ;
     }
     else
     {
-//            printf(" SYSTERM CODE OK !!! " );
+        //printf(" SYSTERM CODE OK !!! " );
         // creat 1 byte ma he thong
         system_code = (MasterID << 4) | (Commnad << 2) | MCCode ;
         // Creat packet data
@@ -73,7 +73,7 @@ uint8_t Creat_Packet_Request_CRC(unsigned char MasterID, unsigned char Commnad, 
         TimeStop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
 
-//            printf(" PACKET CREAT DONE !!! [%d] us" , TimeStop - TimeStart);
+        //printf(" PACKET CREAT DONE !!! [%d] us" , TimeStop - TimeStart);
         err = 0;
     }
     return err ;
@@ -130,7 +130,7 @@ uint8_t Decode_Packet_Receive_CRC(uint8_t mode, unsigned char * packet_src)
     if (calculated_crc != receive_crc)
     {
         err = 0;
-//            printf(" DECODE DATA ERR !!! ");
+        //printf(" DECODE DATA ERR !!! ");
     }
     else
     {
@@ -149,11 +149,11 @@ uint8_t Decode_Packet_Receive_CRC(uint8_t mode, unsigned char * packet_src)
             device[SLAVE_ID].data_h = u16cmd ;
             device[SLAVE_ID].data_l = Data ;
             device[SLAVE_ID].crcResult = receive_crc ;
-//                        printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
-//                        printf(" Command : %2X " , device[SLAVE_ID].cmd);
-//                        printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
-//                        printf(" Data : %2X " , device[SLAVE_ID].data_h);
-//                                              printf("%2X " , device[SLAVE_ID].data_l);
+            //printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
+            //printf(" Command : %2X " , device[SLAVE_ID].cmd);
+            //printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
+            //printf(" Data : %2X " , device[SLAVE_ID].data_h);
+            //printf("%2X " , device[SLAVE_ID].data_l);
             Update_DataFlash_From_Master();
             err = 1 ;
         }
@@ -168,11 +168,11 @@ uint8_t Decode_Packet_Receive_CRC(uint8_t mode, unsigned char * packet_src)
             device[SlaveID].data_h = u16cmd ;
             device[SlaveID].data_l = Data ;
             device[SlaveID].crcResult = receive_crc ;
-//                        printf(" SlaveID : %2X " , device[SlaveID].slaveID);
-//                        printf(" Command : %2X " , device[SlaveID].cmd);
-//                        printf(" MCcode : %2X " , device[SlaveID].mccode);
-//                        printf(" Data : %2X " , device[SlaveID].data_h);
-//                        printf("%2X " , device[SlaveID].data_l);
+            //printf(" SlaveID : %2X " , device[SlaveID].slaveID);
+            //printf(" Command : %2X " , device[SlaveID].cmd);
+            //printf(" MCcode : %2X " , device[SlaveID].mccode);
+            //printf(" Data : %2X " , device[SlaveID].data_h);
+            //printf("%2X " , device[SlaveID].data_l);
             err = 1 ;
         }
 #endif
@@ -282,12 +282,12 @@ uint8_t Creat_Packet_Request_AESCRC(unsigned char MasterID, unsigned char Commna
     // kiem tra gia tri ma he thong
     if (MasterID >= 16 || Commnad >= 4 || MCCode >= 4)
     {
-//            printf(" SYSTERM CODE ERR !!! \n" );
+        //printf(" SYSTERM CODE ERR !!! \n" );
         err = 1 ;
     }
     else
     {
-//            printf(" SYSTERM CODE OK !!! " );
+        //printf(" SYSTERM CODE OK !!! " );
         // creat 1 byte ma he thong
         system_code = (MasterID << 4) | (Commnad << 2) | MCCode ;
         // Creat packet data
@@ -316,7 +316,7 @@ uint8_t Creat_Packet_Request_AESCRC(unsigned char MasterID, unsigned char Commna
 
         TimeStop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
-//            printf(" PACKET CREAT DONE !!! [%d] us" , TimeStop - TimeStart);
+        //printf(" PACKET CREAT DONE !!! [%d] us" , TimeStop - TimeStart);
         err = 0;
     }
 
@@ -390,13 +390,13 @@ uint8_t Decode_Packet_Receive_AESCRC(unsigned char mode, unsigned char * packet_
     if (calculated_crc != receive_crc)
     {
         err = 0;
-//            printf(" DECODE DATA ERR !!! ");
+        //printf(" DECODE DATA ERR !!! ");
     }
     else
     {
         TimeStop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
-//            printf(" DECODE DATA SLAVE [%2X] OK !!! [%d] us " , SlaveID ,TimeStop - TimeStart);
+        //printf(" DECODE DATA SLAVE [%2X] OK !!! [%d] us " , SlaveID ,TimeStop - TimeStart);
 
 #if SABAN_CLIENT
         masteridcurrent = (ClientDataFlash[1].System_code >> 4) & 0x0F ;
@@ -410,11 +410,11 @@ uint8_t Decode_Packet_Receive_AESCRC(unsigned char mode, unsigned char * packet_
             device[SLAVE_ID].data_h = u16cmd ;
             device[SLAVE_ID].data_l = Data ;
             device[SLAVE_ID].crcResult = receive_crc ;
-//                              printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
-//                              printf(" Command : %2X " , device[SLAVE_ID].cmd);
-//                              printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
-//                              printf(" Data : %2X " , device[SLAVE_ID].data_h);
-//                              printf("%2X " , device[SLAVE_ID].data_l);
+            //printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
+            //printf(" Command : %2X " , device[SLAVE_ID].cmd);
+            //printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
+            //printf(" Data : %2X " , device[SLAVE_ID].data_h);
+            //printf("%2X " , device[SLAVE_ID].data_l);
             Update_DataFlash_From_Master();
             err = 1 ;
         }
@@ -533,12 +533,12 @@ uint8_t Creat_Packet_Request_SHA(unsigned char MasterID, unsigned char Commnad, 
     // kiem tra gia tri ma he thong
     if (MasterID >= 16 || Commnad >= 4 || MCCode >= 4)
     {
-//            printf(" SYSTERM CODE ERR !!! \n" );
+        //printf(" SYSTERM CODE ERR !!! \n" );
         err = 1 ;
     }
     else
     {
-//            printf(" SYSTERM CODE OK !!! " );
+        //printf(" SYSTERM CODE OK !!! " );
         // creat 1 byte ma he thong
         system_code = (MasterID << 4) | (Commnad << 2) | MCCode ;
         // Creat packet data
@@ -562,7 +562,7 @@ uint8_t Creat_Packet_Request_SHA(unsigned char MasterID, unsigned char Commnad, 
 
         TimeStop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
-//            printf(" PACKET CREAT SHA DONE !!! [%d] us" , TimeStop - TimeStart);
+        //printf(" PACKET CREAT SHA DONE !!! [%d] us" , TimeStop - TimeStart);
         err = 0;
     }
     return err ;
@@ -625,13 +625,13 @@ uint8_t Decode_Packet_Receive_SHA(unsigned char mode, unsigned char * packet_src
     if (0 != memcmp((char *) receive_sha, (char *) sha256Hash.bytes, 32))
     {
         err = 0;
-//            printf(" DECODE DATA SHA ERR !!! ");
+        //printf(" DECODE DATA SHA ERR !!! ");
     }
     else
     {
         TimeStop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
-//            printf(" DECODE DATA SHA SLAVE [%2X] OK !!! [%d] us" , SlaveID , TimeStop - TimeStart);
+        //printf(" DECODE DATA SHA SLAVE [%2X] OK !!! [%d] us" , SlaveID , TimeStop - TimeStart);
 
 #if SABAN_CLIENT
         masteridcurrent = (ClientDataFlash[1].System_code >> 4) & 0x0F ;
@@ -644,11 +644,11 @@ uint8_t Decode_Packet_Receive_SHA(unsigned char mode, unsigned char * packet_src
             device[SLAVE_ID].slaveID = SlaveID ;
             device[SLAVE_ID].data_h = u16cmd ;
             device[SLAVE_ID].data_l = Data ;
-//                              printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
-//                              printf(" Command : %2X " , device[SLAVE_ID].cmd);
-//                              printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
-//                              printf(" Data : %2X " , device[SLAVE_ID].data_h);
-//                              printf(" \n Data  : %2X " , device[SLAVE_ID].data_l);
+            //printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
+            //printf(" Command : %2X " , device[SLAVE_ID].cmd);
+            //printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
+            //printf(" Data : %2X " , device[SLAVE_ID].data_h);
+            //printf(" \n Data  : %2X " , device[SLAVE_ID].data_l);
             Update_DataFlash_From_Master();
             err = 1 ;
         }
@@ -661,11 +661,11 @@ uint8_t Decode_Packet_Receive_SHA(unsigned char mode, unsigned char * packet_src
             device[SlaveID].slaveID = SlaveID ;
             device[SlaveID].data_h = u16cmd ;
             device[SlaveID].data_l = Data ;
-//                              printf(" SlaveID : %2X " , device[SlaveID].slaveID);
-//                              printf(" Command : %2X " , device[SlaveID].cmd);
-//                              printf(" MCcode : %2X " , device[SlaveID].mccode);
-//                              printf(" Data : %2X " , device[SlaveID].data_h);
-//                              printf("%2X " , device[SlaveID].data_l);
+            //printf(" SlaveID : %2X " , device[SlaveID].slaveID);
+            //printf(" Command : %2X " , device[SlaveID].cmd);
+            //printf(" MCcode : %2X " , device[SlaveID].mccode);
+            //printf(" Data : %2X " , device[SlaveID].data_h);
+            //printf("%2X " , device[SlaveID].data_l);
             err = 1 ;
         }
 #endif
@@ -777,12 +777,12 @@ uint8_t Creat_Packet_Request_AESSHA(unsigned char MasterID, unsigned char Commna
     // kiem tra gia tri ma he thong
     if (MasterID >= 16 || Commnad >= 4 || MCCode >= 4)
     {
-//            printf(" SYSTERM CODE ERR !!! \n" );
+        //printf(" SYSTERM CODE ERR !!! \n" );
         err = 1 ;
     }
     else
     {
-//            printf(" SYSTERM CODE OK !!! " );
+        //printf(" SYSTERM CODE OK !!! " );
         // creat 1 byte ma he thong
         system_code = (MasterID << 4) | (Commnad << 2) | MCCode ;
         // Creat packet data
@@ -811,7 +811,7 @@ uint8_t Creat_Packet_Request_AESSHA(unsigned char MasterID, unsigned char Commna
         }
         TimeStop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
-//            printf(" PACKET CREAT DONE !!! [ %d ] us",TimeStop - TimeStart );
+        //printf(" PACKET CREAT DONE !!! [ %d ] us",TimeStop - TimeStart );
         err = 0;
     }
     return err ;
@@ -852,7 +852,7 @@ uint8_t Decode_Packet_Receive_AESSHA(unsigned char mode, unsigned char * packet_
 
     memcpy(packet, packet_src, 16);
 
-//      printf(" \n Receive SHA :  !!! ");
+    //printf(" \n Receive SHA :  !!! ");
     for (i = 0; i < 32; i++)
     {
         receive_crc[i] = packet_src[i + 16] ;
@@ -887,13 +887,13 @@ uint8_t Decode_Packet_Receive_AESSHA(unsigned char mode, unsigned char * packet_
     if (0 != memcmp((char *) receive_crc, (char *) sha256Hash.bytes, 32))
     {
         err = 0;
-//            printf(" DECODE DATA ERR !!! ");
+        //printf(" DECODE DATA ERR !!! ");
     }
     else
     {
         Timer3_GetTickMs();
         Timer3_ResetTickMs();
-//            printf(" DECODE DATA SLAVE [%2X] OK !!! [%d] us " , SlaveID , TimeStop - TimeStart);
+        //printf(" DECODE DATA SLAVE [%2X] OK !!! [%d] us " , SlaveID , TimeStop - TimeStart);
 #if SABAN_CLIENT
         if (MCCode == MCCODE_REQUEST_FEEDBACK  && SlaveID ==  ClientDataFlash[1].SlaveID  &&  MasterID == ((ClientDataFlash[1].System_code >> 4) & 0x0F))            // decode for slave
         {
@@ -903,11 +903,11 @@ uint8_t Decode_Packet_Receive_AESSHA(unsigned char mode, unsigned char * packet_
             device[SlaveID].slaveID = SlaveID ;
             device[SlaveID].data_h = u16cmd ;
             device[SlaveID].data_l = Data ;
-//                              printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
-//                              printf(" Command : %2X " , device[SLAVE_ID].cmd);
-//                              printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
-//                              printf(" Data : %2X " , device[SLAVE_ID].data_h);
-//                              printf("%2X " , device[SLAVE_ID].data_l);
+            //printf(" MasterID : %2X " , device[SLAVE_ID].masterID);
+            //printf(" Command : %2X " , device[SLAVE_ID].cmd);
+            //printf(" MCcode : %2X " , device[SLAVE_ID].mccode);
+            //printf(" Data : %2X " , device[SLAVE_ID].data_h);
+            //printf("%2X " , device[SLAVE_ID].data_l);
             Update_DataFlash_From_Master();
             err = 1 ;
         }
@@ -920,11 +920,11 @@ uint8_t Decode_Packet_Receive_AESSHA(unsigned char mode, unsigned char * packet_
             device[SlaveID].slaveID = SlaveID ;
             device[SlaveID].data_h = u16cmd ;
             device[SlaveID].data_l = Data ;
-//                              printf(" SlaveID : %2X " , device[SlaveID].slaveID);
-//                              printf(" Command : %2X " , device[SlaveID].cmd);
-//                              printf(" MCcode : %2X " , device[SlaveID].mccode);
-//                              printf(" Data : %2X " , device[SlaveID].data_h);
-//                              printf("%2X " , device[SlaveID].data_l);
+            //printf(" SlaveID : %2X " , device[SlaveID].slaveID);
+            //printf(" Command : %2X " , device[SlaveID].cmd);
+            //printf(" MCcode : %2X " , device[SlaveID].mccode);
+            //printf(" Data : %2X " , device[SlaveID].data_h);
+            //printf("%2X " , device[SlaveID].data_l);
             err = 1 ;
         }
 #endif
@@ -1108,51 +1108,3 @@ void Saban_Feedback_Mode_RS485(uint8_t rs485address, uint8_t rs485data, uint8_t 
         break ;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
