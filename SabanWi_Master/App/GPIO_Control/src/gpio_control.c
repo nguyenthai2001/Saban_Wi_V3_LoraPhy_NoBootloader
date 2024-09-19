@@ -20,8 +20,9 @@ void Led_Display(uint16_t pos)
 {
     if (device[pos].cmd == CMD_IO_STANDAND)
     {
-        combinedValue = ((uint16_t)device[pos].data_h << 8) | device[pos].data_l;
-        switch (pos)
+        combinedValue = ((uint16_t)device[pos].data_h << 8) | device[pos].data_l;			  
+		//	log_message("pos : [%d] , data : [%2x]" , pos , combinedValue);
+  			switch (pos)
         {
         case 1:
             if (combinedValue == DISCONNECT)                     LED1 = 1;
@@ -50,9 +51,18 @@ void Led_Display(uint16_t pos)
             else if (combinedValue != 0x5555 && combinedValue != DISCONNECT)  LED5 = ~LED5;
             break;
         case 6:
-            if (combinedValue == DISCONNECT)                     LED6 = 1;
-            else if (combinedValue == 0x5555 && combinedValue != DISCONNECT)  LED6 = 0;
-            else if (combinedValue != 0x5555 && combinedValue != DISCONNECT)  LED6 = ~LED6;
+            if (combinedValue == DISCONNECT) 
+						{							
+							LED6 = 1;
+						}
+            else if (combinedValue == 0x5555 && combinedValue != DISCONNECT) 
+						{	
+							 LED6 = 0;
+						}
+            else if (combinedValue != 0x5555 && combinedValue != DISCONNECT)  
+						{
+							  LED6 = ~LED6;
+						}
             break;
         case 7:
             if (combinedValue == DISCONNECT)                     LED7 = 1;

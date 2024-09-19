@@ -324,7 +324,7 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>0</wLevel>
+            <wLevel>1</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Drivers\CMSIS\Include;..\..\Drivers\Device\Nuvoton\NUC200Series\Include;..\..\Drivers\StdDriver\inc;..\..\App;..\..\Core\inc;..\..\App\HID_Transfer\inc;..\..\Middlewares\LoRa_Phy\App;..\..\Middlewares\LoRa_Phy\Target;..\..\Security\inc;..\..\App\RF_Transfer\inc;..\..\App\Operation\inc;..\..\App\GPIO_Control\inc;..\..\Middlewares\Modbus_Master\App;..\..\Middlewares\Modbus_Master\Target;..\..\Middlewares\Modbus_Slave\App;..\..\Middlewares\Modbus_Slave\Target\modbus_src\include;..\..\Middlewares\Modbus_Slave\Target\modbus_src\rtu;..\..\Middlewares\Modbus_Slave\Target\port_src;..\..\App\main;..\..\Middlewares\DataFlash\inc;..\..\Middlewares\Usb_Hid\inc</IncludePath>
+              <IncludePath>..\..\Drivers\CMSIS\Include;..\..\Drivers\Device\Nuvoton\NUC200Series\Include;..\..\Drivers\StdDriver\inc;..\..\App;..\..\Core\inc;..\..\App\HID_Transfer\inc;..\..\Middlewares\LoRa_Phy\App;..\..\Middlewares\LoRa_Phy\Target;..\..\Security\inc;..\..\App\RF_Transfer\inc;..\..\App\Operation\inc;..\..\App\GPIO_Control\inc;..\..\Middlewares\Modbus_Master\App;..\..\Middlewares\Modbus_Master\Target;..\..\Middlewares\Modbus_Slave\App;..\..\Middlewares\Modbus_Slave\Target\modbus_src\include;..\..\Middlewares\Modbus_Slave\Target\modbus_src\rtu;..\..\Middlewares\Modbus_Slave\Target\port_src;..\..\App\main;..\..\Middlewares\DataFlash\inc;..\..\Middlewares\Usb_Hid\inc;..\..\Uitlities\Log</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -784,6 +784,16 @@
               <FileName>porttimer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Middlewares\Modbus_Slave\Target\port_src\porttimer.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Ultiliti/log</GroupName>
+          <Files>
+            <File>
+              <FileName>log.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Uitlities\Log\log.c</FilePath>
             </File>
           </Files>
         </Group>

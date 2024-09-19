@@ -147,9 +147,25 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
+          <LineNumber>208</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\..\App\Operation\src\operation.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
           <LineNumber>261</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>9788</Address>
+          <Address>9328</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -161,27 +177,11 @@
           <Expression>\\SabanWi_Client\../../Middlewares/Usb_Hid/src/usb_stack.c\261</Expression>
         </Bp>
         <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>296</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>8</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\Security\src\sha.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\SabanWi_Client\../../Security/src/sha.c\296</Expression>
-        </Bp>
-        <Bp>
           <Number>2</Number>
           <Type>0</Type>
           <LineNumber>295</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>24360</Address>
+          <Address>23752</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -197,7 +197,7 @@
           <Type>0</Type>
           <LineNumber>212</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>24580</Address>
+          <Address>23972</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -207,6 +207,22 @@
           <Filename>..\..\Middlewares\DataFlash\src\DataFlash_stack.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\SabanWi_Client\../../Middlewares/DataFlash/src/DataFlash_stack.c\212</Expression>
+        </Bp>
+        <Bp>
+          <Number>4</Number>
+          <Type>0</Type>
+          <LineNumber>165</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\..\App\Operation\src\operation.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -407,7 +423,7 @@
 
   <Group>
     <GroupName>App/User/Core/driver_irq</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -471,7 +487,7 @@
 
   <Group>
     <GroupName>App/User/HID_Transfer</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -523,7 +539,7 @@
 
   <Group>
     <GroupName>App/User/GPIO_Control</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -691,7 +707,7 @@
 
   <Group>
     <GroupName>Middleware/USB_Stack</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -711,7 +727,7 @@
 
   <Group>
     <GroupName>Middleware/DataFlash_Stack</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -731,7 +747,7 @@
 
   <Group>
     <GroupName>Middleware/Lora_Phy/App</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -787,7 +803,7 @@
 
   <Group>
     <GroupName>Middleware/Lora_Phy/Target</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -831,7 +847,7 @@
 
   <Group>
     <GroupName>Middleware/Modbus_Master/App</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -895,7 +911,7 @@
 
   <Group>
     <GroupName>Middleware/Modbus_Slave/App</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1152,6 +1168,26 @@
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\Security\src\sha.c</PathWithFileName>
       <FilenameWithoutPath>sha.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+  </Group>
+
+  <Group>
+    <GroupName>Ultility/log</GroupName>
+    <tvExp>0</tvExp>
+    <tvExpOptDlg>0</tvExpOptDlg>
+    <cbSel>0</cbSel>
+    <RteFlg>0</RteFlg>
+    <File>
+      <GroupNumber>20</GroupNumber>
+      <FileNumber>63</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\Uitlities\Log\log.c</PathWithFileName>
+      <FilenameWithoutPath>log.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

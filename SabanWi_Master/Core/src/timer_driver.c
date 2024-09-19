@@ -31,6 +31,7 @@ void SB_Timer1_Init(void)
     TIMER_SET_CMP_VALUE(TIMER1, 0x3E8);           // 1ms
     TIMER_EnableInt(TIMER1);
     tick_timer1 = 0 ;
+	TIMER_Start(TIMER1);
     NVIC_EnableIRQ(TMR1_IRQn);
 }
 

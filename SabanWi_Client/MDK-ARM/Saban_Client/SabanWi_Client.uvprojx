@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Drivers\CMSIS\Include;..\..\Drivers\Device\Nuvoton\NUC200Series\Include;..\..\Drivers\StdDriver\inc;..\..\Core\inc;..\..\App\HID_Transfer\inc;..\..\Middlewares\LoRa_Phy\App;..\..\Middlewares\LoRa_Phy\Target;..\..\Security\inc;..\..\Middlewares\Modbus_Master\App;..\..\Middlewares\Modbus_Master\Target;..\..\Middlewares\Modbus_Slave\App;..\..\Middlewares\Modbus_Slave\Target\modbus_src\include;..\..\Middlewares\Modbus_Slave\Target\modbus_src\rtu;..\..\Middlewares\Modbus_Slave\Target\port_src;..\..\App\RF_Transfer\inc;..\..\App\main;..\..\App\GPIO_Control\inc;..\..\Middlewares\Usb_Hid\inc;..\..\Middlewares\DataFlash\inc;..\..\App\Operation\inc</IncludePath>
+              <IncludePath>..\..\Drivers\CMSIS\Include;..\..\Drivers\Device\Nuvoton\NUC200Series\Include;..\..\Drivers\StdDriver\inc;..\..\Core\inc;..\..\App\HID_Transfer\inc;..\..\Middlewares\LoRa_Phy\App;..\..\Middlewares\LoRa_Phy\Target;..\..\Security\inc;..\..\Middlewares\Modbus_Master\App;..\..\Middlewares\Modbus_Master\Target;..\..\Middlewares\Modbus_Slave\App;..\..\Middlewares\Modbus_Slave\Target\modbus_src\include;..\..\Middlewares\Modbus_Slave\Target\modbus_src\rtu;..\..\Middlewares\Modbus_Slave\Target\port_src;..\..\App\RF_Transfer\inc;..\..\App\main;..\..\App\GPIO_Control\inc;..\..\Middlewares\Usb_Hid\inc;..\..\Middlewares\DataFlash\inc;..\..\App\Operation\inc;..\..\Uitlities\Log</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -784,6 +784,16 @@
               <FileName>sha.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Security\src\sha.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Ultility/log</GroupName>
+          <Files>
+            <File>
+              <FileName>log.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Uitlities\Log\log.c</FilePath>
             </File>
           </Files>
         </Group>

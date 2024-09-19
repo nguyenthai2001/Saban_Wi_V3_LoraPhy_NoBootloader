@@ -29,6 +29,7 @@ unsigned int timesendstop = 0 ;
 
 unsigned char RxBuf[64] = {0};
 double RSSIvalue = 0 ;
+unsigned char SNRvalue = 0 ;
 
 void Radio_Start(void)
 {
@@ -63,11 +64,11 @@ void Radio_Start(void)
         while (version != 0x12)
         {
             SX1276Init();
-            //printf("FSK Init Fail !!!!!\n");
+            log_message("FSK Init Fail !!!!!\n");
         }
-        //printf("FSK Init Done !!!!!\n");
+        log_message("FSK Init Done !!!!!\n");
         TimeOnAir = SX1276FskGetTimeOnAir();
-        //printf("FSK TimeOnAir : %d [ms] !!!!!\n", TimeOnAir);
+        log_message("FSK TimeOnAir : %d [ms] !!!!!\n", TimeOnAir);
         SX1276StartRx();
     }
     switch (ClientDataFlash[1].RfFrequence)
@@ -103,36 +104,34 @@ void OnClient(void)
 {
     unsigned char CheckID = 0;
     uint16_t result = 0 ;
-    //printf(" Rf_start  !!! \n");
+    //log_message(" Rf_start  !!! \n");
     switch (SX1276Process())
     {
     case RF_CHANNEL_ACTIVITY_DETECTED :
-        //printf("Channel Active !!! \n");
+        log_message("Channel Active !!! \n");
         break ;
 
     case RF_CHANNEL_EMPTY:
-        //printf("Channel Empty !!! \n");
+        log_message("Channel Empty !!! \n");
         SX1276StartCad();
         break ;
 
     case RF_RX_RUNNING:
         Timer3_SetTickMs();
         timercvstart = Timer3_GetTickMs();
-        //printf("RX Running !!! ");
+        log_message("RX Running !!! ");
         break;
 
     case RF_RX_TIMEOUT :
         timercvstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
-        //printf("RX Timeout !!! [%d] us\n " , timercvstop - timercvstart);
+        log_message("RX Timeout !!! [%d] us\n " , timercvstop - timercvstart);
         SX1276StartRx();
         break ;
 
     case RF_RX_DONE :
         timercvstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
-        //printf ("Rx Receive Done !!! [%d] us" , timercvstop - timercvstart);
-        RSSIvalue = SX1276GetPacketRssi();
         SX1276GetRxPacket(RxBuf, (unsigned short int)sizeof(RxBuf));
         if (RxBuf > 0)
         {
@@ -153,6 +152,9 @@ void OnClient(void)
             }
             if (CheckID == 1)
             {
+						    RSSIvalue = SX1276ReadRssi();
+           		  SNRvalue = SX1276GetPacketSnr();
+							  log_message ("Rx Receive Done !!! [%d] us , RSSI : [%.2f] , SNR : [%d] " , timercvstop - timercvstart , RSSIvalue,SNRvalue);        
                 if (device[ClientDataFlash[1].SlaveID].cmd == CMD_IO_STANDAND)
                 {
                     Saban_Output_Control();
@@ -175,18 +177,18 @@ void OnClient(void)
         }
         else
         {
-            //printf("RX RECEIVE ERR !!!!!\n");
+            log_message("RX RECEIVE ERR !!!!!\n");
         }
         break ;
 
     case RF_TX_RUNNING :
-        //printf ("Tx Running !!! ");
+        log_message ("Tx Running !!! ");
         break ;
 
     case RF_TX_DONE :
         timesendstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
-        //printf("Tx Done !!! [%d] us \n" , timesendstop - timesendstart);
+        log_message("Tx Done !!! [%d] us \n" , timesendstop - timesendstart);
         if (Mode == LORA)
         {
             SX1276StartCad();
@@ -219,6 +221,9 @@ void Modbus_Init(void)
         ModbusMaster_begin();
     }
 }
+
+
+
 
 void Modbus_Start(void)
 {

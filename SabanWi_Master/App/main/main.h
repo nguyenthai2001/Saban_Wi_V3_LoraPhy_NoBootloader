@@ -9,6 +9,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include <stdio.h>
 #include "NUC200Series.h"
+#include "log.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
