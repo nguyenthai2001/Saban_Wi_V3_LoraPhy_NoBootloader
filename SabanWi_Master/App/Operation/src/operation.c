@@ -198,14 +198,14 @@ void OnMaster(void)
         timeresvstart = Timer3_GetTickMs();
         break;
 
-    case RF_RX_TIMEOUT :			 
+    case RF_RX_TIMEOUT :
         timeresvstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();                                           // Client disconnect
         log_message(" RX Timeout !!![%d] us ", timeresvstop - timeresvstart);
-        device[device_pos -1 ].data_h = 0;
-        device[device_pos -1 ].data_l = 0;
-        device[device_pos -1 ].err ++ ;
-    //    TIMER_Start(TIMER1);
+        pkg_client_recv[DeviceDataFlash[device_pos - 1].ClientID ].data_h = 0;
+        pkg_client_recv[DeviceDataFlash[device_pos - 1].ClientID ].data_l = 0;
+        pkg_client_recv[DeviceDataFlash[device_pos - 1].ClientID ].err ++ ;
+
         if (Mode == LORA)
         {
             SX1276StartCad();
@@ -234,12 +234,12 @@ void OnMaster(void)
         timeresvstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();                                                  // Client Connected
         RSSIvalue = SX1276ReadRssi();
-		    SNRvalue = SX1276GetPacketSnr();
-		    log_message(" Rx Receive Done !!! [%d] us , Rssi : [%.2f] dBm , Snr : [%d] dB" , timeresvstop - timeresvstart, RSSIvalue ,SNRvalue);
+        SNRvalue = SX1276GetPacketSnr();
+        log_message(" Rx Receive Done !!! [%d] us , Rssi : [%.2f] dBm , Snr : [%d] dB", timeresvstop - timeresvstart, RSSIvalue, SNRvalue);
         SX1276GetRxPacket(RxBuf, (unsigned short int)sizeof(RxBuf));
         if (RxBuf > 0)
         {
-            device[device_pos - 1].err = 0 ;
+            pkg_client_recv[DeviceDataFlash[device_pos - 1].ClientID].err = 0 ;
             switch (MasterDataFlash[1].Security)
             {
             case 0:
@@ -258,10 +258,9 @@ void OnMaster(void)
             if (CheckID == 1)
             {
                 u8cmd = (DeviceDataFlash[ device_pos - 1].Systemcode & 0xF0) >> 4 ;
-                if (device[device_pos - 1].cmd == u8cmd)
+                if (pkg_client_recv[device_pos - 1].cmd == u8cmd)
                 {
                     log_message(" Client Connect !!!!! \n");
-                 //   TIMER_Start(TIMER1);
                 }
                 if (Mode == LORA)
                 {
@@ -299,7 +298,7 @@ void OnMaster(void)
 
     case RF_TX_RUNNING :
         device_pos ++ ;
-        if (device_pos > MasterDataFlash[1].DeviceNumber)
+        if (device_pos > MasterDataFlash[1].DeviceNumber + 1)
         {
             device_pos = 0 ;
         }
@@ -317,161 +316,6 @@ void OnMaster(void)
         break ;
     }
 }
-
-//void OnMaster(void)
-//{         
-//      unsigned char len ;   
-//      unsigned char CheckID = 0;  
-//            
-//      switch(SX1276Process())
-//      {
-//            case  RF_CHANNEL_ACTIVITY_DETECTED : 
-//                  printf("Channel Busy !!!! ");
-//                  break ;
-//            
-//            case  RF_CHANNEL_EMPTY: 
-//                  printf(" \nChannel empty !!!");  
-//                  printf(" Client ID : %2X ",DeviceDataFlash[device_pos].ClientID); 
-//                  switch((DeviceDataFlash[device_pos].Systemcode >> 4) &0x0F)
-//                  {
-//                        case 0 :
-//                              Saban_Mode_IO_Standand(DeviceDataFlash[device_pos].ClientID,NUMBER_PORT_INPUT,NUMBER_PORT_OUTPUT,DeviceDataFlash[device_pos].DataH,DeviceDataFlash[device_pos].DataL,MasterDataFlash[1].Security);
-//                              break ;
-//                        case 1 :
-//                              Saban_Mode_RS485(DeviceDataFlash[device_pos].ClientID , 0x01 ,0xFF , MasterDataFlash[1].Security);
-//                              break ;
-//                        case 2 : 
-//                              break ;
-//                        case 3 : 
-//                              break ;                        
-//                  }      
-//                  Timer3_SetTickMs();
-//                  timesendstart = Timer3_GetTickMs();                                                             
-//                  break ;
-//            
-//            case RF_RX_RUNNING:                                                
-//                  printf("RX Running !!! "); 
-//                  Timer3_SetTickMs();
-//                  timeresvstart = Timer3_GetTickMs();                                   
-//                  break;
-//            
-//            case RF_RX_TIMEOUT :        
-//                  timeresvstop = Timer3_GetTickMs();
-//                  Timer3_ResetTickMs();                                           // Client disconnect
-//                  printf("RX Timeout !!![%d] us ",timeresvstop-timeresvstart);               
-//                  device[device_pos - 1].data_h = 0;
-//                  device[device_pos - 1].data_l = 0;
-//                  device[device_pos - 1].err ++ ;     
-//                  
-//                  if(Mode == LORA)
-//                  {            
-//                        SX1276StartCad();
-//                  }
-//                  if(Mode == FSK)
-//                  {
-//                        switch((DeviceDataFlash[device_pos].Systemcode >> 4) &0x0F)
-//                        {
-//                              case 0 :
-//                                    Saban_Mode_IO_Standand(DeviceDataFlash[device_pos].ClientID,NUMBER_PORT_INPUT,NUMBER_PORT_OUTPUT,DeviceDataFlash[device_pos].DataH,DeviceDataFlash[device_pos].DataL,MasterDataFlash[1].Security);
-//                                    break ;
-//                              case 1 :
-//                                    Saban_Mode_RS485(DeviceDataFlash[device_pos].ClientID , 0x01 ,0xFF , MasterDataFlash[1].Security);
-//                                    break ;
-//                              case 2 : 
-//                                    break ;
-//                              case 3 : 
-//                                    break ;                        
-//                        }
-//                        Timer3_SetTickMs();
-//                        timesendstart = Timer3_GetTickMs();  
-//                  }                                                                                               
-//                  break ;
-//            
-//            case RF_RX_DONE :  
-//                  timeresvstop = Timer3_GetTickMs();
-//                  Timer3_ResetTickMs();                                                  // Client Connected 
-//                  printf ("Rx Receive Done !!! [%d] us " , timeresvstop-timeresvstart);
-//                  SX1276GetRxPacket(RxBuf,(unsigned short int)sizeof(RxBuf));
-//                  if(RxBuf > 0)
-//                  {
-//                        device[device_pos - 1].err = 0 ;                        
-//                        switch(MasterDataFlash[1].Security)
-//                        {
-//                              case 0: 
-//                                    CheckID = Decode_Packet_Receive_CRC(Master,RxBuf);
-//                                    break ;
-//                              case 1: 
-//                                    CheckID = Decode_Packet_Receive_AESCRC(Master,RxBuf);
-//                                    break ;
-//                              case 2: 
-//                                    CheckID = Decode_Packet_Receive_SHA(Master,RxBuf);
-//                                    break ;
-//                              case 3: 
-//                                    CheckID = Decode_Packet_Receive_AESSHA(Master,RxBuf);
-//                                    break ;
-//                        }
-//                        if(CheckID == 1 )
-//                        {
-//                              u8cmd = ( DeviceDataFlash[ device_pos-1].Systemcode&0xF0 )>> 4 ;
-//                              if(device[device_pos - 1].cmd == u8cmd)
-//                              {
-//                                    printf(" Client Connect !!!!! \n");
-////                                    TIMER_Start(TIMER2);
-//                              }                                  
-//                              if(Mode == LORA)
-//                              {
-//                                    SX1276StartCad();
-//                              }                              
-//                              if(Mode == FSK)
-//                              {
-//                                    switch((DeviceDataFlash[device_pos].Systemcode >> 4) &0x0F)
-//                                    {
-//                                          case 0 :
-//                                                Saban_Mode_IO_Standand(DeviceDataFlash[device_pos].ClientID,NUMBER_PORT_INPUT,NUMBER_PORT_OUTPUT,DeviceDataFlash[device_pos].DataH,DeviceDataFlash[device_pos].DataL,MasterDataFlash[1].Security);
-//                                                break ;
-//                                          case 1 :
-//                                                Saban_Mode_RS485(DeviceDataFlash[device_pos].ClientID , 0x01 ,0xFF , MasterDataFlash[1].Security);
-//                                                break ;
-//                                          case 2 : 
-//                                                break ;
-//                                          case 3 : 
-//                                                break ;                        
-//                                    }
-//                                    Timer3_SetTickMs();
-//                                    timesendstart = Timer3_GetTickMs();  
-//                              }                                                                                                                                                            
-//                        }
-//                        else
-//                        {
-//                               printf(" Rx RECEIVE NOT ME !!!!!");
-//                        }
-//                  }
-//                  else
-//                  {
-//                        printf("RX RECEIVE ERR !!!!!");
-//                  }                                                                          
-//                  break ; 
-//            
-//            case RF_TX_RUNNING :            
-//                  device_pos ++ ;
-//                  if(device_pos > MasterDataFlash[1].DeviceNumber)                     
-//                  {
-//                        device_pos = 0 ;
-//                  }
-//                  printf (" Tx Running !!! ");
-//                  break ;
-//                       
-//            case RF_TX_DONE :                  
-//                  timesendstop = Timer3_GetTickMs();
-//                  Timer3_ResetTickMs();                                
-//                  printf("Tx Done !!![%d]us ++" , timesendstop - timesendstart);  
-//                  SX1276StartRx();
-//                  break ;
-//                  
-//            default : 
-//                  break ; 
-//      }
-//}
 
 void Modbus_Init(void)
 {

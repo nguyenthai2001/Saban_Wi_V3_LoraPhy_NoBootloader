@@ -763,7 +763,7 @@ uint8_t Creat_Packet_Request_AESSHA(unsigned char MasterID, unsigned char Commna
         }
         TimeStop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
-        // log_message(" PACKET CREAT DONE !!! [ %d ] us", TimeStop - TimeStart);
+       // log_message(" PACKET CREAT DONE !!! [ %d ] us", TimeStop - TimeStart);
         err = 0;
     }
     return err ;
@@ -867,19 +867,19 @@ uint8_t Decode_Packet_Receive_AESSHA(unsigned char mode, unsigned char * packet_
         if (MCCode == MCCODE_SLAVE_FEEDBACK &&  MasterID == MasterDataFlash[1].Masterid)               // decode for master
         {
             //Save_Receive_Data_RF_Transfer(pkg_client_recv, MasterID, Commnad, MCCode, SlaveID, u16cmd, Data, (uint16_t)receive_crc);
-            pkg_client_recv[SlaveID].masterid = MasterID ;
-            pkg_client_recv[SlaveID].cmd = Commnad ;
-            pkg_client_recv[SlaveID].mccode = MCCode ;
-            pkg_client_recv[SlaveID].slaveid = SlaveID ;
-            pkg_client_recv[SlaveID].data_h = u16cmd ;
-            pkg_client_recv[SlaveID].data_l = Data ;
-            pkg_client_recv[SlaveID].crc_result = (uint16_t) receive_crc ;
+					  pkg_client_recv[SlaveID].masterid = MasterID ;
+    pkg_client_recv[SlaveID].cmd = Commnad ;
+    pkg_client_recv[SlaveID].mccode = MCCode ;
+    pkg_client_recv[SlaveID].slaveid = SlaveID ;
+    pkg_client_recv[SlaveID].data_h = u16cmd ;
+    pkg_client_recv[SlaveID].data_l = Data ;
+    pkg_client_recv[SlaveID].crc_result = (uint16_t) receive_crc ;
 
-            printf(" SlaveID : %2X ", pkg_client_recv[SlaveID].slaveid);
-            printf(" Command : %2X ", pkg_client_recv[SlaveID].cmd);
-            printf(" MCcode : %2X ", pkg_client_recv[SlaveID].mccode);
-            printf(" Data : %2X ", pkg_client_recv[SlaveID].data_h);
-            printf("%2X ", pkg_client_recv[SlaveID].data_l);
+    printf(" SlaveID : %2X ", pkg_client_recv[SlaveID].slaveid);
+    printf(" Command : %2X ", pkg_client_recv[SlaveID].cmd);
+    printf(" MCcode : %2X ", pkg_client_recv[SlaveID].mccode);
+    printf(" Data : %2X ", pkg_client_recv[SlaveID].data_h);
+    printf("%2X ", pkg_client_recv[SlaveID].data_l);
             err = 1 ;
         }
 #endif

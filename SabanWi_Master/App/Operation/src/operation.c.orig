@@ -29,6 +29,7 @@ unsigned int timeresvstop = 0 ;
 unsigned char device_pos = 0 ;               // STT client device
 unsigned char RxBuf[64] = {0};
 double RSSIvalue = 0 ;
+unsigned char SNRvalue = 0 ;
 unsigned char u8cmd ;
 
 const int NUMBER_PORT_INPUT  = 8 ;
@@ -101,7 +102,7 @@ void Radio_Start(void)
         SX1276StartCad();
     }
 
-    if (Mode == FSK)
+    else
     {
         SX1276SetMode(FSK);
         SX1276Init();
@@ -173,7 +174,7 @@ void OnMaster(void)
 
     case  RF_CHANNEL_EMPTY:
         log_message(" \nChannel empty !!!");
-        log_message(" Client ID : %2X ",DeviceDataFlash[device_pos].ClientID);
+        log_message(" Client ID : %2X ", DeviceDataFlash[device_pos].ClientID);
         switch ((DeviceDataFlash[device_pos].Systemcode >> 4) & 0x0F)
         {
         case 0 :
@@ -197,14 +198,14 @@ void OnMaster(void)
         timeresvstart = Timer3_GetTickMs();
         break;
 
-    case RF_RX_TIMEOUT :
+    case RF_RX_TIMEOUT :			 
         timeresvstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();                                           // Client disconnect
-        log_message(" RX Timeout !!![%d] us ",timeresvstop-timeresvstart);
-        device[device_pos - 1].data_h = 0;
-        device[device_pos - 1].data_l = 0;
-        device[device_pos - 1].err ++ ;
-
+        log_message(" RX Timeout !!![%d] us ", timeresvstop - timeresvstart);
+        pkg_client_recv[DeviceDataFlash[device_pos-1].ClientID ].data_h = 0;
+        pkg_client_recv[DeviceDataFlash[device_pos-1].ClientID ].data_l = 0;
+        pkg_client_recv[DeviceDataFlash[device_pos-1].ClientID ].err ++ ;
+		    
         if (Mode == LORA)
         {
             SX1276StartCad();
@@ -232,12 +233,13 @@ void OnMaster(void)
     case RF_RX_DONE :
         timeresvstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();                                                  // Client Connected
-		    RSSIvalue = SX1276ReadRssi();
-        log_message (" Rx Receive Done !!! [%d] us , Rssi : [%.2f] db" , timeresvstop-timeresvstart,RSSIvalue);
+        RSSIvalue = SX1276ReadRssi();
+		    SNRvalue = SX1276GetPacketSnr();
+		    log_message(" Rx Receive Done !!! [%d] us , Rssi : [%.2f] dBm , Snr : [%d] dB" , timeresvstop - timeresvstart, RSSIvalue ,SNRvalue);
         SX1276GetRxPacket(RxBuf, (unsigned short int)sizeof(RxBuf));
         if (RxBuf > 0)
         {
-            device[device_pos - 1].err = 0 ;
+            pkg_client_recv[DeviceDataFlash[device_pos-1].ClientID].err = 0 ;
             switch (MasterDataFlash[1].Security)
             {
             case 0:
@@ -256,10 +258,9 @@ void OnMaster(void)
             if (CheckID == 1)
             {
                 u8cmd = (DeviceDataFlash[ device_pos - 1].Systemcode & 0xF0) >> 4 ;
-                if (device[device_pos - 1].cmd == u8cmd)
+                if (pkg_client_recv[device_pos - 1].cmd == u8cmd)
                 {
                     log_message(" Client Connect !!!!! \n");
-                    TIMER_Start(TIMER1);
                 }
                 if (Mode == LORA)
                 {
@@ -297,17 +298,17 @@ void OnMaster(void)
 
     case RF_TX_RUNNING :
         device_pos ++ ;
-        if (device_pos > MasterDataFlash[1].DeviceNumber)
+        if (device_pos > MasterDataFlash[1].DeviceNumber +1 )
         {
             device_pos = 0 ;
         }
-        log_message (" Tx Running !!! ");
+        log_message(" Tx Running !!! ");
         break ;
 
     case RF_TX_DONE :
         timesendstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
-        log_message(" Tx Done !!![%d]us " , timesendstop - timesendstart);
+        log_message(" Tx Done !!![%d]us ", timesendstop - timesendstart);
         SX1276StartRx();
         break ;
 

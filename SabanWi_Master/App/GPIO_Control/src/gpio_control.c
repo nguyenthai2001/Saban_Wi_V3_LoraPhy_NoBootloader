@@ -18,10 +18,9 @@ uint16_t combinedValue = 0;
 */
 void Led_Display(uint16_t pos)
 {
-    if (device[pos].cmd == CMD_IO_STANDAND)
+    if (pkg_client_recv[pos].cmd == CMD_IO_STANDAND)
     {
-        combinedValue = ((uint16_t)device[pos].data_h << 8) | device[pos].data_l;			  
-		//	log_message("pos : [%d] , data : [%2x]" , pos , combinedValue);
+        combinedValue = ((uint16_t)pkg_client_recv[pos].data_h << 8) | pkg_client_recv[pos].data_l;			  
   			switch (pos)
         {
         case 1:
@@ -108,9 +107,9 @@ void Led_Display(uint16_t pos)
         }
     }
 
-    if (device[pos].cmd == CMD_RS485)
+    if (pkg_client_recv[pos].cmd == CMD_RS485)
     {
-        uint8_t rs485addres = device[pos].data_h ;
+        uint8_t rs485addres = pkg_client_recv[pos].data_h ;
         switch (pos)
         {
         case 1:

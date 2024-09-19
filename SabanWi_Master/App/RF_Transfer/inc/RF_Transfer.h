@@ -16,6 +16,20 @@ extern "C" {
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN Private defines */
+
+typedef struct
+{
+      uint8_t masterid ;                                                   
+      uint8_t cmd ;                          
+      uint8_t mccode ;
+      uint8_t slaveid ;	
+      uint8_t data_h ;                                                       
+      uint8_t data_l ;
+      uint16_t crc_result ; 	
+	    int err ;
+}Packet_Rreceive_Data ;  
+extern Packet_Rreceive_Data pkg_client_recv[255] ; 
+
 #define Master 0 
 #define Client 1 
 

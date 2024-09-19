@@ -6,6 +6,7 @@
 #include "SX1278LoRa_Misc.h"
 #include "SX1278_LoRa.h"
 #include "crc_modbus.h"
+#include "RF_Transfer.h"
 
 RF_HMI_Package_Send hmi_pkg ;
 uint16_t table[256];
@@ -190,15 +191,15 @@ void SendBackDevicesStatus(uint8_t length)
 
     for (i = 0; i < length; i++)
     {
-        TxData[index++] = device[i].slaveID;
+        TxData[index++] = pkg_client_recv[i].slaveid;
 
         // Split uint16_t status into two bytes and store in little-endian format
-        TxData[index++] = device[i].data_h ; // Least significant byte
-        TxData[index++] = device[i].data_l ;  // Most significant byte
+        TxData[index++] = pkg_client_recv[i].data_h ; // Least significant byte
+        TxData[index++] = pkg_client_recv[i].data_l ;  // Most significant byte
         // C?p nh?t CRC v?i m?i byte d? li?u c?a thi?t b?
-        crcValue += device[i].slaveID;
-        crcValue += device[i].data_h ; // Least significant byte
-        crcValue += device[i].data_l ;  // Most significant byte
+        crcValue += pkg_client_recv[i].slaveid;
+        crcValue += pkg_client_recv[i].data_h ; // Least significant byte
+        crcValue += pkg_client_recv[i].data_l ;  // Most significant byte
     }
 
     // Luu tr? CRC ? d?nh d?ng big-endian
