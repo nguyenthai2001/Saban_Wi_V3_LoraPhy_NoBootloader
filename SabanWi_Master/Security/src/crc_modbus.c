@@ -251,6 +251,37 @@ uint8_t crc8(char *data, uint32_t size)
     return crc;
 }
 
+uint16_t table[256];
+#define POLYNOMIAL 0xA001
+// Hàm kh?i t?o b?ng CRC-16
+void init_crc16_table(void) {
+    uint16_t remainder;
+    int i = 0 ;
+    int bit = 0 ;
+    for ( i = 0; i < 256; i++) {
+        remainder = i;
+        for ( bit = 0; bit < 8; bit++) {
+            if (remainder & 1) {
+                remainder = (remainder >> 1) ^ POLYNOMIAL;
+            } else {
+                remainder = (remainder >> 1);
+            }
+        }
+        table[i] = remainder;
+    }
+}
+
+// Hàm tính toán CRC-16
+uint16_t compute_checksum(uint8_t *bytes, int length) {
+    uint16_t crc = 0;
+    int i = 0 ;
+    for ( i = 0; i < length; i++) {
+        uint8_t index = (uint8_t)(crc ^ bytes[i]);
+        crc = (crc >> 8) ^ table[index];
+    }
+    return crc;
+}
+
 /*************************************************************************************************
 void CRC_Test (void)
 {

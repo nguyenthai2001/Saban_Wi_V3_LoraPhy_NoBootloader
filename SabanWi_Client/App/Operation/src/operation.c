@@ -168,10 +168,23 @@ void OnClient(void)
                     Timer3_SetTickMs();
                     timesendstart = Timer3_GetTickMs();
                 }
+								if(device[ClientDataFlash[1].SlaveID].cmd == CMD_I2C)
+								{
+									  Decode_Package_Master_Send_HMIStatus(RxBuf);
+								}
             }
             else
-            {
-                SX1276StartRx();
+            {							
+               CheckID = Decode_Package_Master_Send_HMIStatus(RxBuf);
+               if(CheckID == 1)
+							 {
+								   
+							 }
+               else
+               {
+								   log_message("DECODE PACKET RECEIVE ERR !!! ");
+							 }								 
+               SX1276StartRx();
             }
 
         }
@@ -221,9 +234,6 @@ void Modbus_Init(void)
         ModbusMaster_begin();
     }
 }
-
-
-
 
 void Modbus_Start(void)
 {

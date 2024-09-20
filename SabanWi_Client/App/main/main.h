@@ -46,6 +46,8 @@ typedef struct
     uint8_t slaveID;
     uint8_t data_h;
     uint8_t data_l;
+//	  uint8_t HMI_User[30];
+//	  uint8_t HMI_Pass[30];
     uint8_t input_type ;                   // 0: NORMAL 1: FLASH
     uint16_t crcResult;
     uint8_t Modbus_test ;                  // 0: Normal 1: Test Modbus Slave 02 : Test Modbus Master
@@ -53,8 +55,15 @@ typedef struct
     uint16_t Modbus_value[16] ;
     int err ;
 } Saban;
-
 extern Saban device[200] ;
+
+typedef struct
+{
+	  uint8_t HMI_User[30];
+	  uint8_t HMI_Pass[30];
+} data_user_pass;
+
+extern data_user_pass hmi_user_pass ;
 
 /* USER CODE BEGIN EFP */
 

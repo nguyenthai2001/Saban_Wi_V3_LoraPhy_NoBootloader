@@ -14,8 +14,8 @@ extern "C" {
 
 typedef struct {
     uint8_t cmd;               // 1 byte for command
-    uint8_t addrHMI;       // 1 byte for total device 
-    uint8_t HMIData[60];   // Array address slave hmi 
+    uint8_t addrHMI;           // 1 byte for total device 
+    uint8_t HMIData[60];       // Array address slave hmi 
     uint16_t crc;              // 2 bytes for CRC
 } RF_HMI_Package_Send;
 extern RF_HMI_Package_Send hmi_pkg ;  

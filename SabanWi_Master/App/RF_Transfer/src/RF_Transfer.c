@@ -1063,3 +1063,89 @@ void Saban_Feedback_Mode_RS485(uint8_t rs485address, uint8_t rs485data, uint8_t 
         break ;
     }
 }
+
+uint8_t Creat_Packet_Master_Get_HMIStatus(unsigned char MasterID , unsigned char Command ,unsigned char MCCode , unsigned char SlaveID ,
+                                         	unsigned char *user , unsigned char *pass , unsigned char *packet  )
+{
+	  int TimeStart  = 0 ;
+    int TimeStop = 0 ;
+	  uint8_t err  = 0 ;
+	  uint8_t system_code = 0 ;
+    uint8_t temp_packet[63] = {0} ;
+		int copy_cnt = 0 ;
+		uint16_t crc = 0 ;
+		uint8_t crc_h = 0 ;
+		uint8_t crc_l = 0 ;
+	  
+		Timer3_SetTickMs();
+    TimeStart = Timer3_GetTickMs();
+		
+	  // kiem tra gia tri ma he thong
+    if (MasterID >= 16 || Command >= 4 || MCCode >= 4)
+    {
+        //log_message(" SYSTERM CODE ERR !!! \n");
+        err = 1 ;
+    }
+		else
+		{
+			 // log_message(" SYSTERM CODE OK !!! ");
+        // creat 1 byte ma he thong
+        system_code = (MasterID << 4) | (Command << 2) | MCCode ;
+        // Creat packet data
+        temp_packet[0] = system_code;
+        temp_packet[1] = SlaveID ;
+        temp_packet[2] = MASTER_GET_HMI_STATUS;
+        for(copy_cnt = 0 ; copy_cnt <= 30 ; copy_cnt ++ )
+				{
+					  temp_packet[copy_cnt + 3] = user[copy_cnt] ;
+				}
+				for(copy_cnt = 0 ; copy_cnt <= 30 ; copy_cnt ++ )
+				{
+					  temp_packet[copy_cnt + 34] = pass[copy_cnt] ;
+				}
+        // calculate CRC16
+//        crc = crc16((char*)temp_packet, sizeof(temp_packet));
+//        // creat crc_h crc_l
+//        crc_h = (crc >> 8) & 0xFF;
+//        crc_l = crc & 0xFF;
+//				
+        // creat packet send
+        memcpy(packet,temp_packet,63);
+				//packet[65] = crc_h ;
+				//packet[66] = crc_l ;
+        			 				
+        TimeStop = Timer3_GetTickMs();
+        Timer3_ResetTickMs();
+
+        log_message(" PACKET CREAT DONE !!! [%d] us", TimeStop - TimeStart);
+        err = 0;
+		}
+		return err ;
+}
+
+void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode , uint8_t *user , uint8_t *pass)
+{
+    Mode1 = SX1276GetMode();
+    unsigned char TxBuf[64] = {0};
+    uint8_t test_cout = 0;
+    uint32_t TimeOnAir = 0;
+
+    if (Mode1 == LORA)
+    {
+        SX1276LoRaSetPayloadLength(48);
+        TimeOnAir = SX1276GetTimeOnAir();
+        SX1276LoRaSetRxPacketTimeout(TimeOnAir+60 );
+    }
+    if (Mode1 == FSK)
+    {
+        SX1276FskSetPayloadLength(64);
+    }
+    pkg_client_recv[deviceId].masterid = MasterDataFlash[1].Masterid ;
+    pkg_client_recv[deviceId].cmd = u8cmd ;
+    pkg_client_recv[deviceId].mccode = u8mccode ;
+    pkg_client_recv[deviceId].slaveid = deviceId ;
+    Creat_Packet_Master_Get_HMIStatus(pkg_client_recv[deviceId].masterid, pkg_client_recv[deviceId].cmd, pkg_client_recv[deviceId].mccode,
+                             pkg_client_recv[deviceId].slaveid, user, pass, TxBuf);
+    printArray8Bit(TxBuf,sizeof(TxBuf));    
+    SX1276SetTxPacket(TxBuf, 48);
+}

@@ -165,7 +165,10 @@ void OnMaster(void)
 {
     unsigned char len ;
     unsigned char CheckID = 0;
-
+	
+	  unsigned char user[30] = "nguyenquythai123@gmail.com" ;
+    unsigned char pass[30] = "1234567"; 
+	
     switch (SX1276Process())
     {
     case  RF_CHANNEL_ACTIVITY_DETECTED :
@@ -184,8 +187,12 @@ void OnMaster(void)
             Saban_Mode_RS485(DeviceDataFlash[device_pos].ClientID, 0x01, 0xFF, MasterDataFlash[1].Security);
             break ;
         case 2 :
+					 Rf_Send_Request_HMIStatus(DeviceDataFlash[device_pos].ClientID,CMD_I2C,MCCODE_REQUEST_FEEDBACK,user,pass);
+                     //Rf_Send_Request_CRC(DeviceDataFlash[device_pos].ClientID, CMD_RS485, MCCODE_REQUEST_FEEDBACK);
+
             break ;
         case 3 :
+					//Rf_Send_Request_HMIStatus(DeviceDataFlash[device_pos].ClientID,CMD_I2C,MCCODE_REQUEST_FEEDBACK,user,pass);
             break ;
         }
         Timer3_SetTickMs();
@@ -221,6 +228,8 @@ void OnMaster(void)
                 Saban_Mode_RS485(DeviceDataFlash[device_pos].ClientID, 0x01, 0xFF, MasterDataFlash[1].Security);
                 break ;
             case 2 :
+							  Rf_Send_Request_HMIStatus(DeviceDataFlash[device_pos].ClientID,CMD_I2C,MCCODE_REQUEST_FEEDBACK,user,pass);
+
                 break ;
             case 3 :
                 break ;

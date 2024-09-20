@@ -20,3 +20,32 @@ void log_message(const char *format, ...)
     // In ra chu?i dã g?p
     printf("%s\n", buffer);
 }
+
+void printArray8Bit(uint8_t arr[], int size) 
+{
+    printf("Array (decimal): ");
+    for (int i = 0; i < size; i++) {
+        printf("%d", arr[i]);  
+        if (i < size - 1) {
+            printf(", ");
+        }
+    }
+    printf("\n");
+
+    printf("Array (hexadecimal): ");
+    for (int i = 0; i < size; i++) {
+        printf("%02X", arr[i]);  
+        if (i < size - 1) {
+            printf(" ");
+        }
+    }
+    printf("\n");
+}
+
+void print_uint8_array_as_chars(uint8_t arr[], size_t length) 
+{
+    for (size_t i = 0; i < length; i++) 
+	  {
+        printf("%c", arr[i]);  
+    }
+}

@@ -22,6 +22,7 @@ extern "C" {
 /* USER CODE BEGIN Prototypes */
 
 void log_message(const char *format, ...) ;
+void printArray8Bit(uint8_t arr[], int size);
 
 /* USER CODE END Prototypes */
 

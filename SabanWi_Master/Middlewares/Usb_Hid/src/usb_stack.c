@@ -9,8 +9,6 @@
 #include "RF_Transfer.h"
 
 RF_HMI_Package_Send hmi_pkg ;
-uint16_t table[256];
-#define POLYNOMIAL 0xA001
 
 /**
 *    @brief         SendBackDeviceSettingInfo
@@ -218,71 +216,35 @@ void SendBackTestModbus(uint8_t * result)
     USBD_SET_PAYLOAD_LEN(EP2, EP2_MAX_PKT_SIZE);
 }
 
-// Hàm kh?i t?o b?ng CRC-16
-void init_crc16_table() {
-    uint16_t remainder;
-    int i = 0 ;
-    int bit = 0 ;
-    for ( i = 0; i < 256; i++) {
-        remainder = i;
-        for ( bit = 0; bit < 8; bit++) {
-            if (remainder & 1) {
-                remainder = (remainder >> 1) ^ POLYNOMIAL;
-            } else {
-                remainder = (remainder >> 1);
-            }
-        }
-        table[i] = remainder;
-    }
-}
-
-// Hàm tính toán CRC-16
-uint16_t compute_checksum(uint8_t *bytes, int length) {
-    uint16_t crc = 0;
-    int i = 0 ;
-    for ( i = 0; i < length; i++) {
-        uint8_t index = (uint8_t)(crc ^ bytes[i]);
-        crc = (crc >> 8) ^ table[index];
-    }
-    return crc;
-}
-
-
-void SendHMIDataFromMasterToPC(RF_HMI_Package_Send *pkg, uint8_t u8cmd, uint8_t u8addrHMI, uint8_t u8HMIData[])
+void sendDataUSBD(void * txData)
 {
     uint8_t *ptr;
-    uint16_t u16crc ;
-    uint8_t crc = 0 ;
-    uint8_t crc_high = 0;
-    uint8_t crc_low = 0 ;
-
-    int i = 0 ;
-    uint8_t TxData[64] = {0};
-
-    pkg->cmd = u8cmd ;
-    pkg->addrHMI = u8addrHMI ;
-    for (i = 0; i < 60 ; i++)
-    {
-        pkg->HMIData[i] = u8HMIData[i] ;
-    }
-    u16crc = crc16((char*)pkg, 61);
-    pkg->crc = u16crc ;
-    TxData[0] = pkg->cmd ;
-    TxData[1] = pkg->addrHMI ;
-    for (i = 0; i < 60 ; i++)
-    {
-        TxData[i + 2] = pkg->HMIData[i] ;
-    }
-    crc_high = (pkg->crc >> 8) & 0xFF;  // Byte cao
-    crc_low = pkg->crc & 0xFF;          // Byte th?p
-    TxData[62] = crc_high ;
-    TxData[63] = crc_low ;
     ptr = (uint8_t *)(USBD_BUF_BASE + USBD_GET_EP_BUF_ADDR(EP2));
-    USBD_MemCopy(ptr, TxData, EP2_MAX_PKT_SIZE);
+    USBD_MemCopy(ptr, txData, EP2_MAX_PKT_SIZE);
     USBD_SET_PAYLOAD_LEN(EP2, EP2_MAX_PKT_SIZE);
 }
 
-// Hàm luu chu?i user và pass vào m?ng byte
+void SendHMIDataFromMasterToPC(RF_HMI_Package_Send *pkg, uint8_t u8cmd, uint8_t u8addrHMI, uint8_t *u8HMIData)
+{
+    uint16_t u16crc ;
+    uint8_t TxData[EP2_MAX_PKT_SIZE] = {0};
+
+    /*copy data to pkg */
+    pkg->cmd = u8cmd ;
+    pkg->addrHMI = u8addrHMI ;
+    memcpy(pkg->HMIData, u8HMIData, sizeof(pkg->HMIData));
+
+    /*check crc */
+    init_crc16_table();
+    u16crc = compute_checksum((uint8_t*)pkg, sizeof(pkg->cmd) +  sizeof(pkg->addrHMI) + sizeof(pkg->HMIData));
+
+    pkg->crc = u16crc ;
+
+    /*send TxData */
+    memcpy(TxData, pkg, sizeof(RF_HMI_Package_Send));
+    sendDataUSBD(TxData);
+}
+
 void save_user_pass_to_byte_array(const char *user, const char *pass, uint8_t *byte_array) 
 {
     // Sao chép chu?i user vào m?ng byte
@@ -325,12 +287,12 @@ int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
     uint8_t byte6 ;
     uint8_t byte7 ;
 
-    int u8addrHMI = 0 ;
-
-    uint8_t u8HMIData[64] = {0};
-    uint8_t CheckCRCFfomPC[61] = {0};
-    uint16_t u16crcOld = 0 ;
+    int CRCCheckCount = 0 ;
+    uint8_t u8addrHMI = 0 ;
+    uint8_t CheckCRCDataHMI[61] = {0};
+    uint16_t u16crcRecv = 0 ;
     uint16_t u16crcNew = 0 ;
+		uint8_t u8HMIData[64] = {"1Hello"} ;
     
 		const char *user = "Nguyen quy thai"; 
 		const char *pass = "123456"; 
@@ -479,23 +441,22 @@ int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
         }
         break ;
     case CMD_GET_HMI_STATUS :
-			   init_crc16_table();
-        memcpy(CheckCRCFfomPC, pu8Buffer, 61);
-        u8addrHMI = pu8Buffer[1] ;
-
-        u16crcOld = pu8Buffer[62] << 8 | pu8Buffer[63] ;
-//        u16crcNew = crc16((char *)CheckCRCFfomPC, sizeof(CheckCRCFfomPC));
-		     u16crcNew = compute_checksum(CheckCRCFfomPC, 61);
-        if (u16crcNew == u16crcOld)
+			  init_crc16_table();
+        for (CRCCheckCount = 0 ; CRCCheckCount < 62 ; CRCCheckCount ++)
         {
-					  save_user_pass_to_byte_array(user,pass,u8HMIData);
+            CheckCRCDataHMI[CRCCheckCount] = pu8Buffer[CRCCheckCount] ;
+        }
+        u16crcRecv = pu8Buffer[62] << 8 | pu8Buffer[63] ;
+        u16crcNew = compute_checksum(CheckCRCDataHMI, 62);
+        printf("u16crcRecv = %d u16crcNew=%d lengthRev=%d", u16crcRecv, u16crcNew, u32BufferLen);
+        if (u16crcNew == u16crcRecv)
+        {
             SendHMIDataFromMasterToPC(&hmi_pkg, CMD_GET_HMI_STATUS, DeviceDataFlash[u8addrHMI].ClientID, u8HMIData);
         }
         else
         {
             SendBack(1);
         }
-        //SendHMIDataFromMasterToPC(&hmi_pkg,CMD_GET_HMI_STATUS,DeviceDataFlash[u8addrHMI].ClientID,u8HMIData);
         break ;
     }
     return u8Errno;

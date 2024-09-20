@@ -11,6 +11,7 @@
 #include "operation.h"
 
 Saban device[200] ;
+data_user_pass hmi_user_pass ;
 
 int main(void)
 {
