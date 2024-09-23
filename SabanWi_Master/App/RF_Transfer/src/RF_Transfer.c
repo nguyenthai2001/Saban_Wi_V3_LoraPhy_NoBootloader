@@ -11,7 +11,7 @@
 #include "radio.h"
 
 #if SABAN_CLIENT
-    #include "gpio_control.h"
+#include "gpio_control.h"
 #else
 #endif
 
@@ -23,6 +23,7 @@ uint8_t SLAVE_ID ;
 uint8_t Mode1  = 0 ;
 
 Packet_Rreceive_Data pkg_client_recv[255] ;
+data_user_pass hmi_user_pass ;
 
 void Save_Receive_Data_RF_Transfer(Packet_Rreceive_Data pkg[],  unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
                                    unsigned char SlaveID, unsigned char u16cmd, unsigned char Data, unsigned short int receive_crc)
@@ -188,7 +189,7 @@ void Rf_Send_Request_CRC(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode)
     {
         SX1276LoRaSetPayloadLength(8);
         TimeOnAir = SX1276GetTimeOnAir();
-        SX1276LoRaSetRxPacketTimeout(TimeOnAir + 30);
+        SX1276LoRaSetRxPacketTimeout(TimeOnAir + 40);
     }
     if (Mode1 == FSK)
     {
@@ -1064,66 +1065,139 @@ void Saban_Feedback_Mode_RS485(uint8_t rs485address, uint8_t rs485data, uint8_t 
     }
 }
 
-uint8_t Creat_Packet_Master_Get_HMIStatus(unsigned char MasterID , unsigned char Command ,unsigned char MCCode , unsigned char SlaveID ,
-                                         	unsigned char *user , unsigned char *pass , unsigned char *packet  )
+uint8_t Creat_Packet_Master_Get_HMIStatus(unsigned char MasterID, unsigned char Command, unsigned char MCCode, unsigned char SlaveID,
+        unsigned char *user, unsigned char *pass, unsigned char *packet)
 {
-	  int TimeStart  = 0 ;
+    int TimeStart  = 0 ;
     int TimeStop = 0 ;
-	  uint8_t err  = 0 ;
-	  uint8_t system_code = 0 ;
+    uint8_t err  = 0 ;
+    uint8_t system_code = 0 ;
     uint8_t temp_packet[63] = {0} ;
-		int copy_cnt = 0 ;
-		uint16_t crc = 0 ;
-		uint8_t crc_h = 0 ;
-		uint8_t crc_l = 0 ;
-	  
-		Timer3_SetTickMs();
+    int copy_cnt = 0 ;
+    uint16_t crc = 0 ;
+    uint8_t crc_h = 0 ;
+    uint8_t crc_l = 0 ;
+
+    Timer3_SetTickMs();
     TimeStart = Timer3_GetTickMs();
-		
-	  // kiem tra gia tri ma he thong
+
+    // kiem tra gia tri ma he thong
     if (MasterID >= 16 || Command >= 4 || MCCode >= 4)
     {
         //log_message(" SYSTERM CODE ERR !!! \n");
         err = 1 ;
     }
-		else
-		{
-			 // log_message(" SYSTERM CODE OK !!! ");
+    else
+    {
+        // log_message(" SYSTERM CODE OK !!! ");
         // creat 1 byte ma he thong
         system_code = (MasterID << 4) | (Command << 2) | MCCode ;
         // Creat packet data
         temp_packet[0] = system_code;
         temp_packet[1] = SlaveID ;
         temp_packet[2] = MASTER_GET_HMI_STATUS;
-        for(copy_cnt = 0 ; copy_cnt <= 30 ; copy_cnt ++ )
-				{
-					  temp_packet[copy_cnt + 3] = user[copy_cnt] ;
-				}
-				for(copy_cnt = 0 ; copy_cnt <= 30 ; copy_cnt ++ )
-				{
-					  temp_packet[copy_cnt + 34] = pass[copy_cnt] ;
-				}
+        for (copy_cnt = 0 ; copy_cnt <= 30 ; copy_cnt ++)
+        {
+            temp_packet[copy_cnt + 3] = user[copy_cnt] ;
+        }
+        for (copy_cnt = 0 ; copy_cnt <= 30 ; copy_cnt ++)
+        {
+            temp_packet[copy_cnt + 34] = pass[copy_cnt] ;
+        }
         // calculate CRC16
 //        crc = crc16((char*)temp_packet, sizeof(temp_packet));
 //        // creat crc_h crc_l
 //        crc_h = (crc >> 8) & 0xFF;
 //        crc_l = crc & 0xFF;
-//				
+//
         // creat packet send
-        memcpy(packet,temp_packet,63);
-				//packet[65] = crc_h ;
-				//packet[66] = crc_l ;
-        			 				
+        memcpy(packet, temp_packet, 63);
+        //packet[65] = crc_h ;
+        //packet[66] = crc_l ;
+
         TimeStop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
 
         log_message(" PACKET CREAT DONE !!! [%d] us", TimeStop - TimeStart);
         err = 0;
-		}
-		return err ;
+    }
+    return err ;
 }
 
-void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode , uint8_t *user , uint8_t *pass)
+uint8_t Decode_Packet_Client_Feddback_HMIStatus(data_user_pass *user_pass, unsigned char * packet_src)
+{
+    int TimeStart = 0 ;
+    int TimeStop = 0 ;
+
+    uint8_t err = 0 ;
+    int check_user_pass = 0 ;
+    uint8_t system_code = 0 ;
+
+    uint8_t MasterID ;
+    uint8_t Commnad ;
+    uint8_t MCCode ;
+    uint8_t SlaveID ;
+    uint8_t hmi_status;
+    int copy_cnt = 0 ;
+
+    Timer3_SetTickMs();
+    TimeStart = Timer3_GetTickMs();
+
+    system_code = packet_src[0];
+    SlaveID = packet_src[1];
+    hmi_status = packet_src[2];               // HMI_status
+
+    // masterid command mccode
+    MasterID = (system_code >> 4) & 0x0F ;
+    Commnad = (system_code >> 2) & 0x03 ;
+    MCCode = system_code & 0x03 ;
+
+    TimeStop = Timer3_GetTickMs();
+    Timer3_ResetTickMs();
+    if (MasterDataFlash[1].Masterid == MasterID)           //  master id ok
+    {
+        printf(" DECODE DATA SLAVE [%2X] OK !!! [%d] us ", SlaveID, TimeStop - TimeStart);
+
+        if (MCCode == MCCODE_SLAVE_FEEDBACK && MasterDataFlash[1].Masterid == MasterID)                // decode for master
+        {
+            for (copy_cnt = 0 ; copy_cnt < 31 ; copy_cnt ++)
+            {
+                user_pass->HMI_User_recv[copy_cnt] = packet_src[copy_cnt + 3] ;
+            }
+            for (copy_cnt = 0 ; copy_cnt < 31 ; copy_cnt ++)
+            {
+                user_pass->HMI_Pass_recv[copy_cnt] = packet_src[copy_cnt + 34] ;
+            }
+            check_user_pass = memcmp(user_pass->HMI_User_recv, user_pass->HMI_User_send, 30);
+            {
+                if (check_user_pass == 0)
+                {
+                    check_user_pass = memcmp(user_pass->HMI_Pass_recv, user_pass->HMI_Pass_send, 30);
+                    if (check_user_pass == 0)
+                    {
+                        user_pass->HMI_Status_rcv = hmi_status ;
+                        err = 0 ;             // check user pass ok
+                    }
+                    else
+                    {
+                        err = 3 ;             // check pass err
+                    }
+                }
+                else
+                {
+                    err  = 2 ;      // check user err
+                }
+            }
+        }
+    }
+    else
+    {
+        err = 1 ;  // master id Err
+    }
+    return err ;
+}
+
+void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode, uint8_t *user, uint8_t *pass)
 {
     Mode1 = SX1276GetMode();
     unsigned char TxBuf[64] = {0};
@@ -1132,9 +1206,9 @@ void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode
 
     if (Mode1 == LORA)
     {
-        SX1276LoRaSetPayloadLength(48);
+        SX1276LoRaSetPayloadLength(12);
         TimeOnAir = SX1276GetTimeOnAir();
-        SX1276LoRaSetRxPacketTimeout(TimeOnAir+60 );
+        SX1276LoRaSetRxPacketTimeout(TimeOnAir + 60);
     }
     if (Mode1 == FSK)
     {
@@ -1145,7 +1219,7 @@ void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode
     pkg_client_recv[deviceId].mccode = u8mccode ;
     pkg_client_recv[deviceId].slaveid = deviceId ;
     Creat_Packet_Master_Get_HMIStatus(pkg_client_recv[deviceId].masterid, pkg_client_recv[deviceId].cmd, pkg_client_recv[deviceId].mccode,
-                             pkg_client_recv[deviceId].slaveid, user, pass, TxBuf);
-    printArray8Bit(TxBuf,sizeof(TxBuf));    
-    SX1276SetTxPacket(TxBuf, 48);
+                                      pkg_client_recv[deviceId].slaveid, user, pass, TxBuf);
+    printArray8Bit(TxBuf, sizeof(TxBuf));
+    SX1276SetTxPacket(TxBuf, 12);
 }

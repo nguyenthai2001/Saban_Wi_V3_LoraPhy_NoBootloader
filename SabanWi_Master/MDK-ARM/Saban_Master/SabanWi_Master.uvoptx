@@ -149,7 +149,7 @@
           <Type>0</Type>
           <LineNumber>451</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>16364</Address>
+          <Address>16580</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -165,7 +165,7 @@
           <Type>0</Type>
           <LineNumber>444</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>16328</Address>
+          <Address>16544</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -181,7 +181,7 @@
           <Type>0</Type>
           <LineNumber>475</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>16644</Address>
+          <Address>16860</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -195,18 +195,34 @@
         <Bp>
           <Number>3</Number>
           <Type>0</Type>
-          <LineNumber>1118</LineNumber>
+          <LineNumber>302</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>7794</Address>
+          <Address>3990</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\App\RF_Transfer\src\RF_Transfer.c</Filename>
+          <Filename>..\..\App\Operation\src\operation.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\SabanWi_Master\../../App/RF_Transfer/src/RF_Transfer.c\1118</Expression>
+          <Expression>\\SabanWi_Master\../../App/Operation/src/operation.c\302</Expression>
+        </Bp>
+        <Bp>
+          <Number>4</Number>
+          <Type>0</Type>
+          <LineNumber>303</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\..\App\Operation\src\operation.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -244,6 +260,11 @@
           <count>6</count>
           <WinNumber>1</WinNumber>
           <ItemText>packet</ItemText>
+        </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>RxBuf</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>
@@ -769,7 +790,7 @@
 
   <Group>
     <GroupName>Middleware/Lora_Phy/App</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -825,7 +846,7 @@
 
   <Group>
     <GroupName>Middleware/Lora_Phy/Target</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

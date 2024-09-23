@@ -31,6 +31,10 @@ extern "C" {
 #define MASTER_GET_I2C_DATA 0x00
 #define MASTER_GET_HMI_STATUS 0x01
 
+#define HMI_LOGIN 0x01 
+#define HMI_LOGOUT 0x02
+#define HMI_BUSY  0x03
+
 /* USER CODE END Private defines */
 
 uint8_t Creat_Packet_Request_CRC(unsigned char MasterID , unsigned char Commnad , unsigned char MCCode , 
@@ -57,6 +61,7 @@ void Saban_Feedback_Mode_IOStandand(uint8_t security);
 void Saban_Feedback_Mode_RS485(uint8_t rs485address , uint8_t rs485data , uint8_t security );
 
 uint8_t Decode_Package_Master_Send_HMIStatus( unsigned char * packet_src );
+void Rf_Send_Feedback_HMIStatus(uint8_t HID_Status , uint8_t user[] , uint8_t pass[]);
 
 /* USER CODE BEGIN Prototypes */
 

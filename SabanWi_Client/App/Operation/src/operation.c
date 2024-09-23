@@ -125,7 +125,7 @@ void OnClient(void)
     case RF_RX_TIMEOUT :
         timercvstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
-        log_message("RX Timeout !!! [%d] us\n " , timercvstop - timercvstart);
+        log_message("RX Timeout !!! [%d] us\n ", timercvstop - timercvstart);
         SX1276StartRx();
         break ;
 
@@ -152,9 +152,9 @@ void OnClient(void)
             }
             if (CheckID == 1)
             {
-						    RSSIvalue = SX1276ReadRssi();
-           		  SNRvalue = SX1276GetPacketSnr();
-							  log_message ("Rx Receive Done !!! [%d] us , RSSI : [%.2f] , SNR : [%d] " , timercvstop - timercvstart , RSSIvalue,SNRvalue);        
+                RSSIvalue = SX1276ReadRssi();
+                SNRvalue = SX1276GetPacketSnr();
+                log_message("Rx Receive Done !!! [%d] us , RSSI : [%.2f] , SNR : [%d] ", timercvstop - timercvstart, RSSIvalue, SNRvalue);
                 if (device[ClientDataFlash[1].SlaveID].cmd == CMD_IO_STANDAND)
                 {
                     Saban_Output_Control();
@@ -168,23 +168,22 @@ void OnClient(void)
                     Timer3_SetTickMs();
                     timesendstart = Timer3_GetTickMs();
                 }
-								if(device[ClientDataFlash[1].SlaveID].cmd == CMD_I2C)
-								{
-									  Decode_Package_Master_Send_HMIStatus(RxBuf);
-								}
             }
             else
-            {							
-               CheckID = Decode_Package_Master_Send_HMIStatus(RxBuf);
-               if(CheckID == 1)
-							 {
-								   
-							 }
-               else
-               {
-								   log_message("DECODE PACKET RECEIVE ERR !!! ");
-							 }								 
-               SX1276StartRx();
+            {
+                CheckID = Decode_Package_Master_Send_HMIStatus(RxBuf);
+                if (CheckID == 1)
+                {
+                    Rf_Send_Feedback_HMIStatus(HMI_LOGIN, hmi_user_pass.HMI_User, hmi_user_pass.HMI_Pass);
+                    Timer3_SetTickMs();
+                    timesendstart = Timer3_GetTickMs();
+                }
+                else
+                {
+                    log_message("DECODE PACKET RECEIVE ERR !!! ");
+                    SX1276StartRx();
+                }
+                //SX1276StartRx();
             }
 
         }
@@ -195,13 +194,13 @@ void OnClient(void)
         break ;
 
     case RF_TX_RUNNING :
-        log_message ("Tx Running !!! ");
+        log_message("Tx Running !!! ");
         break ;
 
     case RF_TX_DONE :
         timesendstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
-        log_message("Tx Done !!! [%d] us \n" , timesendstop - timesendstart);
+        log_message("Tx Done !!! [%d] us \n", timesendstop - timesendstart);
         if (Mode == LORA)
         {
             SX1276StartCad();

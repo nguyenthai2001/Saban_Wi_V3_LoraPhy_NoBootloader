@@ -11,7 +11,7 @@ extern "C" {
 #include "main.h"
 #include <stdlib.h>  // C?n d? dùng malloc và free
 #include <stdarg.h>  // Thu vi?n h? tr? truy?n d?i s? bi?n d?i
-/* USER CODE BEGIN Includes */ 
+/* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 

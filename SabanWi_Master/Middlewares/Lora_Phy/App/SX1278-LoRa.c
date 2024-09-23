@@ -88,7 +88,7 @@ tLoRaSettings LoRaSettings =
     10,              // TxPacketTimeout (default, data will be update by TimeOutSetting())
     150,              // RxPacketTimeout (the same as TxPacketTimeout)
     48,                // PayloadLength
-    12,               // PreambleLength
+    8,               // PreambleLength
 };
 
 //SignalBW table

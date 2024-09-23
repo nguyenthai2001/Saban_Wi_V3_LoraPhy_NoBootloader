@@ -30,6 +30,16 @@ typedef struct
 }Packet_Rreceive_Data ;  
 extern Packet_Rreceive_Data pkg_client_recv[255] ; 
 
+typedef struct
+{
+	  uint8_t HMI_User_send[30];            //PC
+	  uint8_t HMI_Pass_send[30];            //PC
+	  uint8_t HMI_User_recv[30];            // Client
+	  uint8_t HMI_Pass_recv[30];            // Client 
+	  uint8_t HMI_Status_rcv ;
+} data_user_pass;
+extern data_user_pass hmi_user_pass ;
+
 #define Master 0 
 #define Client 1 
 
@@ -71,6 +81,7 @@ void Saban_Feedback_Mode_IOStandand(uint8_t security);
 void Saban_Feedback_Mode_RS485(uint8_t rs485address , uint8_t rs485data , uint8_t security );
 
 void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode , uint8_t *user , uint8_t *pass);
+uint8_t Decode_Packet_Client_Feddback_HMIStatus(data_user_pass *user_pass, unsigned char * packet_src);
 
 /* USER CODE BEGIN Prototypes */
 
