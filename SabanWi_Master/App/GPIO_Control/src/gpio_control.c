@@ -50,18 +50,9 @@ void Led_Display(uint16_t pos)
             else if (combinedValue != 0x5555 && combinedValue != DISCONNECT)  LED5 = ~LED5;
             break;
         case 6:
-            if (combinedValue == DISCONNECT) 
-						{							
-							LED6 = 1;
-						}
-            else if (combinedValue == 0x5555 && combinedValue != DISCONNECT) 
-						{	
-							 LED6 = 0;
-						}
-            else if (combinedValue != 0x5555 && combinedValue != DISCONNECT)  
-						{
-							  LED6 = ~LED6;
-						}
+            if (combinedValue == DISCONNECT) 							        LED6 = 1;
+            else if (combinedValue == 0x5555 && combinedValue != DISCONNECT)  LED6 = 0;
+            else if (combinedValue != 0x5555 && combinedValue != DISCONNECT)  LED6 = ~LED6;
             break;
         case 7:
             if (combinedValue == DISCONNECT)                     LED7 = 1;

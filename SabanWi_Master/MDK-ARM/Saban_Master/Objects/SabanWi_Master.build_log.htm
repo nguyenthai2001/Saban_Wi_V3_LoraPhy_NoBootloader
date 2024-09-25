@@ -8,7 +8,7 @@ Copyright (C) 2024 ARM Ltd and ARM Germany GmbH. All rights reserved.
 License Information: nguyen thai
 tulasolution
 User-based license: Keil MDK Community (non-commercial free of charge)
-Valid until: Jun 1 2033. Cached until: Sep 27 2024
+Valid until: Jun 1 2033. Cached until: Sep 30 2024
  
 Tool Versions:
 Toolchain:       Keil MDK Community (non-commercial free of charge  Version: 5.40.0.3
@@ -30,29 +30,13 @@ Project File Date:  09/20/2024
 <h2>Output:</h2>
 *** Using Compiler 'V6.22', folder: 'C:\Users\TULA_KT01\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'SabanWi_Master'
-compiling radio.c...
-compiling operation.c...
 compiling usb_stack.c...
-../../App/RF_Transfer/src/RF_Transfer.c(621): warning: cast to smaller integer type 'uint16_t' (aka 'unsigned short') from 'uint8_t *' (aka 'unsigned char *') [-Wpointer-to-int-cast]
-  621 |             Save_Receive_Data_RF_Transfer(pkg_client_recv, MasterID, Commnad, MCCode, SlaveID, u16cmd, Data, (uint16_t)receive_sha);
-      |                                                                                                              ^~~~~~~~~~~~~~~~~~~~~
-../../App/RF_Transfer/src/RF_Transfer.c(877): warning: cast to smaller integer type 'uint16_t' (aka 'unsigned short') from 'uint8_t *' (aka 'unsigned char *') [-Wpointer-to-int-cast]
-  877 |             pkg_client_recv[SlaveID].crc_result = (uint16_t) receive_crc ;
-      |                                                   ^~~~~~~~~~~~~~~~~~~~~~
-2 warnings generated.
-compiling RF_Transfer.c...
-compiling SX1278.c...
-compiling SX1278-Fsk.c...
-compiling SX1278-LoRa.c...
-compiling SX1278Fsk_Misc.c...
-compiling SX1278LoRa_Misc.c...
-compiling log.c...
 linking...
-Program Size: Code=40520 RO-data=4340 RW-data=412 ZI-data=15408  
+Program Size: Code=40568 RO-data=4340 RW-data=412 ZI-data=15408  
 FromELF: creating hex file...
 After Build - User command #1: fromelf --bin ".\Objects\SabanWi_Master.axf" --output ".\Objects\SabanWi_Master.bin"
 After Build - User command #2: fromelf --text -c ".\Objects\SabanWi_Master.axf" --output ".\Objects\SabanWi_Master.txt"
-".\Objects\SabanWi_Master.axf" - 0 Error(s), 2 Warning(s).
+".\Objects\SabanWi_Master.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 

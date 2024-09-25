@@ -29,8 +29,10 @@ int main(void)
 
     DataFlash_Client_Init();
 
-    //Modbus_Init();
-
+#if MODBUS_ENABLE
+    Modbus_Init();
+#else
+#endif
     Radio_Start();
 
     while (TRUE)
@@ -39,11 +41,14 @@ int main(void)
         if (device[1].Modbus_test == 0x00)
         {
             OnClient();
-           // Modbus_Start();
+#if MODBUS_ENABLE
+            Modbus_Start();
+#else
+#endif 														
         }
         else
         {
-            //Modbus_Test_PC();
+            Modbus_Test_PC();
         }
     }
     return 0 ;

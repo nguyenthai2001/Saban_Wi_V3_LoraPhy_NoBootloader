@@ -87,7 +87,7 @@ tLoRaSettings LoRaSettings =
     4,                // HopPeriod Hops every frequency hopping period symbols
     10,              // TxPacketTimeout (default, data will be update by TimeOutSetting())
     150,              // RxPacketTimeout (the same as TxPacketTimeout)
-    48,                // PayloadLength
+    64,                // PayloadLength
     8,               // PreambleLength
 };
 

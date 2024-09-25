@@ -28,7 +28,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\Core\inc\Systerm.h)(0x66EBA32C)
 I (..\..\Core\inc\gpio_driver.h)(0x66EBA32C)
 I (..\..\Core\inc\uart_driver.h)(0x66EBA32C)
@@ -68,7 +68,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 F (..\..\Core\src\spi_driver.c)(0x66EBA32C)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/spi_driver.o -MMD)
 I (..\..\Core\inc\spi_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
@@ -97,7 +97,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 F (..\..\Core\src\uart_driver.c)(0x66EBA32C)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/uart_driver.o -MMD)
 I (..\..\Core\inc\uart_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
@@ -126,7 +126,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 F (..\..\Core\src\usb_driver.c)(0x66EBA32C)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/usb_driver.o -MMD)
 I (..\..\Core\inc\usb_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
@@ -155,7 +155,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\App\HID_Transfer\inc\hid_transfer.h)(0x66EBA32C)
 F (..\..\Core\src\wdt_driver.c)(0x66EBA32C)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/wdt_driver.o -MMD)
 I (..\..\Core\inc\wdt_driver.h)(0x66EBA32C)
@@ -185,7 +185,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 F (..\..\Core\src\timer_driver.c)(0x66EBE6E5)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/timer_driver.o -MMD)
 I (..\..\Core\inc\timer_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
@@ -214,7 +214,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 F (..\..\Core\src\dataflash_driver.c)(0x66EBA32C)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/dataflash_driver.o -MMD)
 I (..\..\Core\inc\dataflash_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
@@ -243,7 +243,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 F (..\..\Core\src\gpio_driver.c)(0x66EBA32C)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/gpio_driver.o -MMD)
 I (..\..\Core\inc\gpio_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
@@ -272,7 +272,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 F (..\..\Core\src\wdt_driver_irq.c)(0x66EBA32C)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/wdt_driver_irq.o -MMD)
 I (..\..\App\main\main.h)(0x66ECCB73)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66EBA32C)
@@ -300,7 +300,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 F (..\..\Core\src\uart_driver_irq.c)(0x66EBA32C)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/uart_driver_irq.o -MMD)
 I (..\..\Core\inc\uart_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
@@ -329,7 +329,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\Middlewares\Modbus_Master\Target\trans_recieve_buff_control.h)(0x66EBA32D)
 I (..\..\Middlewares\Modbus_Master\Target\bsp_board.h)(0x66EBA32D)
 I (..\..\Core\inc\timer_driver.h)(0x66EBA32C)
@@ -365,13 +365,13 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\App\GPIO_Control\inc\gpio_control.h)(0x66EBA32C)
 I (..\..\Middlewares\Modbus_Slave\Target\modbus_src\include\mb.h)(0x66EBA32D)
 I (..\..\Middlewares\Modbus_Slave\Target\port_src\port.h)(0x66EBA32E)
 I (..\..\Middlewares\Modbus_Slave\Target\modbus_src\include\mbport.h)(0x66EBA32D)
 I (..\..\Middlewares\Modbus_Slave\Target\modbus_src\include\mbproto.h)(0x66EBA32D)
-F (..\..\App\Operation\src\operation.c)(0x66F0C1AD)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/operation.o -MMD)
+F (..\..\App\Operation\src\operation.c)(0x66F3BA1E)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/operation.o -MMD)
 I (..\..\App\Operation\inc\operation.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66EBA32C)
@@ -399,18 +399,18 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\Core\inc\timer_driver.h)(0x66EBA32C)
 I (..\..\Middlewares\DataFlash\inc\DataFlash_stack.h)(0x66EBA32D)
 I (..\..\Core\inc\dataflash_driver.h)(0x66EBA32C)
-I (..\..\Middlewares\Usb_Hid\inc\usb_stack.h)(0x66ECE2B1)
+I (..\..\Middlewares\Usb_Hid\inc\usb_stack.h)(0x66F0E028)
 I (..\..\Middlewares\LoRa_Phy\Target\SX1278Fsk_Misc.h)(0x66EBA32D)
 I (..\..\Middlewares\LoRa_Phy\App\SX1278-Fsk.h)(0x66F0C1C9)
 I (..\..\Middlewares\LoRa_Phy\Target\SX1278LoRa_Misc.h)(0x66EBA32D)
 I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66F0C1C9)
 I (..\..\Middlewares\LoRa_Phy\App\radio.h)(0x66F0C1C9)
 I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66F0C1C9)
-I (..\..\App\RF_Transfer\inc\RF_Transfer.h)(0x66EE3273)
+I (..\..\App\RF_Transfer\inc\RF_Transfer.h)(0x66F0E028)
 I (..\..\Middlewares\Modbus_Master\App\modbus_master.h)(0x66EBA32D)
 I (..\..\Middlewares\Modbus_Master\Target\bsp_board.h)(0x66EBA32D)
 I (..\..\Middlewares\Modbus_Master\App\crc16.h)(0x66EBA32D)
@@ -474,11 +474,11 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\App\HID_Transfer\inc\hid_transfer.h)(0x66EBA32C)
-I (..\..\Middlewares\Usb_Hid\inc\usb_stack.h)(0x66ECE2B1)
-F (..\..\App\RF_Transfer\src\RF_Transfer.c)(0x66F0C1C0)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/rf_transfer.o -MMD)
-I (..\..\App\RF_Transfer\inc\RF_Transfer.h)(0x66EE3273)
+I (..\..\Middlewares\Usb_Hid\inc\usb_stack.h)(0x66F0E028)
+F (..\..\App\RF_Transfer\src\RF_Transfer.c)(0x66F3B0D2)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/rf_transfer.o -MMD)
+I (..\..\App\RF_Transfer\inc\RF_Transfer.h)(0x66F0E028)
 I (..\..\App\main\main.h)(0x66ECCB73)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66EBA32C)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66EBA32C)
@@ -505,7 +505,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\Middlewares\DataFlash\inc\DataFlash_stack.h)(0x66EBA32D)
 I (..\..\Core\inc\dataflash_driver.h)(0x66EBA32C)
 I (..\..\Core\inc\timer_driver.h)(0x66EBA32C)
@@ -517,7 +517,7 @@ I (..\..\Middlewares\LoRa_Phy\Target\SX1278LoRa_Misc.h)(0x66EBA32D)
 I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66F0C1C9)
 I (..\..\Middlewares\LoRa_Phy\App\radio.h)(0x66F0C1C9)
 I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66F0C1C9)
-F (..\..\App\GPIO_Control\src\gpio_control.c)(0x66ECCB73)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/gpio_control.o -MMD)
+F (..\..\App\GPIO_Control\src\gpio_control.c)(0x66F0C96C)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/gpio_control.o -MMD)
 I (..\..\App\GPIO_Control\inc\gpio_control.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66EBA32C)
@@ -545,8 +545,8 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
-I (..\..\App\RF_Transfer\inc\RF_Transfer.h)(0x66EE3273)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
+I (..\..\App\RF_Transfer\inc\RF_Transfer.h)(0x66F0E028)
 I (..\..\Core\inc\gpio_driver.h)(0x66EBA32C)
 F (..\..\Drivers\StdDriver\src\clk.c)(0x66EBA32C)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/clk.o -MMD)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66EBA32C)
@@ -834,8 +834,8 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-F (..\..\Middlewares\Usb_Hid\src\usb_stack.c)(0x66ED193F)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/usb_stack.o -MMD)
-I (..\..\Middlewares\Usb_Hid\inc\usb_stack.h)(0x66ECE2B1)
+F (..\..\Middlewares\Usb_Hid\src\usb_stack.c)(0x66F3DDBC)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/usb_stack.o -MMD)
+I (..\..\Middlewares\Usb_Hid\inc\usb_stack.h)(0x66F0E028)
 I (..\..\App\main\main.h)(0x66ECCB73)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66EBA32C)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66EBA32C)
@@ -862,7 +862,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\App\HID_Transfer\inc\hid_transfer.h)(0x66EBA32C)
 I (..\..\Middlewares\DataFlash\inc\DataFlash_stack.h)(0x66EBA32D)
 I (..\..\Core\inc\dataflash_driver.h)(0x66EBA32C)
@@ -872,7 +872,7 @@ I (..\..\Middlewares\LoRa_Phy\Target\SX1278LoRa_Misc.h)(0x66EBA32D)
 I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66F0C1C9)
 I (..\..\Core\inc\timer_driver.h)(0x66EBA32C)
 I (..\..\Security\inc\crc_modbus.h)(0x66ED193F)
-I (..\..\App\RF_Transfer\inc\RF_Transfer.h)(0x66EE3273)
+I (..\..\App\RF_Transfer\inc\RF_Transfer.h)(0x66F0E028)
 F (..\..\Middlewares\DataFlash\src\DataFlash_stack.c)(0x66EBA32D)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/dataflash_stack.o -MMD)
 I (..\..\Middlewares\DataFlash\inc\DataFlash_stack.h)(0x66EBA32D)
 I (..\..\App\main\main.h)(0x66ECCB73)
@@ -901,7 +901,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\Core\inc\dataflash_driver.h)(0x66EBA32C)
 F (..\..\Middlewares\LoRa_Phy\App\radio.c)(0x66F0C1C9)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/radio.o -MMD)
 I (..\..\Middlewares\LoRa_Phy\App\radio.h)(0x66F0C1C9)
@@ -962,7 +962,7 @@ I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66EBA32D)
 I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66F0C1C9)
 I (..\..\Core\inc\timer_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\Middlewares\LoRa_Phy\App\SX1278-Fsk.h)(0x66F0C1C9)
 F (..\..\Middlewares\LoRa_Phy\App\SX1278-Fsk.c)(0x66F0C1C9)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278-fsk.o -MMD)
 I (..\..\Middlewares\LoRa_Phy\App\SX1278-Fsk.h)(0x66F0C1C9)
@@ -997,8 +997,8 @@ I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66EBA32D)
 I (..\..\Middlewares\LoRa_Phy\Target\SX1278Fsk_Misc.h)(0x66EBA32D)
 I (..\..\Core\inc\timer_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
-F (..\..\Middlewares\LoRa_Phy\App\SX1278-LoRa.c)(0x66F0C1C9)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278-lora.o -MMD)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
+F (..\..\Middlewares\LoRa_Phy\App\SX1278-LoRa.c)(0x66F0CFB5)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/sx1278-lora.o -MMD)
 I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66F0C1C9)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66EBA32C)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66EBA32C)
@@ -1027,7 +1027,7 @@ I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
 I (..\..\Core\inc\timer_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\Middlewares\LoRa_Phy\App\radio.h)(0x66F0C1C9)
 I (..\..\Middlewares\LoRa_Phy\App\SX1278.h)(0x66F0C1C9)
 I (..\..\Middlewares\LoRa_Phy\Target\SX1278_HW.h)(0x66EBA32D)
@@ -1121,7 +1121,7 @@ I (..\..\Middlewares\LoRa_Phy\Target\SX1278LoRa_Misc.h)(0x66EBA32D)
 I (..\..\Middlewares\LoRa_Phy\App\SX1278_LoRa.h)(0x66F0C1C9)
 I (..\..\Core\inc\timer_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 F (..\..\Security\src\aes.c)(0x66EBA32E)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/aes.o -MMD)
 I (..\..\Security\inc\aes.h)(0x66EBA32E)
 F (..\..\Security\src\des.c)(0x66EBA32E)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/des.o -MMD)
@@ -1163,7 +1163,7 @@ I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
 I (..\..\Core\inc\timer_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\Middlewares\Modbus_Master\App\crc16.h)(0x66EBA32D)
 I (..\..\Middlewares\Modbus_Master\App\word.h)(0x66EBA32D)
 I (..\..\Middlewares\Modbus_Master\Target\trans_recieve_buff_control.h)(0x66EBA32D)
@@ -1197,7 +1197,7 @@ I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
 I (..\..\Core\inc\timer_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 F (..\..\Middlewares\Modbus_Master\Target\bsp_board.c)(0x66EBA32D)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/bsp_board.o -MMD)
 I (..\..\Middlewares\Modbus_Master\Target\bsp_board.h)(0x66EBA32D)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66EBA32C)
@@ -1227,7 +1227,7 @@ I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
 I (..\..\Core\inc\timer_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 F (..\..\Middlewares\Modbus_Master\Target\trans_recieve_buff_control.c)(0x66EBA32D)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/trans_recieve_buff_control.o -MMD)
 I (..\..\Middlewares\Modbus_Master\Target\trans_recieve_buff_control.h)(0x66EBA32D)
 I (..\..\Middlewares\Modbus_Master\Target\bsp_board.h)(0x66EBA32D)
@@ -1258,7 +1258,7 @@ I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
 I (..\..\Core\inc\timer_driver.h)(0x66EBA32C)
 I (..\..\App\main\main.h)(0x66ECCB73)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\Middlewares\Modbus_Master\App\ringbuffer.h)(0x66EBA32D)
 F (..\..\Middlewares\Modbus_Slave\App\Modbus_User.c)(0x66EBA32D)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/modbus_user.o -MMD)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66EBA32C)
@@ -1662,7 +1662,7 @@ I (..\..\Drivers\StdDriver\inc\sc.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\ps2.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\clk.h)(0x66EBA32C)
 I (..\..\Drivers\StdDriver\inc\acmp.h)(0x66EBA32C)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\Middlewares\Modbus_Slave\Target\port_src\port.h)(0x66EBA32E)
 I (..\..\Middlewares\Modbus_Slave\Target\modbus_src\include\mb.h)(0x66EBA32D)
 I (..\..\Middlewares\Modbus_Slave\Target\modbus_src\include\mbport.h)(0x66EBA32D)
@@ -1697,8 +1697,8 @@ I (..\..\Middlewares\Modbus_Slave\Target\port_src\port.h)(0x66EBA32E)
 I (..\..\Middlewares\Modbus_Slave\Target\modbus_src\include\mb.h)(0x66EBA32D)
 I (..\..\Middlewares\Modbus_Slave\Target\modbus_src\include\mbport.h)(0x66EBA32D)
 I (..\..\Middlewares\Modbus_Slave\Target\modbus_src\include\mbproto.h)(0x66EBA32D)
-F (..\..\Uitlities\Log\log.c)(0x66F0C1F0)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/log.o -MMD)
-I (..\..\Uitlities\Log\log.h)(0x66ED2A3C)
+F (..\..\Uitlities\Log\log.c)(0x66F0C1FD)(-xc --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__MICROLIB -gdwarf-4 -Oz -fno-function-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../../Drivers/CMSIS/Include -I ../../Drivers/Device/Nuvoton/NUC200Series/Include -I ../../Drivers/StdDriver/inc -I ../../App -I ../../Core/inc -I ../../App/HID_Transfer/inc -I ../../Middlewares/LoRa_Phy/App -I ../../Middlewares/LoRa_Phy/Target -I ../../Security/inc -I ../../App/RF_Transfer/inc -I ../../App/Operation/inc -I ../../App/GPIO_Control/inc -I ../../Middlewares/Modbus_Master/App -I ../../Middlewares/Modbus_Master/Target -I ../../Middlewares/Modbus_Slave/App -I ../../Middlewares/Modbus_Slave/Target/modbus_src/include -I ../../Middlewares/Modbus_Slave/Target/modbus_src/rtu -I ../../Middlewares/Modbus_Slave/Target/port_src -I ../../App/main -I ../../Middlewares/DataFlash/inc -I ../../Middlewares/Usb_Hid/inc -I ../../Uitlities/Log-I./RTE/_SabanWi_Master-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include-IC:/Users/TULA_KT01/AppData/Local/Arm/Packs/Nuvoton/NuMicro_DFP/1.3.24/Device/NUC200/Include-D__UVISION_VERSION="540" -D_RTE_-o ./objects/log.o -MMD)
+I (..\..\Uitlities\Log\log.h)(0x66F0C1F5)
 I (..\..\App\main\main.h)(0x66ECCB73)
 I (..\..\Drivers\Device\Nuvoton\NUC200Series\Include\NUC200Series.h)(0x66EBA32C)
 I (..\..\Drivers\CMSIS\Include\core_cm0.h)(0x66EBA32C)

@@ -44,6 +44,7 @@ int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen);
 void SendBackTestModbus (uint8_t * result );
 void HID_GetOutReport(uint8_t *pu8EpBuf, uint32_t u32Size);
 void HID_SetInReport(void) ;
+void SendHMIDataFromMasterToPC(RF_HMI_Package_Send *pkg, uint8_t u8cmd, uint8_t u8addrHMI, uint8_t *u8HMIData);
 
 /* USER CODE BEGIN Prototypes */
 

@@ -21,9 +21,9 @@ extern "C" {
 void Radio_Start(void);
 void OnClient (void) ;
 void Modbus_Init(void);
-void Modbus_Start(void);
+uint8_t Modbus_Start(void);
 void Modbus_Test_PC(void);
-
+void Client_Set_HMI_User_Pass(void);
 /* USER CODE BEGIN Prototypes */
 
 /* USER CODE END Prototypes */

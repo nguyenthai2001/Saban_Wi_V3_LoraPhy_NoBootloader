@@ -143,88 +143,7 @@
           <Name>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC2000 -FN1 -FF0NUC200_AP_128 -FS00 -FL020000 -FP0($$Device:NUC220LE3AN$Flash\NUC200_AP_128.FLM))</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint>
-        <Bp>
-          <Number>0</Number>
-          <Type>0</Type>
-          <LineNumber>451</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>16580</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\Middlewares\Usb_Hid\src\usb_stack.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\SabanWi_Master\../../Middlewares/Usb_Hid/src/usb_stack.c\451</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>444</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>16544</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\Middlewares\Usb_Hid\src\usb_stack.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\SabanWi_Master\../../Middlewares/Usb_Hid/src/usb_stack.c\444</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>475</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>16860</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\Middlewares\Usb_Hid\src\usb_stack.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\SabanWi_Master\../../Middlewares/Usb_Hid/src/usb_stack.c\475</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>302</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>3990</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\App\Operation\src\operation.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\SabanWi_Master\../../App/Operation/src/operation.c\302</Expression>
-        </Bp>
-        <Bp>
-          <Number>4</Number>
-          <Type>0</Type>
-          <LineNumber>303</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\..\App\Operation\src\operation.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-      </Breakpoint>
+      <Breakpoint/>
       <WatchWindow1>
         <Ww>
           <count>0</count>
@@ -266,12 +185,37 @@
           <WinNumber>1</WinNumber>
           <ItemText>RxBuf</ItemText>
         </Ww>
+        <Ww>
+          <count>8</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>hmi_pkg</ItemText>
+        </Ww>
+        <Ww>
+          <count>9</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>pu8Buffer</ItemText>
+        </Ww>
+        <Ww>
+          <count>10</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>CheckCRCDataHMI</ItemText>
+        </Ww>
+        <Ww>
+          <count>11</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>pkg</ItemText>
+        </Ww>
+        <Ww>
+          <count>12</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>user_pass</ItemText>
+        </Ww>
       </WatchWindow1>
       <MemoryWindow1>
         <Mm>
           <WinNumber>1</WinNumber>
           <SubType>0</SubType>
-          <ItemText>0x20003C94</ItemText>
+          <ItemText>0x40060150</ItemText>
           <AccSizeX>0</AccSizeX>
         </Mm>
       </MemoryWindow1>
@@ -582,7 +526,7 @@
 
   <Group>
     <GroupName>App/User/GPIO_Control</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

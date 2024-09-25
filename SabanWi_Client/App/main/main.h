@@ -32,6 +32,8 @@ extern "C" {
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
+
+#define MODBUS_ENABLE 1
 #define SABAN_CLIENT 1
 
 void Error_Handler(void);

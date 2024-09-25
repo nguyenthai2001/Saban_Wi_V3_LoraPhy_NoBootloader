@@ -189,7 +189,7 @@ void Rf_Send_Feedback_CRC(void)
 
     //for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
     //{
-    log_message("%02X ", TxBuf[test_cout]);
+    //log_message("%02X ", TxBuf[test_cout]);
     //}
 }
 
@@ -578,7 +578,7 @@ void Rf_Send_Feedback_SHA(void)
 
     //for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
     //{
-    log_message("%02X ", TxBuf[test_cout]);
+    //log_message("%02X ", TxBuf[test_cout]);
     //}
 
 }
@@ -1039,9 +1039,9 @@ void Rf_Send_Feedback_HMIStatus(uint8_t HID_Status, uint8_t user[], uint8_t pass
     Mode1 = SX1276GetMode();
     if (Mode1 == LORA)
     {
-        SX1276LoRaSetPayloadLength(48);
+        SX1276LoRaSetPayloadLength(64);
         TimeOnAir = SX1276GetTimeOnAir();
-        SX1276LoRaSetRxPacketTimeout(TimeOnAir + 60);
+        SX1276LoRaSetRxPacketTimeout(TimeOnAir + 200);
     }
     if (Mode1 == FSK)
     {
@@ -1054,9 +1054,7 @@ void Rf_Send_Feedback_HMIStatus(uint8_t HID_Status, uint8_t user[], uint8_t pass
 
     Creat_Packet_Master_Get_HMIStatus(device[SLAVE_ID].masterID, device[SLAVE_ID].cmd, device[SLAVE_ID].mccode,
                                       device[SLAVE_ID].slaveID, HID_Status, user, pass, TxBuf);
-//           Creat_Packet_Request_CRC(device[SLAVE_ID].masterID,device[SLAVE_ID].cmd,device[SLAVE_ID].mccode,
-//                           device[SLAVE_ID].slaveID , 0 , 0 , TxBuf);
-    SX1276SetTxPacket(TxBuf, 47);
+    SX1276SetTxPacket(TxBuf, 64);
 
 //          for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
 //          {

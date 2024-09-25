@@ -31,6 +31,9 @@ unsigned char RxBuf[64] = {0};
 double RSSIvalue = 0 ;
 unsigned char SNRvalue = 0 ;
 
+uint8_t result = 0 ;
+uint16_t Modbus_result[16] = {0} ;
+
 void Radio_Start(void)
 {
     uint8_t version ;
@@ -103,8 +106,6 @@ void Radio_Start(void)
 void OnClient(void)
 {
     unsigned char CheckID = 0;
-    uint16_t result = 0 ;
-    //log_message(" Rf_start  !!! \n");
     switch (SX1276Process())
     {
     case RF_CHANNEL_ACTIVITY_DETECTED :
@@ -172,9 +173,11 @@ void OnClient(void)
             else
             {
                 CheckID = Decode_Package_Master_Send_HMIStatus(RxBuf);
+							 // Client_Set_HMI_User_Pass();
                 if (CheckID == 1)
                 {
-                    Rf_Send_Feedback_HMIStatus(HMI_LOGIN, hmi_user_pass.HMI_User, hmi_user_pass.HMI_Pass);
+									 // MBGetData16Bits(REG_HOLDING, 2, Modbus_result) ;	
+                    Rf_Send_Feedback_HMIStatus(Modbus_result[0], hmi_user_pass.HMI_User, hmi_user_pass.HMI_Pass);
                     Timer3_SetTickMs();
                     timesendstart = Timer3_GetTickMs();
                 }
@@ -234,26 +237,34 @@ void Modbus_Init(void)
     }
 }
 
-void Modbus_Start(void)
+uint8_t Modbus_Start(void)
 {
-    uint8_t result = 0 ;
-    uint16_t Modbus_result[16] = {0} ;
-
+	  uint8_t err = 0 ;    
+        		
     if (device[1].Modbus_mode == 0)
     {
-        (void)eMBPoll();                              // receive function code and response to Master
-        MBGetData16Bits(REG_HOLDING, 1, Modbus_result) ;
-        MBSetData16Bits(REG_HOLDING, 2, Modbus_result[0]);
+        (void)eMBPoll();                              // receive function code and response to Master						        
+				 err = 0 ;
     }
-    if (device[1].Modbus_mode == 1)
+    else if (device[1].Modbus_mode == 1)
     {
         result = ModbusMaster_readHoldingRegisters(ClientDataFlash[1].Modbus_SlaveID, 0x01, 15);  //master send readInputRegisters command to slave
         if (result == 0x00)
         {
             Modbus_result[0] = ModbusMaster_getResponseBuffer(0);
             ModbusMaster_writeSingleRegister(ClientDataFlash[1].Modbus_SlaveID, 0x02, Modbus_result[0]);
+					  err  = 0 ;
         }
+				else 
+				{
+					  err  = 1 ;
+				}
     }
+		else
+		{
+			  err = 1 ;
+		}
+		return err ;
 }
 
 void Modbus_Test_PC(void)
@@ -285,4 +296,48 @@ void Modbus_Test_PC(void)
             SendBackTestModbus(i, u16Modbus_result);
         }
     }
+}
+
+
+void Client_Set_HMI_User_Pass(void)
+{
+	  int cnt_test = 0 ;
+		uint8_t str1[30] = "" ;
+		uint8_t str2[30] = "" ;
+		short shortArray[15];   
+		short shortArray2[15];  
+		int copy_cnt  = 0 ;
+		int i  = 0 ;
+		memcpy(str1, hmi_user_pass.HMI_User, 30);
+		memcpy(str2, hmi_user_pass.HMI_Pass, 30);
+		int len1 = sizeof(str1);  
+    int len2 = sizeof(str2);
+	
+	  for (i = 0; i < len1; i += 2) 
+	  {
+        if (i + 1 < len1) {
+            shortArray[copy_cnt] = (short) ((str1[i + 1] << 8) | str1[i]);
+        } else {
+            shortArray[copy_cnt] = (short) str1[i];
+        }
+        copy_cnt++;
+    }
+		
+		for (i = 0; i < len2; i += 2) 
+	  {
+        if (i + 1 < len2) {
+            shortArray2[copy_cnt] = (short) ((str2[i + 1] << 8) | str2[i]);
+        } else {
+            shortArray2[copy_cnt] = (short) str2[i];
+        }
+        copy_cnt++;
+    }
+		for(cnt_test = 3 ; cnt_test < 30 ; cnt_test ++)
+		{
+				MBSetData16Bits(REG_HOLDING, cnt_test, shortArray[cnt_test - 3]); 
+		}
+		for(cnt_test = 30 ; cnt_test < 60 ; cnt_test ++)
+		{
+				MBSetData16Bits(REG_HOLDING, cnt_test, shortArray2[cnt_test - 30]); 
+		}
 }

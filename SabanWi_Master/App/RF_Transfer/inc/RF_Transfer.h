@@ -55,6 +55,11 @@ extern data_user_pass hmi_user_pass ;
 #define MASTER_GET_I2C_DATA 0x00
 #define MASTER_GET_HMI_STATUS 0x01
 
+#define MASTER_GRT_HMI_STATUS_OK
+#define MASTER_GRT_HMI_STATUS_OK
+#define MASTER_GRT_HMI_STATUS_OK
+#define MASTER_GRT_HMI_STATUS_OK
+
 /* USER CODE END Private defines */
 
 uint8_t Creat_Packet_Request_CRC(unsigned char MasterID , unsigned char Commnad , unsigned char MCCode , 
