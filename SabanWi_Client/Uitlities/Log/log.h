@@ -11,7 +11,7 @@ extern "C" {
 #include "main.h"
 #include <stdlib.h>  // C?n d? dùng malloc và free
 #include <stdarg.h>  // Thu vi?n h? tr? truy?n d?i s? bi?n d?i
-/* USER CODE BEGIN Includes */ 
+/* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 
@@ -24,6 +24,8 @@ extern "C" {
 void log_message(const char *format, ...) ;
 void printArray8Bit(uint8_t arr[], int size) ;
 void print_uint8_array_as_chars(uint8_t arr[], size_t length) ;
+size_t copyUint16ToUint8(const uint16_t *src, uint8_t *dest, size_t length_src, size_t length_dest) ;
+void covertUint16ToUint8(const uint16_t *src, uint8_t *dest, size_t length) ;
 
 /* USER CODE END Prototypes */
 

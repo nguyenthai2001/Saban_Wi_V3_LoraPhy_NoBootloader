@@ -1066,13 +1066,13 @@ void Saban_Feedback_Mode_RS485(uint8_t rs485address, uint8_t rs485data, uint8_t 
 }
 
 uint8_t Creat_Packet_Master_Get_HMIStatus(unsigned char MasterID, unsigned char Command, unsigned char MCCode, unsigned char SlaveID,
-        unsigned char *user, unsigned char *pass, unsigned char *packet)
+        unsigned char HMIdata[], unsigned char *packet)
 {
     int TimeStart  = 0 ;
     int TimeStop = 0 ;
     uint8_t err  = 0 ;
     uint8_t system_code = 0 ;
-    uint8_t temp_packet[63] = {0} ;
+    uint8_t temp_packet[64] = {0} ;
     int copy_cnt = 0 ;
     uint16_t crc = 0 ;
     uint8_t crc_h = 0 ;
@@ -1084,36 +1084,21 @@ uint8_t Creat_Packet_Master_Get_HMIStatus(unsigned char MasterID, unsigned char 
     // kiem tra gia tri ma he thong
     if (MasterID >= 16 || Command >= 4 || MCCode >= 4)
     {
-        //log_message(" SYSTERM CODE ERR !!! \n");
+        log_message(" SYSTERM CODE ERR !!! \n");
         err = 1 ;
     }
     else
     {
-        // log_message(" SYSTERM CODE OK !!! ");
+        log_message(" SYSTERM CODE OK !!! ");
         // creat 1 byte ma he thong
         system_code = (MasterID << 4) | (Command << 2) | MCCode ;
         // Creat packet data
         temp_packet[0] = system_code;
         temp_packet[1] = SlaveID ;
         temp_packet[2] = MASTER_GET_HMI_STATUS;
-        for (copy_cnt = 0 ; copy_cnt <= 30 ; copy_cnt ++)
-        {
-            temp_packet[copy_cnt + 3] = user[copy_cnt] ;
-        }
-        for (copy_cnt = 0 ; copy_cnt <= 30 ; copy_cnt ++)
-        {
-            temp_packet[copy_cnt + 34] = pass[copy_cnt] ;
-        }
-        // calculate CRC16
-//        crc = crc16((char*)temp_packet, sizeof(temp_packet));
-//        // creat crc_h crc_l
-//        crc_h = (crc >> 8) & 0xFF;
-//        crc_l = crc & 0xFF;
-//
+        memcpy(temp_packet+3 , HMIdata,60);
         // creat packet send
-        memcpy(packet, temp_packet, 63);
-        //packet[65] = crc_h ;
-        //packet[66] = crc_l ;
+        memcpy(packet, temp_packet, 64);
 
         TimeStop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
@@ -1124,7 +1109,7 @@ uint8_t Creat_Packet_Master_Get_HMIStatus(unsigned char MasterID, unsigned char 
     return err ;
 }
 
-uint8_t Decode_Packet_Client_Feddback_HMIStatus(data_user_pass *user_pass, unsigned char * packet_src)
+uint8_t Decode_Packet_Client_Feddback_HMIStatus(unsigned char * packet_src)
 {
     int TimeStart = 0 ;
     int TimeStop = 0 ;
@@ -1138,67 +1123,47 @@ uint8_t Decode_Packet_Client_Feddback_HMIStatus(data_user_pass *user_pass, unsig
     uint8_t MCCode ;
     uint8_t SlaveID ;
     uint8_t hmi_status;
-    int copy_cnt = 0 ;
+	  uint8_t HMIdata[60] = {0} ;
 
     Timer3_SetTickMs();
     TimeStart = Timer3_GetTickMs();
 
     system_code = packet_src[0];
     SlaveID = packet_src[1];
-    hmi_status = packet_src[2];               // HMI_status
+    hmi_status = packet_src[2];                           // HMI_status
 
-    // masterid command mccode
-    MasterID = (system_code >> 4) & 0x0F ;
+    MasterID = (system_code >> 4) & 0x0F ;                // masterid command mccode
     Commnad = (system_code >> 2) & 0x03 ;
-    MCCode = system_code & 0x03 ;
-
+    MCCode = system_code & 0x03 ;                                                  
+    
     TimeStop = Timer3_GetTickMs();
     Timer3_ResetTickMs();
-    if (MasterDataFlash[1].Masterid == MasterID)           //  master id ok
+		
+    if (MasterDataFlash[1].Masterid == MasterID)          //  master id ok
     {
         printf(" DECODE DATA SLAVE [%2X] OK !!! [%d] us ", SlaveID, TimeStop - TimeStart);
 
-        if (MCCode == MCCODE_SLAVE_FEEDBACK && MasterDataFlash[1].Masterid == MasterID)                // decode for master
+        if (hmi_status == MASTER_GET_HMI_STATUS)          // decode for master
         {
-            for (copy_cnt = 0 ; copy_cnt < 31 ; copy_cnt ++)
-            {
-                user_pass->HMI_User_recv[copy_cnt] = packet_src[copy_cnt + 3] ;
-            }
-            for (copy_cnt = 0 ; copy_cnt < 31 ; copy_cnt ++)
-            {
-                user_pass->HMI_Pass_recv[copy_cnt] = packet_src[copy_cnt + 34] ;
-            }
-            check_user_pass = memcmp(user_pass->HMI_User_recv, user_pass->HMI_User_send, 30);
-            {
-                if (check_user_pass == 0)
-                {
-                    check_user_pass = memcmp(user_pass->HMI_Pass_recv, user_pass->HMI_Pass_send, 30);
-                    if (check_user_pass == 0)
-                    {
-                        user_pass->HMI_Status_rcv = hmi_status ;
-											  log_message("hmi_status : %d" , user_pass->HMI_Status_rcv);
-                        err = 0 ;             // check user pass ok
-                    }
-                    else
-                    {
-                        err = 3 ;             // check pass err
-                    }
-                }
-                else
-                {
-                    err  = 2 ;      // check user err
-                }
-            }
+					  memcpy(HMIdata,packet_src + 3 , 60);
+					  printArray8Bit(packet_src,64);
+            err = 0 ;                                     // client feedback master get hmi status 
         }
+				else 
+				{
+					  printf("client feddback not hmi status  !!!");
+					  err  = 2 ;                                    // Not master get hmi status 
+				}
     }
     else
     {
-        err = 1 ;  // master id Err
+			  printf("master id err !!!");
+        err = 1 ;                                         // master id Err
     }
     return err ;
 }
 
-void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode, uint8_t *user, uint8_t *pass)
+void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode,uint8_t HMIdata[])
 {
     Mode1 = SX1276GetMode();
     unsigned char TxBuf[64] = {0};
@@ -1220,7 +1185,7 @@ void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode
     pkg_client_recv[deviceId].mccode = u8mccode ;
     pkg_client_recv[deviceId].slaveid = deviceId ;
     Creat_Packet_Master_Get_HMIStatus(pkg_client_recv[deviceId].masterid, pkg_client_recv[deviceId].cmd, pkg_client_recv[deviceId].mccode,
-                                      pkg_client_recv[deviceId].slaveid, user, pass, TxBuf);
+                                      pkg_client_recv[deviceId].slaveid,HMIdata, TxBuf);
     printArray8Bit(TxBuf, sizeof(TxBuf));
     SX1276SetTxPacket(TxBuf, 64);
 }

@@ -61,7 +61,7 @@ void Saban_Feedback_Mode_IOStandand(uint8_t security);
 void Saban_Feedback_Mode_RS485(uint8_t rs485address , uint8_t rs485data , uint8_t security );
 
 uint8_t Decode_Package_Master_Send_HMIStatus( unsigned char * packet_src );
-void Rf_Send_Feedback_HMIStatus(uint8_t HID_Status , uint8_t user[] , uint8_t pass[]);
+void Rf_Send_Feedback_HMIStatus(uint8_t HMIdata[]);
 
 /* USER CODE BEGIN Prototypes */
 

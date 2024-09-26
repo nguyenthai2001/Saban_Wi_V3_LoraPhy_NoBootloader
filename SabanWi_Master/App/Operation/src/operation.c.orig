@@ -165,6 +165,16 @@ void OnMaster(void)
 {
     unsigned char len ;
     unsigned char CheckID = 0;
+    unsigned char t_check_decode_err = 0;
+
+    uint8_t user[30] = "nguyenquythai123@gmail.com" ;
+    uint8_t pass[30] = "12345678910111213141516171819";
+   // memcpy(hmi_user_pass.HMI_User_send, user, sizeof(user));
+   // memcpy(hmi_user_pass.HMI_Pass_send, pass, sizeof(pass));
+	  uint8_t u8HMIData[60] = {0} ;
+
+     memcpy(hmi_user_pass.HMI_User_send,hmi_pkg.HMIData,30);
+      memcpy(hmi_user_pass.HMI_Pass_send,hmi_pkg.HMIData + 30 , 30);
 
     switch (SX1276Process())
     {
@@ -184,8 +194,10 @@ void OnMaster(void)
             Saban_Mode_RS485(DeviceDataFlash[device_pos].ClientID, 0x01, 0xFF, MasterDataFlash[1].Security);
             break ;
         case 2 :
+            Rf_Send_Request_HMIStatus(DeviceDataFlash[device_pos].ClientID, CMD_I2C, MCCODE_REQUEST_FEEDBACK, hmi_user_pass.HMI_User_send, hmi_user_pass.HMI_Pass_send);
             break ;
         case 3 :
+            //Rf_Send_Request_HMIStatus(DeviceDataFlash[device_pos].ClientID,CMD_I2C,MCCODE_REQUEST_FEEDBACK,user,pass);
             break ;
         }
         Timer3_SetTickMs();
@@ -198,14 +210,14 @@ void OnMaster(void)
         timeresvstart = Timer3_GetTickMs();
         break;
 
-    case RF_RX_TIMEOUT :			 
+    case RF_RX_TIMEOUT :
         timeresvstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();                                           // Client disconnect
         log_message(" RX Timeout !!![%d] us ", timeresvstop - timeresvstart);
-        pkg_client_recv[DeviceDataFlash[device_pos-1].ClientID ].data_h = 0;
-        pkg_client_recv[DeviceDataFlash[device_pos-1].ClientID ].data_l = 0;
-        pkg_client_recv[DeviceDataFlash[device_pos-1].ClientID ].err ++ ;
-		    
+        pkg_client_recv[DeviceDataFlash[device_pos - 1].ClientID ].data_h = 0;
+        pkg_client_recv[DeviceDataFlash[device_pos - 1].ClientID ].data_l = 0;
+        pkg_client_recv[DeviceDataFlash[device_pos - 1].ClientID ].err ++ ;
+
         if (Mode == LORA)
         {
             SX1276StartCad();
@@ -221,6 +233,7 @@ void OnMaster(void)
                 Saban_Mode_RS485(DeviceDataFlash[device_pos].ClientID, 0x01, 0xFF, MasterDataFlash[1].Security);
                 break ;
             case 2 :
+                Rf_Send_Request_HMIStatus(DeviceDataFlash[device_pos].ClientID, CMD_I2C, MCCODE_REQUEST_FEEDBACK, user, pass);
                 break ;
             case 3 :
                 break ;
@@ -234,12 +247,12 @@ void OnMaster(void)
         timeresvstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();                                                  // Client Connected
         RSSIvalue = SX1276ReadRssi();
-		    SNRvalue = SX1276GetPacketSnr();
-		    log_message(" Rx Receive Done !!! [%d] us , Rssi : [%.2f] dBm , Snr : [%d] dB" , timeresvstop - timeresvstart, RSSIvalue ,SNRvalue);
+        SNRvalue = SX1276GetPacketSnr();
+        log_message(" Rx Receive Done !!! [%d] us , Rssi : [%.2f] dBm , Snr : [%d] dB", timeresvstop - timeresvstart, RSSIvalue, SNRvalue);
         SX1276GetRxPacket(RxBuf, (unsigned short int)sizeof(RxBuf));
         if (RxBuf > 0)
         {
-            pkg_client_recv[DeviceDataFlash[device_pos-1].ClientID].err = 0 ;
+            pkg_client_recv[DeviceDataFlash[device_pos - 1].ClientID].err = 0 ;
             switch (MasterDataFlash[1].Security)
             {
             case 0:
@@ -287,7 +300,30 @@ void OnMaster(void)
             }
             else
             {
-                log_message(" Rx RECEIVE NOT ME !!!!!");
+                t_check_decode_err = Decode_Packet_Client_Feddback_HMIStatus(&hmi_user_pass, RxBuf);
+                if (t_check_decode_err == 0)
+                {
+                    log_message(" Master Check HMI status ok  !!!!!");
+									  u8HMIData[0] = hmi_user_pass.HMI_Status_rcv ;
+									  SendHMIDataFromMasterToPC(&hmi_pkg, CMD_GET_HMI_STATUS,DeviceDataFlash[device_pos].ClientID, u8HMIData);
+                }
+                else if (t_check_decode_err == 1)
+                {
+                    log_message(" Rx RECEIVE NOT ME !!!!!");									  
+                    SX1276StartCad();
+                }
+                else if (t_check_decode_err == 2)
+                {
+                    log_message(" Master Check HMI Status User ERR !!!!!");
+                }
+                else if (t_check_decode_err == 3)
+                {
+                    log_message(" Master Check HMI Status Pass ERR !!!!!");
+                }
+                else
+                {
+                    SX1276StartCad();
+                }
             }
         }
         else
@@ -298,7 +334,7 @@ void OnMaster(void)
 
     case RF_TX_RUNNING :
         device_pos ++ ;
-        if (device_pos > MasterDataFlash[1].DeviceNumber +1 )
+        if (device_pos > MasterDataFlash[1].DeviceNumber + 1)
         {
             device_pos = 0 ;
         }

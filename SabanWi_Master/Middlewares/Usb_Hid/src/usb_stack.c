@@ -245,19 +245,21 @@ void SendHMIDataFromMasterToPC(RF_HMI_Package_Send *pkg, uint8_t u8cmd, uint8_t 
     sendDataUSBD(TxData);
 }
 
-void save_user_pass_to_byte_array(const char *user, const char *pass, uint8_t *byte_array) 
+void save_user_pass_to_byte_array(const char *user, const char *pass, uint8_t *byte_array)
 {
     // Sao chép chu?i user vào m?ng byte
-    while (*user) {
-        *byte_array++ = (uint8_t)*user++;
+    while (*user)
+    {
+        *byte_array++ = (uint8_t) * user++;
     }
 
     // Thêm ký t? phân cách (có th? là b?t k? ký t? nào, ví d? ':' ho?c kho?ng tr?ng)
     *byte_array++ = ':';
 
     // Sao chép chu?i pass vào m?ng byte
-    while (*pass) {
-        *byte_array++ = (uint8_t)*pass++;
+    while (*pass)
+    {
+        *byte_array++ = (uint8_t) * pass++;
     }
 
     // Thêm ký t? null '\0' d? k?t thúc chu?i
@@ -292,11 +294,11 @@ int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
     uint8_t CheckCRCDataHMI[61] = {0};
     uint16_t u16crcRecv = 0 ;
     uint16_t u16crcNew = 0 ;
-		uint8_t u8HMIData[60] = {0} ;
-    
-		const char *user = "Nguyen quy thai"; 
-		const char *pass = "123456"; 
-		int length = strlen(user);  
+    uint8_t u8HMIData[60] = {0} ;
+
+    const char *user = "Nguyen quy thai";
+    const char *pass = "123456";
+    int length = strlen(user);
 
     switch (u8Cmd)
     {
@@ -441,15 +443,15 @@ int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
         }
         break ;
     case CMD_GET_HMI_STATUS :
-			  init_crc16_table();
+        init_crc16_table();
         for (CRCCheckCount = 0 ; CRCCheckCount < 62 ; CRCCheckCount ++)
         {
             CheckCRCDataHMI[CRCCheckCount] = pu8Buffer[CRCCheckCount] ;
         }
         u16crcRecv = pu8Buffer[62] << 8 | pu8Buffer[63] ;
         u16crcNew = compute_checksum(CheckCRCDataHMI, 62);
-				u8addrHMI = pu8Buffer[1];
-				memcpy(u8HMIData,CheckCRCDataHMI+2,60);
+        u8addrHMI = pu8Buffer[1];
+        memcpy(hmi_pkg.HMIData, CheckCRCDataHMI + 2, 60);
         printf("u16crcRecv = %d u16crcNew=%d lengthRev=%d", u16crcRecv, u16crcNew, u32BufferLen);
         if (u16crcNew == u16crcRecv)
         {

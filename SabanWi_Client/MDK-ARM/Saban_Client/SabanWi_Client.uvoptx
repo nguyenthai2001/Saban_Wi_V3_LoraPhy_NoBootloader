@@ -149,7 +149,7 @@
           <Type>0</Type>
           <LineNumber>261</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>11568</Address>
+          <Address>11416</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -165,7 +165,7 @@
           <Type>0</Type>
           <LineNumber>295</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>26416</Address>
+          <Address>26256</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -181,7 +181,7 @@
           <Type>0</Type>
           <LineNumber>212</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>26636</Address>
+          <Address>26476</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -223,6 +223,21 @@
           <count>5</count>
           <WinNumber>1</WinNumber>
           <ItemText>Modbus_result</ItemText>
+        </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>HMidata</ItemText>
+        </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>result_modbus</ItemText>
+        </Ww>
+        <Ww>
+          <count>8</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>result_modbus[i*2]</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
@@ -292,7 +307,7 @@
 
   <Group>
     <GroupName>App/User/Core/main</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -460,7 +475,7 @@
 
   <Group>
     <GroupName>App/User/Operation</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -700,7 +715,7 @@
 
   <Group>
     <GroupName>Middleware/USB_Stack</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

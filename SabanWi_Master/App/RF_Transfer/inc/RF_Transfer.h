@@ -85,8 +85,8 @@ void Saban_Mode_RS485 (uint8_t ClientID , uint8_t ModbusMaterID , uint8_t Data ,
 void Saban_Feedback_Mode_IOStandand(uint8_t security);
 void Saban_Feedback_Mode_RS485(uint8_t rs485address , uint8_t rs485data , uint8_t security );
 
-void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode , uint8_t *user , uint8_t *pass);
-uint8_t Decode_Packet_Client_Feddback_HMIStatus(data_user_pass *user_pass, unsigned char * packet_src);
+void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode,uint8_t HMIdata[]);
+uint8_t Decode_Packet_Client_Feddback_HMIStatus(unsigned char * packet_src);
 
 /* USER CODE BEGIN Prototypes */
 

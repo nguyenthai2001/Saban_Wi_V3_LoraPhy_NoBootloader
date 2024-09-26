@@ -618,7 +618,7 @@ uint8_t Decode_Packet_Receive_SHA(unsigned char mode, unsigned char * packet_src
 #else
         if (MCCode == MCCODE_SLAVE_FEEDBACK && MasterDataFlash[1].Masterid == MasterID)               // decode for master
         {
-            Save_Receive_Data_RF_Transfer(pkg_client_recv, MasterID, Commnad, MCCode, SlaveID, u16cmd, Data, (uint16_t)receive_sha);
+            Save_Receive_Data_RF_Transfer(pkg_client_recv, MasterID, Commnad, MCCode, SlaveID, u16cmd, Data, 0);
             err = 1 ;
         }
 #endif
@@ -874,7 +874,7 @@ uint8_t Decode_Packet_Receive_AESSHA(unsigned char mode, unsigned char * packet_
             pkg_client_recv[SlaveID].slaveid = SlaveID ;
             pkg_client_recv[SlaveID].data_h = u16cmd ;
             pkg_client_recv[SlaveID].data_l = Data ;
-            pkg_client_recv[SlaveID].crc_result = (uint16_t) receive_crc ;
+            pkg_client_recv[SlaveID].crc_result = 0 ;
 
             printf(" SlaveID : %2X ", pkg_client_recv[SlaveID].slaveid);
             printf(" Command : %2X ", pkg_client_recv[SlaveID].cmd);
@@ -1176,6 +1176,7 @@ uint8_t Decode_Packet_Client_Feddback_HMIStatus(data_user_pass *user_pass, unsig
                     if (check_user_pass == 0)
                     {
                         user_pass->HMI_Status_rcv = hmi_status ;
+											  log_message("hmi_status : %d" , user_pass->HMI_Status_rcv);
                         err = 0 ;             // check user pass ok
                     }
                     else
@@ -1206,9 +1207,9 @@ void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode
 
     if (Mode1 == LORA)
     {
-        SX1276LoRaSetPayloadLength(12);
+        SX1276LoRaSetPayloadLength(64);
         TimeOnAir = SX1276GetTimeOnAir();
-        SX1276LoRaSetRxPacketTimeout(TimeOnAir + 60);
+        SX1276LoRaSetRxPacketTimeout(TimeOnAir + 200);
     }
     if (Mode1 == FSK)
     {
@@ -1221,5 +1222,5 @@ void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode
     Creat_Packet_Master_Get_HMIStatus(pkg_client_recv[deviceId].masterid, pkg_client_recv[deviceId].cmd, pkg_client_recv[deviceId].mccode,
                                       pkg_client_recv[deviceId].slaveid, user, pass, TxBuf);
     printArray8Bit(TxBuf, sizeof(TxBuf));
-    SX1276SetTxPacket(TxBuf, 12);
+    SX1276SetTxPacket(TxBuf, 64);
 }

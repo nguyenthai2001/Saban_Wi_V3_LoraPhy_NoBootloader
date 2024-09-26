@@ -32,7 +32,7 @@ double RSSIvalue = 0 ;
 unsigned char SNRvalue = 0 ;
 
 uint8_t result = 0 ;
-uint16_t Modbus_result[30] = {0} ;
+uint16_t Modbus_result[16] = {0} ;
 
 void Radio_Start(void)
 {
@@ -106,10 +106,9 @@ void Radio_Start(void)
 void OnClient(void)
 {
     unsigned char CheckID = 0;
-    unsigned char check_decode_err = 0;
-    unsigned char HMidata [60] = {0} ;
-    uint16_t cnt_read_modbus = 0 ;
-
+	  unsigned char check_decode_err =0;
+	  unsigned char HMidata [60] = {0} ;  
+	
     switch (SX1276Process())
     {
     case RF_CHANNEL_ACTIVITY_DETECTED :
@@ -179,18 +178,10 @@ void OnClient(void)
                 check_decode_err = Decode_Package_Master_Send_HMIStatus(RxBuf);
                 if (check_decode_err == 0)
                 {
-#if MODBUS_ENABLE
-                    MBGetData16Bits(REG_HOLDING, 2, &Modbus_result[0]);
-                    MBGetData16Bits(REG_HOLDING, 3, &Modbus_result[1]);
-                    Client_Get_HMI_User_Pass(HMidata);
-                    copyUint16ToUint8(Modbus_result, HMidata, 30, 60);
-
-#else
-                    HMidata[0] = 1 ;
-                    HMidata[1] = 2 ;
-                    HMidata[58] = 65 ;
-                    HMidata [59] = 1;
-#endif
+									  HMidata[0] = 1 ;
+									  HMidata[1] = 2 ;
+									  HMidata[58] = 65 ;
+									  HMidata [59] = 12 ;									
                     Rf_Send_Feedback_HMIStatus(HMidata);
                     Timer3_SetTickMs();
                     timesendstart = Timer3_GetTickMs();
@@ -253,12 +244,12 @@ void Modbus_Init(void)
 
 uint8_t Modbus_Start(void)
 {
-    uint8_t err = 0 ;
-
+	  uint8_t err = 0 ;    
+        		
     if (device[1].Modbus_mode == 0)
     {
-        (void)eMBPoll();                              // receive function code and response to Master
-        err = 0 ;
+        (void)eMBPoll();                              // receive function code and response to Master						        
+				 err = 0 ;
     }
     else if (device[1].Modbus_mode == 1)
     {
@@ -267,18 +258,18 @@ uint8_t Modbus_Start(void)
         {
             Modbus_result[0] = ModbusMaster_getResponseBuffer(0);
             ModbusMaster_writeSingleRegister(ClientDataFlash[1].Modbus_SlaveID, 0x02, Modbus_result[0]);
-            err  = 0 ;
+					  err  = 0 ;
         }
-        else
-        {
-            err  = 1 ;
-        }
+				else 
+				{
+					  err  = 1 ;
+				}
     }
-    else
-    {
-        err = 1 ;
-    }
-    return err ;
+		else
+		{
+			  err = 1 ;
+		}
+		return err ;
 }
 
 void Modbus_Test_PC(void)
@@ -312,61 +303,46 @@ void Modbus_Test_PC(void)
     }
 }
 
-void Client_Get_HMI_User_Pass(uint8_t result_modbus[])
-{
-    uint16_t cnt = 0 ;
-    int i = 0 ;
-    for (cnt = 4 ; cnt <= 40 ; cnt++)
-    {
-        MBGetData16Bits(REG_HOLDING, cnt, &Modbus_result[ cnt - 2]);
-    }
-}
 
 void Client_Set_HMI_User_Pass(void)
 {
-    int cnt_test = 0 ;
-    uint8_t str1[30] = "" ;
-    uint8_t str2[30] = "" ;
-    short shortArray[15];
-    short shortArray2[15];
-    int copy_cnt  = 0 ;
-    int i  = 0 ;
-    memcpy(str1, hmi_user_pass.HMI_User, 30);
-    memcpy(str2, hmi_user_pass.HMI_Pass, 30);
-    int len1 = sizeof(str1);
+	  int cnt_test = 0 ;
+		uint8_t str1[30] = "" ;
+		uint8_t str2[30] = "" ;
+		short shortArray[15];   
+		short shortArray2[15];  
+		int copy_cnt  = 0 ;
+		int i  = 0 ;
+		memcpy(str1, hmi_user_pass.HMI_User, 30);
+		memcpy(str2, hmi_user_pass.HMI_Pass, 30);
+		int len1 = sizeof(str1);  
     int len2 = sizeof(str2);
-
-    for (i = 0; i < len1; i += 2)
-    {
-        if (i + 1 < len1)
-        {
-            shortArray[copy_cnt] = (short)((str1[i + 1] << 8) | str1[i]);
-        }
-        else
-        {
+	
+	  for (i = 0; i < len1; i += 2) 
+	  {
+        if (i + 1 < len1) {
+            shortArray[copy_cnt] = (short) ((str1[i + 1] << 8) | str1[i]);
+        } else {
             shortArray[copy_cnt] = (short) str1[i];
         }
         copy_cnt++;
     }
-
-    for (i = 0; i < len2; i += 2)
-    {
-        if (i + 1 < len2)
-        {
-            shortArray2[copy_cnt] = (short)((str2[i + 1] << 8) | str2[i]);
-        }
-        else
-        {
+		
+		for (i = 0; i < len2; i += 2) 
+	  {
+        if (i + 1 < len2) {
+            shortArray2[copy_cnt] = (short) ((str2[i + 1] << 8) | str2[i]);
+        } else {
             shortArray2[copy_cnt] = (short) str2[i];
         }
         copy_cnt++;
     }
-    for (cnt_test = 3 ; cnt_test < 30 ; cnt_test ++)
-    {
-        MBSetData16Bits(REG_HOLDING, cnt_test, shortArray[cnt_test - 3]);
-    }
-    for (cnt_test = 30 ; cnt_test < 60 ; cnt_test ++)
-    {
-        MBSetData16Bits(REG_HOLDING, cnt_test, shortArray2[cnt_test - 30]);
-    }
+		for(cnt_test = 3 ; cnt_test < 30 ; cnt_test ++)
+		{
+				MBSetData16Bits(REG_HOLDING, cnt_test, shortArray[cnt_test - 3]); 
+		}
+		for(cnt_test = 30 ; cnt_test < 60 ; cnt_test ++)
+		{
+				MBSetData16Bits(REG_HOLDING, cnt_test, shortArray2[cnt_test - 30]); 
+		}
 }
