@@ -23,6 +23,8 @@ extern "C" {
 
 void log_message(const char *format, ...) ;
 void printArray8Bit(uint8_t arr[], int size);
+void printStringBit(uint8_t arr[], int size);
+void printHexDecAscii(const unsigned char *array, int length) ;
 
 /* USER CODE END Prototypes */
 

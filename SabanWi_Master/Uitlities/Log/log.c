@@ -39,3 +39,28 @@ void printArray8Bit(uint8_t arr[], int size)
     }
     printf("\n");
 }
+
+void printStringBit(uint8_t arr[], int size)
+{
+    printf("Array (decimal): ");
+  	char string[size + 1]; // C?ng thêm 1 d? ch?a ký t? null terminator
+
+    for (int i = 0; i < size; i++)
+    { 
+			  string[i] = arr[i];
+        printf("%s", string);
+    }
+}
+
+// Hàm in giá tr? Hex, Decimal và ASCII c?a m?ng 8-bit
+void printHexDecAscii(const unsigned char *array, int length) 
+{
+    printf("Hex\tDec\tASCII\n");
+    printf("------------------------\n");
+
+    // Duy?t qua t?ng ph?n t? trong m?ng
+    for (int i = 0; i < length; i++) {
+        // In giá tr? hex, decimal và ký t? ASCII tr?c ti?p
+        printf("%02X\t%3d\t%c\n", array[i], array[i], array[i]);
+    }
+}

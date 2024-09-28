@@ -30,6 +30,7 @@ extern "C" {
 
 #define MASTER_GET_I2C_DATA 0x00
 #define MASTER_GET_HMI_STATUS 0x01
+#define MASTER_FEEDBACK_LOGIN_STATUS 0x02
 
 #define HMI_LOGIN 0x01 
 #define HMI_LOGOUT 0x02
@@ -61,7 +62,8 @@ void Saban_Feedback_Mode_IOStandand(uint8_t security);
 void Saban_Feedback_Mode_RS485(uint8_t rs485address , uint8_t rs485data , uint8_t security );
 
 uint8_t Decode_Package_Master_Send_HMIStatus( unsigned char * packet_src );
-void Rf_Send_Feedback_HMIStatus(uint8_t HMIdata[]);
+void Rf_Send_Feedback_HMIStatus( uint8_t Cmd_HMI, uint8_t HMIdata[]);
+uint8_t Decode_Package_Master_Send_LOGINStatus(unsigned char * packet_src);
 
 /* USER CODE BEGIN Prototypes */
 

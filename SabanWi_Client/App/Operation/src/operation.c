@@ -32,7 +32,7 @@ double RSSIvalue = 0 ;
 unsigned char SNRvalue = 0 ;
 
 uint8_t result = 0 ;
-uint16_t Modbus_result[30] = {0} ;
+uint16_t Modbus_result[60] = {0} ;
 
 void Radio_Start(void)
 {
@@ -118,7 +118,7 @@ void OnClient(void)
 
     case RF_CHANNEL_EMPTY:
         log_message("Channel Empty !!! \n");
-        SX1276StartCad();
+        SX1276StartRx();
         break ;
 
     case RF_RX_RUNNING:
@@ -139,7 +139,7 @@ void OnClient(void)
         Timer3_ResetTickMs();
         SX1276GetRxPacket(RxBuf, (unsigned short int)sizeof(RxBuf));
         if (RxBuf > 0)
-        {
+        {					 
             switch (ClientDataFlash[1].Security)
             {
             case 0:
@@ -180,29 +180,35 @@ void OnClient(void)
                 if (check_decode_err == 0)
                 {
 #if MODBUS_ENABLE
+									 if(RxBuf[5] == 0x4F && RxBuf[6] == 0x4B  )
+									 {
+										   MBSetData16Bits(REG_HOLDING, 1,1);
+									 }
+									 else
+									 {
+										   MBSetData16Bits(REG_HOLDING, 1,0);
+									 }
                     MBGetData16Bits(REG_HOLDING, 2, &Modbus_result[0]);
                     MBGetData16Bits(REG_HOLDING, 3, &Modbus_result[1]);
                     Client_Get_HMI_User_Pass(HMidata);
-                    copyUint16ToUint8(Modbus_result, HMidata, 30, 60);
-
+                    copyUint16ToUint8(Modbus_result, HMidata, 30, 60);                    
 #else
                     HMidata[0] = 1 ;
                     HMidata[1] = 2 ;
                     HMidata[58] = 65 ;
-                    HMidata [59] = 1;
-#endif
-                    Rf_Send_Feedback_HMIStatus(HMidata);
+                    HMidata[59] = 1;
+#endif									
+                   Rf_Send_Feedback_HMIStatus(MASTER_GET_HMI_STATUS,HMidata);
+									  
                     Timer3_SetTickMs();
                     timesendstart = Timer3_GetTickMs();
                 }
                 else
-                {
-                    log_message("DECODE PACKET RECEIVE ERR !!! ");
-                    SX1276StartRx();
+                {                 
+                    SX1276StartCad();
                 }
                 //SX1276StartRx();
             }
-
         }
         else
         {
@@ -220,7 +226,8 @@ void OnClient(void)
         log_message("Tx Done !!! [%d] us \n", timesendstop - timesendstart);
         if (Mode == LORA)
         {
-            SX1276StartCad();
+            //SX1276StartCad();
+					SX1276StartRx();
         }
         if (Mode == FSK)
         {
@@ -259,6 +266,8 @@ uint8_t Modbus_Start(void)
     {
         (void)eMBPoll();                              // receive function code and response to Master
         err = 0 ;
+			  //MBGetData16Bits(REG_HOLDING, 50, &Modbus_result[50]);
+			  //MBSetData16Bits(REG_HOLDING, 1,1);
     }
     else if (device[1].Modbus_mode == 1)
     {

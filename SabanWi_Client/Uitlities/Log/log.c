@@ -83,7 +83,7 @@ size_t copyUint16ToUint8(const uint16_t *src, uint8_t *dest, size_t length_src, 
         {
             if (!commaAdded && destIndex < length_dest)
             {
-                dest[destIndex++] = ',';
+                dest[destIndex++] = 0x1D;
                 commaAdded = 1;
             }
             continue;

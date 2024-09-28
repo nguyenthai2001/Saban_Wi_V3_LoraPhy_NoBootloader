@@ -149,7 +149,7 @@
           <Type>0</Type>
           <LineNumber>261</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>11416</Address>
+          <Address>11432</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -165,7 +165,7 @@
           <Type>0</Type>
           <LineNumber>295</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>26256</Address>
+          <Address>26276</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -181,7 +181,7 @@
           <Type>0</Type>
           <LineNumber>212</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>26476</Address>
+          <Address>26496</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -202,42 +202,17 @@
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>RxBuf</ItemText>
+          <ItemText>device</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>device</ItemText>
+          <ItemText>Modbus_result</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>1</WinNumber>
-          <ItemText>hmi_user_pass</ItemText>
-        </Ww>
-        <Ww>
-          <count>4</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>result</ItemText>
-        </Ww>
-        <Ww>
-          <count>5</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>Modbus_result</ItemText>
-        </Ww>
-        <Ww>
-          <count>6</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>HMidata</ItemText>
-        </Ww>
-        <Ww>
-          <count>7</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>result_modbus</ItemText>
-        </Ww>
-        <Ww>
-          <count>8</count>
-          <WinNumber>1</WinNumber>
-          <ItemText>result_modbus[i*2]</ItemText>
+          <ItemText>RxBuf</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>
@@ -287,7 +262,7 @@
 
   <Group>
     <GroupName>App/MDK-ARM</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -307,7 +282,7 @@
 
   <Group>
     <GroupName>App/User/Core/main</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -527,7 +502,7 @@
 
   <Group>
     <GroupName>App/User/RF_Transfer</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -919,7 +894,7 @@
 
   <Group>
     <GroupName>Middleware/Modbus_Slave/App</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

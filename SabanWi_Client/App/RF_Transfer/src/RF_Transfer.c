@@ -897,7 +897,7 @@ void Saban_Feedback_Mode_RS485(uint8_t rs485address, uint8_t rs485data, uint8_t 
 }
 
 uint8_t Creat_Packet_Master_Get_HMIStatus(unsigned char MasterID, unsigned char Command, unsigned char MCCode, unsigned char SlaveID,
-        unsigned char HMIdata[], unsigned char packet[])
+        unsigned char Cmd_HMI ,unsigned char HMIdata[], unsigned char packet[])
 {
     int TimeStart  = 0 ;
     int TimeStop = 0 ;
@@ -925,7 +925,7 @@ uint8_t Creat_Packet_Master_Get_HMIStatus(unsigned char MasterID, unsigned char 
         // Creat packet data
         temp_packet[0] = system_code;
         temp_packet[1] = SlaveID ;
-        temp_packet[2] = MASTER_GET_HMI_STATUS;
+        temp_packet[2] = Cmd_HMI;
 
         memcpy(temp_packet + 3, HMIdata, 60);
 
@@ -980,6 +980,7 @@ uint8_t Decode_Package_Master_Send_HMIStatus(unsigned char * packet_src)
         err = 0;                                                // slave id ok
         if (masteridcurrent == MasterID)                        // master id ok
         {
+					  err = 0 ;
             if (MCCode == MCCODE_REQUEST_FEEDBACK)              // slave feedback
             {
                 err = 0 ;
@@ -1015,7 +1016,7 @@ uint8_t Decode_Package_Master_Send_HMIStatus(unsigned char * packet_src)
                 log_message("Client decode client no feedback !!! ");
                 err = 3 ;
             }
-            err = 0 ;
+            
         }
         else                                                             // master id err
         {
@@ -1031,7 +1032,7 @@ uint8_t Decode_Package_Master_Send_HMIStatus(unsigned char * packet_src)
     return err ;
 }
 
-void Rf_Send_Feedback_HMIStatus(uint8_t HMIdata[])
+void Rf_Send_Feedback_HMIStatus( uint8_t Cmd_HMI, uint8_t HMIdata[])
 {
     unsigned char TxBuf[64] = {0};
     uint8_t test_cout = 0;
@@ -1042,7 +1043,7 @@ void Rf_Send_Feedback_HMIStatus(uint8_t HMIdata[])
     {
         SX1276LoRaSetPayloadLength(64);
         TimeOnAir = SX1276GetTimeOnAir();
-        SX1276LoRaSetRxPacketTimeout(TimeOnAir + 200);
+        SX1276LoRaSetRxPacketTimeout(TimeOnAir + 250);
     }
     if (Mode1 == FSK)
     {
@@ -1054,12 +1055,102 @@ void Rf_Send_Feedback_HMIStatus(uint8_t HMIdata[])
     device[SLAVE_ID].mccode = MCCODE_SLAVE_FEEDBACK ;
 
     Creat_Packet_Master_Get_HMIStatus(device[SLAVE_ID].masterID, device[SLAVE_ID].cmd, device[SLAVE_ID].mccode,
-                                      device[SLAVE_ID].slaveID, HMIdata, TxBuf);
+                                      device[SLAVE_ID].slaveID,Cmd_HMI , HMIdata, TxBuf);
     SX1276SetTxPacket(TxBuf, 64);
 
 //          for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
 //          {
 //             log_message("%02X ",TxBuf[test_cout]);
 //          }
+}
+
+uint8_t Decode_Package_Master_Send_LOGINStatus(unsigned char * packet_src)
+{
+    int TimeStart = 0 ;
+    int TimeStop = 0 ;
+
+    uint8_t masteridcurrent;
+
+    uint8_t err = 0 ;
+    uint8_t system_code = 0 ;
+    uint8_t temp_packet[4];
+
+    uint8_t MasterID ;
+    uint8_t Commnad ;
+    uint8_t MCCode ;
+    uint8_t SlaveID ;
+    uint8_t u16cmd;
+    uint8_t HMIdata[60] = {0} ;
+
+    Timer3_SetTickMs();
+    TimeStart = Timer3_GetTickMs();
+
+    system_code = packet_src[0];
+    SlaveID = packet_src[1];
+    u16cmd = packet_src[2];
+
+    // masterid command mccode
+    MasterID = (system_code >> 4) & 0x0F ;
+    Commnad = (system_code >> 2) & 0x03 ;
+    MCCode = system_code & 0x03 ;
+
+    masteridcurrent = (ClientDataFlash[1].System_code >> 4) & 0x0F ;
+    SLAVE_ID = ClientDataFlash[1].SlaveID;
+
+    if (SLAVE_ID == SlaveID)
+    {
+        err = 0;                                                // slave id ok
+        if (masteridcurrent == MasterID)                        // master id ok
+        {
+					  err = 0 ;
+            if (MCCode == MCCODE_REQUEST_FEEDBACK)              // slave feedback
+            {
+                err = 0 ;
+                TimeStop = Timer3_GetTickMs();
+                Timer3_ResetTickMs();
+                log_message(" DECODE DATA SLAVE [%2X] OK !!! [%d] us ", SlaveID, TimeStop - TimeStart);
+                if (u16cmd == MASTER_FEEDBACK_LOGIN_STATUS)                    //  master get hmi status
+                {
+                    memcpy(HMIdata, packet_src + 3, 60);
+
+                    device[SLAVE_ID].masterID = MasterID ;
+                    device[SLAVE_ID].cmd = Commnad ;
+                    device[SLAVE_ID].mccode = MCCode ;
+                    device[SLAVE_ID].slaveID = SlaveID ;
+                    device[SLAVE_ID].data_h = u16cmd ;
+
+                    log_message(" MasterID : %2X ", device[SLAVE_ID].masterID);
+                    log_message(" Command : %2X ", device[SLAVE_ID].cmd);
+                    log_message(" MCcode : %2X ", device[SLAVE_ID].mccode);
+                    log_message(" master send Login Status  ");
+                    printArray8Bit(HMIdata, 60);
+                    Update_DataFlash_From_Master();
+                    err = 0 ;
+                }
+                else                                                      // master no get hmi status
+                {
+                    log_message("Client decode not master send hmi status !!! ");
+                    err  = 4 ;
+                }
+            }                                                             // slave no feedback
+            else
+            {
+                log_message("Client decode client no feedback !!! ");
+                err = 3 ;
+            }
+            
+        }
+        else                                                             // master id err
+        {
+            log_message("Client decode master id err !!! ");
+            err  = 2 ;
+        }
+    }
+    else                                                                  // slave id err
+    {
+        log_message("Client decode client id err !!! ");
+        err = 1 ;
+    }
+    return err ;
 }
 

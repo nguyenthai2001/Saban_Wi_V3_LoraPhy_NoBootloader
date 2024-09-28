@@ -29,19 +29,11 @@ typedef enum {
 
 typedef enum 
 { 
-    START = 0,
-    LOGOUT = 1,
-    LOGED = 2,
-    CHECKSTATUS = 3, 
-} hmiState ;
-
-typedef enum 
-{
-		NON,
-		GET_STATE,
-		SET_STATUS_LOGIN,
-		SET_STATUS_REQUEST,
-} sendToHmicmd;
+       START = 0,
+       LOGOUT = 1,
+       LOGED = 2,
+       CHECKSTATUS = 3, 
+}hmiState ;
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN Private defines */

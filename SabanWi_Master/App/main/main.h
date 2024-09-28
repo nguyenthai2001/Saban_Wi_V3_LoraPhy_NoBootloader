@@ -40,12 +40,17 @@ extern volatile uint32_t g_u8IsWDTWakeupINT ;
 
 typedef struct
 {
+	  uint8_t Mode_work ;                    // 0 : NORMAL 1: HMI Goi Lieu 
     uint8_t input_type ;                   // 0: NORMAL 1: FLASH
     uint8_t Modbus_test ;                  // 0: Normal 1: Test Modbus Slave 02 : Test Modbus Master
     uint8_t Modbus_mode ;                  // 1: Master 0: Slave
     uint16_t Modbus_value[16] ;
     int err ;
 } Saban;
+
+#define MODE_WORK_NORMAL  0 
+#define MODE_WORK_HMI     1
+#define MODE_WORK_HMI_FEEDBACK_HMI_LOGIN     2
 
 extern Saban device[200] ;
 

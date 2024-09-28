@@ -9,6 +9,7 @@
 #include "RF_Transfer.h"
 
 RF_HMI_Package_Send hmi_pkg ;
+sendToHmicmd cmd_recv_pc_to_hmi ;
 
 /**
 *    @brief         SendBackDeviceSettingInfo
@@ -245,27 +246,6 @@ void SendHMIDataFromMasterToPC(RF_HMI_Package_Send *pkg, uint8_t u8cmd, uint8_t 
     sendDataUSBD(TxData);
 }
 
-void save_user_pass_to_byte_array(const char *user, const char *pass, uint8_t *byte_array)
-{
-    // Sao chép chu?i user vào m?ng byte
-    while (*user)
-    {
-        *byte_array++ = (uint8_t) * user++;
-    }
-
-    // Thêm ký t? phân cách (có th? là b?t k? ký t? nào, ví d? ':' ho?c kho?ng tr?ng)
-    *byte_array++ = ':';
-
-    // Sao chép chu?i pass vào m?ng byte
-    while (*pass)
-    {
-        *byte_array++ = (uint8_t) * pass++;
-    }
-
-    // Thêm ký t? null '\0' d? k?t thúc chu?i
-    *byte_array = '\0';
-}
-
 int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
 {
     WDT_Close();
@@ -323,7 +303,6 @@ int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
 
     case CMD_WRITE_CLIENT_SETTING :
         combinedByte = ((pu8Buffer[3] << 4) | (pu8Buffer[4] & 0x0F));
-        //printf(" \n Sysstemcode : %d\n" , combinedByte);
         err = Update_DataFlashDevice_From_PC(pu8Buffer[1], pu8Buffer[2], combinedByte, pu8Buffer[5], pu8Buffer[6]);
         if (err != 0)
         {
@@ -339,7 +318,6 @@ int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
 
     case CMD_READ_DEVICE_INFO_1 :
         SendBackClientSettingInfo();
-        //printf(" \n read device info 1 : \n" );
         break ;
 
     case CMD_WRITE_RF_CONFIG :
@@ -452,13 +430,25 @@ int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
         u16crcNew = compute_checksum(CheckCRCDataHMI, 62);
         u8addrHMI = pu8Buffer[1];
         memcpy(hmi_pkg.HMIData, CheckCRCDataHMI + 2, 60);
-        printf("u16crcRecv = %d u16crcNew=%d lengthRev=%d", u16crcRecv, u16crcNew, u32BufferLen);
+				hmi_pkg.addrHMI = u8addrHMI ;
         if (u16crcNew == u16crcRecv)
         {
-            //SendHMIDataFromMasterToPC(&hmi_pkg, CMD_GET_HMI_STATUS,u8addrHMI, u8HMIData);
+					
+					if(hmi_pkg.HMIData[1] == GET_STATE)
+					{
+						  device[1].Mode_work = MODE_WORK_HMI ;
+					}
+					else
+					{
+						  device[1].Mode_work = MODE_WORK_HMI_FEEDBACK_HMI_LOGIN ;
+					}
+					
+						 log_message("CRC OK !!! ");
+					   printHexDecAscii(hmi_pkg.HMIData,60);				
         }
         else
         {
+					  log_message("CRC ERR !!! ");
             SendBack(1);
         }
         break ;

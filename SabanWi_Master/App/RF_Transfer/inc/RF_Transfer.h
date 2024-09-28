@@ -54,6 +54,7 @@ extern data_user_pass hmi_user_pass ;
 
 #define MASTER_GET_I2C_DATA 0x00
 #define MASTER_GET_HMI_STATUS 0x01
+#define MASTER_FEEDBACK_LOGIN_STATUS 0x02
 
 #define MASTER_GRT_HMI_STATUS_OK
 #define MASTER_GRT_HMI_STATUS_OK
@@ -82,12 +83,12 @@ void Rf_Send_Request_CRC (uint8_t deviceId , uint8_t u8cmd , uint8_t u8mccode);
 void Rf_Send_Feedback_CRC (void);
 void Saban_Mode_IO_Standand(uint8_t ClientID,int number_input_port , int number_output_port, uint8_t port_input_number , uint8_t port_output_number , uint8_t security);
 void Saban_Mode_RS485 (uint8_t ClientID , uint8_t ModbusMaterID , uint8_t Data , uint8_t security );
+void Saban_Mode_I2C(uint8_t ClientID, uint8_t I2CID, uint8_t Data, uint8_t security);
 void Saban_Feedback_Mode_IOStandand(uint8_t security);
 void Saban_Feedback_Mode_RS485(uint8_t rs485address , uint8_t rs485data , uint8_t security );
 
-void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode,uint8_t HMIdata[]);
-uint8_t Decode_Packet_Client_Feddback_HMIStatus(unsigned char * packet_src);
-
+void Rf_Send_Request_HMIStatus(uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode,uint8_t Cmd_HMI,uint8_t HMIdata[]);
+uint8_t Decode_Packet_Client_Feddback_HMIStatus( unsigned char Cmd_HMI, unsigned char * packet_src);
 /* USER CODE BEGIN Prototypes */
 
 /* USER CODE END Prototypes */
