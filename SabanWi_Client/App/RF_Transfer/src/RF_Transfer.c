@@ -19,6 +19,8 @@ uint8_t SLAVE_ID ;
 
 uint8_t Mode1  = 0 ;
 
+HMI_DATA_60BYTE hmi_data_60byte ;
+
 /*-----------------------------------------------------------------------------------------------------------------*/
 /* Su dung CRC xac thuc , khong co ma hoa  */
 /*-----------------------------------------------------------------------------------------------------------------*/
@@ -897,7 +899,7 @@ void Saban_Feedback_Mode_RS485(uint8_t rs485address, uint8_t rs485data, uint8_t 
 }
 
 uint8_t Creat_Packet_Master_Get_HMIStatus(unsigned char MasterID, unsigned char Command, unsigned char MCCode, unsigned char SlaveID,
-        unsigned char Cmd_HMI ,unsigned char HMIdata[], unsigned char packet[])
+        unsigned char Cmd_HMI, unsigned char HMIdata[], unsigned char packet[])
 {
     int TimeStart  = 0 ;
     int TimeStop = 0 ;
@@ -980,7 +982,7 @@ uint8_t Decode_Package_Master_Send_HMIStatus(unsigned char * packet_src)
         err = 0;                                                // slave id ok
         if (masteridcurrent == MasterID)                        // master id ok
         {
-					  err = 0 ;
+            err = 0 ;
             if (MCCode == MCCODE_REQUEST_FEEDBACK)              // slave feedback
             {
                 err = 0 ;
@@ -989,7 +991,10 @@ uint8_t Decode_Package_Master_Send_HMIStatus(unsigned char * packet_src)
                 log_message(" DECODE DATA SLAVE [%2X] OK !!! [%d] us ", SlaveID, TimeStop - TimeStart);
                 if (u16cmd == MASTER_GET_HMI_STATUS)                    //  master get hmi status
                 {
-                    memcpy(HMIdata, packet_src + 3, 60);
+                    memcpy(HMIdata, packet_src + 3, 60);                // copy hmi data
+                    hmi_data_60byte.hmi_state = HMIdata[0] ;
+                    hmi_data_60byte.hmi_cmd = HMIdata[1];
+                    memcpy(hmi_data_60byte.hmi_data, HMIdata + 2, 58);
 
                     device[SLAVE_ID].masterID = MasterID ;
                     device[SLAVE_ID].cmd = Commnad ;
@@ -1001,6 +1006,7 @@ uint8_t Decode_Package_Master_Send_HMIStatus(unsigned char * packet_src)
                     log_message(" Command : %2X ", device[SLAVE_ID].cmd);
                     log_message(" MCcode : %2X ", device[SLAVE_ID].mccode);
                     log_message(" master get hmi Status  ");
+
                     printArray8Bit(HMIdata, 60);
                     Update_DataFlash_From_Master();
                     err = 0 ;
@@ -1016,7 +1022,7 @@ uint8_t Decode_Package_Master_Send_HMIStatus(unsigned char * packet_src)
                 log_message("Client decode client no feedback !!! ");
                 err = 3 ;
             }
-            
+
         }
         else                                                             // master id err
         {
@@ -1032,7 +1038,7 @@ uint8_t Decode_Package_Master_Send_HMIStatus(unsigned char * packet_src)
     return err ;
 }
 
-void Rf_Send_Feedback_HMIStatus( uint8_t Cmd_HMI, uint8_t HMIdata[])
+void Rf_Send_Feedback_HMIStatus(uint8_t Cmd_HMI, uint8_t HMIdata[])
 {
     unsigned char TxBuf[64] = {0};
     uint8_t test_cout = 0;
@@ -1055,7 +1061,7 @@ void Rf_Send_Feedback_HMIStatus( uint8_t Cmd_HMI, uint8_t HMIdata[])
     device[SLAVE_ID].mccode = MCCODE_SLAVE_FEEDBACK ;
 
     Creat_Packet_Master_Get_HMIStatus(device[SLAVE_ID].masterID, device[SLAVE_ID].cmd, device[SLAVE_ID].mccode,
-                                      device[SLAVE_ID].slaveID,Cmd_HMI , HMIdata, TxBuf);
+                                      device[SLAVE_ID].slaveID, Cmd_HMI, HMIdata, TxBuf);
     SX1276SetTxPacket(TxBuf, 64);
 
 //          for(test_cout = 0 ;test_cout < sizeof(TxBuf) ; test_cout ++)
@@ -1102,7 +1108,7 @@ uint8_t Decode_Package_Master_Send_LOGINStatus(unsigned char * packet_src)
         err = 0;                                                // slave id ok
         if (masteridcurrent == MasterID)                        // master id ok
         {
-					  err = 0 ;
+            err = 0 ;
             if (MCCode == MCCODE_REQUEST_FEEDBACK)              // slave feedback
             {
                 err = 0 ;
@@ -1138,7 +1144,7 @@ uint8_t Decode_Package_Master_Send_LOGINStatus(unsigned char * packet_src)
                 log_message("Client decode client no feedback !!! ");
                 err = 3 ;
             }
-            
+
         }
         else                                                             // master id err
         {

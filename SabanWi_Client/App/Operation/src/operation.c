@@ -34,6 +34,8 @@ unsigned char SNRvalue = 0 ;
 uint8_t result = 0 ;
 uint16_t Modbus_result[60] = {0} ;
 
+pkg_feedback_status_request packet_feedback_status_request ;
+
 void Radio_Start(void)
 {
     uint8_t version ;
@@ -109,6 +111,7 @@ void OnClient(void)
     unsigned char check_decode_err = 0;
     unsigned char HMidata [60] = {0} ;
     uint16_t cnt_read_modbus = 0 ;
+    size_t beforeSize = 0, afterSize = 0;
 
     switch (SX1276Process())
     {
@@ -139,7 +142,7 @@ void OnClient(void)
         Timer3_ResetTickMs();
         SX1276GetRxPacket(RxBuf, (unsigned short int)sizeof(RxBuf));
         if (RxBuf > 0)
-        {					 
+        {
             switch (ClientDataFlash[1].Security)
             {
             case 0:
@@ -179,32 +182,71 @@ void OnClient(void)
                 check_decode_err = Decode_Package_Master_Send_HMIStatus(RxBuf);
                 if (check_decode_err == 0)
                 {
+
 #if MODBUS_ENABLE
-									 if(RxBuf[5] == 0x4F && RxBuf[6] == 0x4B  )
-									 {
-										   MBSetData16Bits(REG_HOLDING, 1,1);
-									 }
-									 else
-									 {
-										   MBSetData16Bits(REG_HOLDING, 1,0);
-									 }
-                    MBGetData16Bits(REG_HOLDING, 2, &Modbus_result[0]);
-                    MBGetData16Bits(REG_HOLDING, 3, &Modbus_result[1]);
-                    Client_Get_HMI_User_Pass(HMidata);
-                    copyUint16ToUint8(Modbus_result, HMidata, 30, 60);                    
+                    // MBGetData16Bits(REG_HOLDING, 2, &Modbus_result[0]);    // read state hmi feddback
+                    // MBGetData16Bits(REG_HOLDING, 3, &Modbus_result[1]);    // read cmd hmi feedback
+                    // Client_Get_HMI_Data(Modbus_result);                                 // read data hmi feedback
+                    if (hmi_data_60byte.hmi_cmd == GET_STATE)              // save user pass
+                    {
+                        MBGetData16Bits(REG_HOLDING, 2, &Modbus_result[0]);    // read state hmi feddback
+                        MBGetData16Bits(REG_HOLDING, 3, &Modbus_result[1]);    // read cmd hmi feedback
+                        Client_Get_HMI_Data(Modbus_result);                                 // read data hmi feedback
+                        copyUint16ToUint8(Modbus_result, HMidata, 30, 60);     // creat hmidata send feedback to master
+                        // memcpy(hmi_user_pass.HMI_User,HMidata,20);             // kiem tra lai dia chi hmi setup uaer pass trong modbus
+                        // memcpy(hmi_user_pass.HMI_Pass,HMidata+20,20);
+                        splitArrayByByte(&HMidata[2], 58, hmi_user_pass.HMI_User, &beforeSize, hmi_user_pass.HMI_Pass, &afterSize);
+                    }
+                    if (hmi_data_60byte.hmi_cmd == SET_STATUS_LOGIN)      // send data goi lieu
+                    {
+                        if (RxBuf[5] == 0x4F && RxBuf[6] == 0x4B)           // master feedback login ok
+                        {
+                            MBSetData16Bits(REG_HOLDING, 1, 1);             // send modebus addr 0 , login ok
+                        }
+                        else
+                        {
+                            MBSetData16Bits(REG_HOLDING, 1, 0);             // send modbus addr 0 , login err
+                        }
+                        packet_feedback_status_request.machineCode = 0 ;
+                        packet_feedback_status_request.line = 0;
+                        packet_feedback_status_request.lane = 0;
+                        packet_feedback_status_request.partNumber[0] = 0;
+                        packet_feedback_status_request.slot = 0;
+                        packet_feedback_status_request.Number = 0;
+                        packet_feedback_status_request.level = 0;
+                        packet_feedback_status_request.status = 0;
+
+                        // copy uint16_t snag uint8_t
+
+                        // MBGetData16Bits(REG_HOLDING, 2, &Modbus_result[0]);    // read state hmi feddback
+                        //MBGetData16Bits(REG_HOLDING, 3, &Modbus_result[1]);    // read cmd hmi feedback
+                        Client_Get_HMI_Data(Modbus_result);                                 // read data hmi feedback
+
+                        memcpy(HMidata + 2, &packet_feedback_status_request, 58);
+                    }
+                    if (hmi_data_60byte.hmi_cmd == SET_STATUS_REQUEST)
+                    {
+                        if (RxBuf[5] == 0x87 && RxBuf[6] == 0x65 && RxBuf[7] == 0x73 && RxBuf[8] == 0x84)  // check string :  wait
+                        {
+                            // set dia chi modbus cho man wait
+                            //MBGetData16Bits(REG_HOLDING, 2, &Modbus_result[0]);    // read state hmi feddback
+                            // MBGetData16Bits(REG_HOLDING, 3, &Modbus_result[1]);    // read cmd hmi feedback
+
+                        }
+                    }
 #else
                     HMidata[0] = 1 ;
                     HMidata[1] = 2 ;
                     HMidata[58] = 65 ;
                     HMidata[59] = 1;
-#endif									
-                   Rf_Send_Feedback_HMIStatus(MASTER_GET_HMI_STATUS,HMidata);
-									  
+#endif
+                    Rf_Send_Feedback_HMIStatus(MASTER_GET_HMI_STATUS, HMidata);        // send to master
+
                     Timer3_SetTickMs();
                     timesendstart = Timer3_GetTickMs();
                 }
                 else
-                {                 
+                {
                     SX1276StartCad();
                 }
                 //SX1276StartRx();
@@ -227,7 +269,7 @@ void OnClient(void)
         if (Mode == LORA)
         {
             //SX1276StartCad();
-					SX1276StartRx();
+            SX1276StartRx();
         }
         if (Mode == FSK)
         {
@@ -266,8 +308,8 @@ uint8_t Modbus_Start(void)
     {
         (void)eMBPoll();                              // receive function code and response to Master
         err = 0 ;
-			  //MBGetData16Bits(REG_HOLDING, 50, &Modbus_result[50]);
-			  //MBSetData16Bits(REG_HOLDING, 1,1);
+        //MBGetData16Bits(REG_HOLDING, 50, &Modbus_result[50]);
+        //MBSetData16Bits(REG_HOLDING, 1,1);
     }
     else if (device[1].Modbus_mode == 1)
     {
@@ -321,13 +363,13 @@ void Modbus_Test_PC(void)
     }
 }
 
-void Client_Get_HMI_User_Pass(uint8_t result_modbus[])
+void Client_Get_HMI_Data(uint16_t t_modbus_result[])
 {
     uint16_t cnt = 0 ;
     int i = 0 ;
     for (cnt = 4 ; cnt <= 40 ; cnt++)
     {
-        MBGetData16Bits(REG_HOLDING, cnt, &Modbus_result[ cnt - 2]);
+        MBGetData16Bits(REG_HOLDING, cnt, &t_modbus_result[ cnt - 2]);
     }
 }
 

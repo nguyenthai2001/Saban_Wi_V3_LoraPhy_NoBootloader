@@ -324,17 +324,17 @@ void OnMaster(void)
             {
                 t_check_decode_err = Decode_Packet_Client_Feddback_HMIStatus(MASTER_GET_HMI_STATUS, RxBuf);
                 if (t_check_decode_err == 0)
-                {                    
-									  if(device[1].Mode_work == MODE_WORK_HMI)
-										{
-											  memcpy(u8HMIData, RxBuf + 3, 60);
+                {
+                    if (device[1].Mode_work == MODE_WORK_HMI)
+                    {
+                        memcpy(u8HMIData, RxBuf + 3, 60);
                         SendHMIDataFromMasterToPC(&hmi_pkg, CMD_GET_HMI_STATUS, hmi_pkg.addrHMI, u8HMIData);
-											  Rf_Send_Request_HMIStatus(hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, hmi_pkg.HMIData);									
-										}
-										else if(device[1].Mode_work == MODE_WORK_HMI_FEEDBACK_HMI_LOGIN)
-										{
-											  Rf_Send_Request_HMIStatus(hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, hmi_pkg.HMIData);
-										}
+                        Rf_Send_Request_HMIStatus(hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, hmi_pkg.HMIData);
+                    }
+                    else if (device[1].Mode_work == MODE_WORK_HMI_FEEDBACK_HMI_LOGIN)
+                    {
+                        Rf_Send_Request_HMIStatus(hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, hmi_pkg.HMIData);
+                    }
                 }
                 else
                 {

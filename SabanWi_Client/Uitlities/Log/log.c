@@ -112,3 +112,64 @@ size_t copyUint16ToUint8(const uint16_t *src, uint8_t *dest, size_t length_src, 
 
     return destIndex;
 }
+
+
+void splitArrayByMarker(const unsigned char *inputArray, int inputSize, unsigned char **beforeMarker, int *beforeSize, unsigned char **afterMarker, int *afterSize)
+{
+    int marker = 0x1D;
+    *beforeSize = 0;
+    *afterSize = 0;
+    int i = 0 ;
+
+    for (i = 0; i < inputSize; i++) 
+	{
+        if (inputArray[i] == marker) 
+		{
+            break;
+        }
+        (*beforeSize)++;
+    }
+
+    *beforeMarker = (unsigned char *)malloc(*beforeSize * sizeof(unsigned char));
+    for ( i = 0; i < *beforeSize; i++) 
+	{
+        (*beforeMarker)[i] = inputArray[i];
+    }
+
+    *afterSize = inputSize - *beforeSize - 1; 
+    *afterMarker = (unsigned char *)malloc(*afterSize * sizeof(unsigned char));
+    for ( i = *beforeSize + 1; i < inputSize; i++) 
+	{
+        (*afterMarker)[i - (*beforeSize + 1)] = inputArray[i];
+    }
+}
+
+void splitArrayByByte(const unsigned char *input, size_t size, unsigned char beforeArray[30], size_t *beforeSize, unsigned char afterArray[30], size_t *afterSize) 
+{
+    size_t i;
+
+    *beforeSize = 0;
+    *afterSize = 0;
+
+    for (i = 0; i < size; i++) 
+	  {
+        if (input[i] == 0x1D) 
+				{
+            break;
+        }
+        if (*beforeSize < 30) 
+				{  
+            beforeArray[*beforeSize] = input[i];
+            (*beforeSize)++;
+        }
+    }
+
+    for (i++; i < size; i++) 
+		{
+        if (*afterSize < 30) 
+				{  
+            afterArray[*afterSize] = input[i];
+            (*afterSize)++;
+        }
+    }
+}

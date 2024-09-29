@@ -26,6 +26,8 @@ void printArray8Bit(uint8_t arr[], int size) ;
 void print_uint8_array_as_chars(uint8_t arr[], size_t length) ;
 size_t copyUint16ToUint8(const uint16_t *src, uint8_t *dest, size_t length_src, size_t length_dest) ;
 void covertUint16ToUint8(const uint16_t *src, uint8_t *dest, size_t length) ;
+void splitArrayByMarker(const unsigned char *inputArray, int inputSize, unsigned char **beforeMarker, int *beforeSize, unsigned char **afterMarker, int *afterSize);
+void splitArrayByByte(const unsigned char *input, size_t size, unsigned char beforeArray[30], size_t *beforeSize, unsigned char afterArray[30], size_t *afterSize) ;
 
 /* USER CODE END Prototypes */
 

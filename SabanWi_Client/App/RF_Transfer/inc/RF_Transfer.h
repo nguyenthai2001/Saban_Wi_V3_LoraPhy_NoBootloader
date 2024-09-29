@@ -36,6 +36,22 @@ extern "C" {
 #define HMI_LOGOUT 0x02
 #define HMI_BUSY  0x03
 
+typedef struct
+{
+    uint8_t hmi_state ;
+	  uint8_t hmi_cmd ;
+	  uint8_t hmi_data[58];    
+} HMI_DATA_60BYTE;
+extern HMI_DATA_60BYTE hmi_data_60byte ;
+
+typedef enum 
+{
+		NON,
+		GET_STATE,
+		SET_STATUS_LOGIN,
+		SET_STATUS_REQUEST,
+} sendToHmicmd;
+
 /* USER CODE END Private defines */
 
 uint8_t Creat_Packet_Request_CRC(unsigned char MasterID , unsigned char Commnad , unsigned char MCCode , 

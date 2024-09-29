@@ -430,25 +430,25 @@ int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
         u16crcNew = compute_checksum(CheckCRCDataHMI, 62);
         u8addrHMI = pu8Buffer[1];
         memcpy(hmi_pkg.HMIData, CheckCRCDataHMI + 2, 60);
-				hmi_pkg.addrHMI = u8addrHMI ;
+        hmi_pkg.addrHMI = u8addrHMI ;
         if (u16crcNew == u16crcRecv)
         {
-					
-					if(hmi_pkg.HMIData[1] == GET_STATE)
-					{
-						  device[1].Mode_work = MODE_WORK_HMI ;
-					}
-					else
-					{
-						  device[1].Mode_work = MODE_WORK_HMI_FEEDBACK_HMI_LOGIN ;
-					}
-					
-						 log_message("CRC OK !!! ");
-					   printHexDecAscii(hmi_pkg.HMIData,60);				
+
+            if (hmi_pkg.HMIData[1] == GET_STATE)
+            {
+                device[1].Mode_work = MODE_WORK_HMI ;
+            }
+            else
+            {
+                device[1].Mode_work = MODE_WORK_HMI_FEEDBACK_HMI_LOGIN ;
+            }
+
+            log_message("CRC OK !!! ");
+            printHexDecAscii(hmi_pkg.HMIData, 60);
         }
         else
         {
-					  log_message("CRC ERR !!! ");
+            log_message("CRC ERR !!! ");
             SendBack(1);
         }
         break ;
