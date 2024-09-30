@@ -1172,7 +1172,7 @@ uint8_t Decode_Packet_Client_Feddback_HMIStatus(unsigned char Cmd_HMI, unsigned 
         {
             //log_message(" Master Check HMI status ok  !!!!!");
             memcpy(HMIdata, packet_src + 3, 60);
-            //printArray8Bit(packet_src,64);
+            printArray8Bit(packet_src,64);
             err = 0 ;                                     // client feedback master get hmi status
         }
         else

@@ -11,6 +11,8 @@
 RF_HMI_Package_Send hmi_pkg ;
 sendToHmicmd cmd_recv_pc_to_hmi ;
 
+uint8_t g_hmi_data_recv_pc[60];       // Array address slave hmi 
+
 /**
 *    @brief         SendBackDeviceSettingInfo
 *
@@ -431,14 +433,15 @@ int32_t ProcessCommand(uint8_t *pu8Buffer, uint32_t u32BufferLen)
         u8addrHMI = pu8Buffer[1];
         memcpy(hmi_pkg.HMIData, CheckCRCDataHMI + 2, 60);
         hmi_pkg.addrHMI = u8addrHMI ;
+
         if (u16crcNew == u16crcRecv)
         {
-
+            memcpy(g_hmi_data_recv_pc,hmi_pkg.HMIData,60);
             if (hmi_pkg.HMIData[1] == GET_STATE)
             {
                 device[1].Mode_work = MODE_WORK_HMI ;
             }
-            else
+            if(hmi_pkg.HMIData[1] == SET_STATUS_LOGIN)
             {
                 device[1].Mode_work = MODE_WORK_HMI_FEEDBACK_HMI_LOGIN ;
             }

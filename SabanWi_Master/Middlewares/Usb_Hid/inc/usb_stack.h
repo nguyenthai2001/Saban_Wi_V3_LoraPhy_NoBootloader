@@ -12,6 +12,8 @@ extern "C" {
 #include <stdlib.h>  // C?n d? dùng malloc và free
 /* USER CODE BEGIN Includes */
 
+extern uint8_t g_hmi_data_recv_pc[60];       // Array address slave hmi 
+
 typedef struct {
     uint8_t cmd;               // 1 byte for command
     uint8_t addrHMI;           // 1 byte for total device 

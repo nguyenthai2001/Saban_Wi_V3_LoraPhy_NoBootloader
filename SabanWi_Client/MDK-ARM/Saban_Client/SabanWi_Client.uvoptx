@@ -149,7 +149,7 @@
           <Type>0</Type>
           <LineNumber>295</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>26276</Address>
+          <Address>26404</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -165,7 +165,7 @@
           <Type>0</Type>
           <LineNumber>212</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>26496</Address>
+          <Address>26624</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -181,16 +181,16 @@
           <Type>0</Type>
           <LineNumber>261</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
+          <Address>11560</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
+          <BreakIfRCount>1</BreakIfRCount>
           <Filename>..\..\Middlewares\Usb_Hid\src\usb_stack.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression></Expression>
+          <Expression>\\SabanWi_Client\../../Middlewares/Usb_Hid/src/usb_stack.c\261</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -213,6 +213,16 @@
           <count>3</count>
           <WinNumber>1</WinNumber>
           <ItemText>RxBuf</ItemText>
+        </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>pkg_feedback_status_request</ItemText>
+        </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>packet_feedback_status_request</ItemText>
         </Ww>
       </WatchWindow1>
       <Tracepoint>

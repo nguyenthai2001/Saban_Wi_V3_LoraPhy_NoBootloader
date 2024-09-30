@@ -198,9 +198,13 @@ void OnMaster(void)
                 break ;
             }
         }
-        else if (device[1].Mode_work == MODE_WORK_HMI)
+        else if (device[1].Mode_work == MODE_WORK_HMI)                       // get status hmi
         {
-            Rf_Send_Request_HMIStatus(hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, hmi_pkg.HMIData);
+            Rf_Send_Request_HMIStatus(hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, hmi_pkg.HMIData);  // send to client master get status hmi
+        }
+        else if (device[1].Mode_work == MODE_WORK_HMI_FEEDBACK_HMI_LOGIN)                       // get status hmi
+        {
+            Rf_Send_Request_HMIStatus(hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, hmi_pkg.HMIData);  // send to client master get status hmi
         }
         Timer3_SetTickMs();
         timesendstart = Timer3_GetTickMs();
@@ -247,12 +251,12 @@ void OnMaster(void)
                 timesendstart = Timer3_GetTickMs();
             }
         }
-        else
+        else                                              // master get hmi status
         {
             //log_message(" HMI Not Connect !!! ");
             if (Mode == LORA)
             {
-                SX1276StartCad();
+                SX1276StartCad();                         // khong phan hoi tu client thi send lai
             }
         }
         break ;
@@ -320,20 +324,36 @@ void OnMaster(void)
                     SX1276StartCad();
                 }
             }
-            else
+            else                                                                         // master recv data from client for master get hmi status
             {
-                t_check_decode_err = Decode_Packet_Client_Feddback_HMIStatus(MASTER_GET_HMI_STATUS, RxBuf);
-                if (t_check_decode_err == 0)
+                //log_message("Check recv data !!! ");
+                t_check_decode_err = Decode_Packet_Client_Feddback_HMIStatus(MASTER_GET_HMI_STATUS, RxBuf);               // check data
+                if (t_check_decode_err == 0)                                                                              // decode data ok
                 {
-                    if (device[1].Mode_work == MODE_WORK_HMI)
+                    //log_message("Check recv data OK !!! ");
+                    if (device[1].Mode_work == MODE_WORK_HMI)                                                             // pc get user pass
                     {
+                        //log_message("Check recv data : MODE_WORK_HMI !!! ");
                         memcpy(u8HMIData, RxBuf + 3, 60);
-                        SendHMIDataFromMasterToPC(&hmi_pkg, CMD_GET_HMI_STATUS, hmi_pkg.addrHMI, u8HMIData);
-                        Rf_Send_Request_HMIStatus(hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, hmi_pkg.HMIData);
+                        SendHMIDataFromMasterToPC(&hmi_pkg, CMD_GET_HMI_STATUS, hmi_pkg.addrHMI, u8HMIData);                                  // send user pass to pc                        
+                        Rf_Send_Request_HMIStatus(hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, g_hmi_data_recv_pc); // duy tri duong truyen tin hieu
+
+//                        if (RxBuf[5] == 0x61 && RxBuf[6] == 0x64)
+//                        {
+//                            //log_message("Check recv data : test !!!  ");
+//                            hmi_pkg.HMIData[1] = SET_STATUS_LOGIN ;
+//                            hmi_pkg.HMIData[2] = 0x4F ;
+//                            hmi_pkg.HMIData[3] = 0x4B;
+//                            Rf_Send_Request_HMIStatus(hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, hmi_pkg.HMIData);  // send to client check user pass from pc
+//                            device[1].Mode_work = MODE_WORK_HMI_FEEDBACK_HMI_LOGIN ;
+//                        }
                     }
-                    else if (device[1].Mode_work == MODE_WORK_HMI_FEEDBACK_HMI_LOGIN)
+                    else if (device[1].Mode_work == MODE_WORK_HMI_FEEDBACK_HMI_LOGIN)                                                         // pc send user pass ok / err
                     {
-                        Rf_Send_Request_HMIStatus(hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, hmi_pkg.HMIData);
+                        //log_message("Check recv data : MODE_WORK_HMI_FEEDBACK_HMI_LOGIN !!! ");
+											  memcpy(u8HMIData, RxBuf + 3, 60);
+                        SendHMIDataFromMasterToPC(&hmi_pkg, CMD_GET_HMI_STATUS, hmi_pkg.addrHMI, u8HMIData);  
+                        Rf_Send_Request_HMIStatus(hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, g_hmi_data_recv_pc);  // send to client check user pass from pc
                     }
                 }
                 else
