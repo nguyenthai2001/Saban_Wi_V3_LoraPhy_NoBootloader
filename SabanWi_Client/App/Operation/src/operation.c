@@ -35,7 +35,7 @@ uint8_t result = 0 ;
 uint16_t Modbus_result[60] = {0} ;
 
 pkg_feedback_status_request packet_feedback_status_request ;
-//pkg_feedback_status_request packet_feedback_status_request = 
+//pkg_feedback_status_request packet_feedback_status_request =
 //{
 //        .machineCode = "PL1",
 //        .line = '1',
@@ -45,13 +45,13 @@ pkg_feedback_status_request packet_feedback_status_request ;
 //        .Number = "30",
 //        .level = "HIGH",
 //        .status = "WAIT",
-//				.user   = "",
+//              .user   = "",
 //};
 
 //void save_pkg_feedback_status_request(pkg_feedback_status_request *pkg, uint8_t *output, size_t output_size)
 //{
 //    // Xóa n?i dung m?ng output tru?c khi luu giá tr?
-//    
+//
 //    int index = 2;  // B?t d?u t? ph?n t? th? 2
 
 //    // Luu machineCode (3 byte)
@@ -102,9 +102,10 @@ pkg_feedback_status_request packet_feedback_status_request ;
 
 void save_pkg_feedback_status_request(pkg_feedback_status_request *pkg, uint8_t *output)
 {
-    int index = 2;  
+    int index = 2;
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++)
+    {
         output[index++] = pkg->machineCode[i];
     }
     output[index++] = 0x1D;
@@ -115,7 +116,8 @@ void save_pkg_feedback_status_request(pkg_feedback_status_request *pkg, uint8_t 
     output[index++] = pkg->lane;
     output[index++] = 0x1D;
 
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 20; i++)
+    {
         output[index++] = pkg->partNumber[i];
     }
     output[index++] = 0x1D;
@@ -123,30 +125,71 @@ void save_pkg_feedback_status_request(pkg_feedback_status_request *pkg, uint8_t 
     output[index++] = pkg->slot;
     output[index++] = 0x1D;
 
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < 2; i++)
+    {
         output[index++] = pkg->Number[i];
     }
     output[index++] = 0x1D;
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
+    {
         output[index++] = pkg->level[i];
     }
     output[index++] = 0x1D;
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
+    {
         output[index++] = pkg->status[i];
     }
     output[index++] = 0x1D;
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++)
+    {
         output[index++] = pkg->user[i];
     }
     output[index++] = 0x1D;
 }
 
-void save_modbus_to_packet_feedback_status_request(pkg_feedback_status_request *pkg , uint16_t modbus_result[] )
+void save_modbus_to_packet_feedback_status_request(pkg_feedback_status_request *pkg, uint16_t modbus_result[])
 {
-	   
+    int i, j = 0 ;
+    uint8_t low_byte;
+    uint8_t high_byte;
+
+    pkg->machineCode[0] = modbus_result[2] & 0xFF ;
+    pkg->machineCode[1] = (modbus_result[2] >> 8) & 0xFF ;
+    pkg->machineCode[2] = modbus_result[3] & 0xFF ;
+    pkg->line = modbus_result[5] & 0xFF ;
+    pkg->lane = modbus_result[6] & 0xFF ;
+    for (i = 7, j = 0; i < 13; i++)
+    {
+        uint8_t low_byte = modbus_result[i] & 0xFF;
+        uint8_t high_byte = (modbus_result[i] >> 8) & 0xFF;
+
+        if (low_byte != 0)
+        {
+            pkg->partNumber[j++] = low_byte;
+        }
+        if (high_byte != 0)
+        {
+            pkg->partNumber[j++] = high_byte;
+        }
+    }
+    pkg->slot = modbus_result[17] & 0xFF;
+    pkg->Number[0] = modbus_result[18] & 0xFF ;
+    pkg->Number[1] = (modbus_result[18] >> 8) & 0xFF ;
+    if (modbus_result[20] == 0x01)
+    {
+        strcpy(pkg->level, "MEDIUM");
+    }
+    if (modbus_result[20] == 0x00)
+    {
+        strcpy(pkg->level, "HIGH");
+    }
+    if (modbus_result[20] == 0x02)
+    {
+        strcpy(pkg->level, "LOW");
+    }
 }
 
 void Radio_Start(void)
@@ -164,15 +207,15 @@ void Radio_Start(void)
         while (version != 0x12 && CheckConfigErr != 0x0)
         {
             SX1276Init();
-            //printf("LoRa Init Fail !!!!!\n");
+            //log_message("LoRa Init Fail !!!!!\n");
         }
         SX1276LoRaSetRFPower(ClientDataFlash[1].RFPower);
         SX1276LoRaSetSignalBandwidth(ClientDataFlash[1].RFBandwidth);
         SX1276LoRaSetSpreadingFactor(ClientDataFlash[1].RFSpreadingFactor);
         SX1276LoRaSetErrorCoding(ClientDataFlash[1].ErrCode);
-        //printf("\nLoRa Init Done !!!!!");
+        //log_message("\nLoRa Init Done !!!!!");
         TimeOnAir = SX1276GetTimeOnAir();
-        //printf(" TimeOnAir : %d[ms] \n", TimeOnAir);
+        //log_message(" TimeOnAir : %d[ms] \n", TimeOnAir);
         SX1276StartCad();
     }
 
@@ -295,17 +338,16 @@ void OnClient(void)
                 check_decode_err = Decode_Package_Master_Send_HMIStatus(RxBuf);
                 if (check_decode_err == 0)
                 {
-
 #if MODBUS_ENABLE
                     if (hmi_data_60byte.hmi_cmd == GET_STATE)                 // save user pass
                     {
-                        MBGetData16Bits(REG_HOLDING, 2, &Modbus_result[0]);    // read state hmi feddback
-                        MBGetData16Bits(REG_HOLDING, 3, &Modbus_result[1]);    // read cmd hmi feedback
+                        MBGetData16Bits(REG_HOLDING, 3, &Modbus_result[0]);    // read state hmi feddback
+                        MBGetData16Bits(REG_HOLDING, 4, &Modbus_result[1]);    // read cmd hmi feedback
                         Client_Get_HMI_Data(Modbus_result);                    // read data hmi feedback
                         copyUint16ToUint8(Modbus_result, HMidata, 30, 60);     // creat hmidata send feedback to master
                         splitArrayByByte(&HMidata[2], 58, hmi_user_pass.HMI_User, &beforeSize, hmi_user_pass.HMI_Pass, &afterSize);
                     }
-                    if (hmi_data_60byte.hmi_cmd == SET_STATUS_LOGIN)            // send data goi lieu
+                    if (hmi_data_60byte.hmi_cmd == SET_STATUS_LOGIN)            // send feedback set status log in
                     {
                         if (RxBuf[5] == 0x4F && RxBuf[6] == 0x4B)               // master feedback login ok
                         {
@@ -315,41 +357,44 @@ void OnClient(void)
                         {
                             MBSetData16Bits(REG_HOLDING, 1, 0);                 // send modbus addr 0 , login err
                         }
-                       
+
                         //Client_Get_HMI_Data(Modbus_result);                    // read data hmi feedback
                         //HMidata[0] = 0x2 ;
-												//HMidata[1] = 0x2 ;
-												
-												MBGetData16Bits(REG_HOLDING, 2, &Modbus_result[0]);   // read state hmi feddback
-                        MBGetData16Bits(REG_HOLDING, 3, &Modbus_result[1]);    // read cmd hmi feedback
-												
-												
-												
-												memcpy(packet_feedback_status_request.user,hmi_user_pass.HMI_User,10);
-										  	save_pkg_feedback_status_request(&packet_feedback_status_request, HMidata);										
+                        //HMidata[1] = 0x2 ;
+
+                        MBGetData16Bits(REG_HOLDING, 3, &Modbus_result[0]);   // read state hmi feddback
+                        MBGetData16Bits(REG_HOLDING, 4, &Modbus_result[1]);    // read cmd hmi feedback
+
+                        Client_Get_HMI_Data(Modbus_result);
+                        save_modbus_to_packet_feedback_status_request(&packet_feedback_status_request, Modbus_result);
+                        strcpy(packet_feedback_status_request.status, "WAIT");
+                        memcpy(packet_feedback_status_request.user, hmi_user_pass.HMI_User, 10);
+                        HMidata[0] = Modbus_result[0] ;
+                        HMidata[1] = Modbus_result[1] ;
+                        save_pkg_feedback_status_request(&packet_feedback_status_request, HMidata);
+                        MBSetData16Bits(REG_HOLDING, 2, 1);
                     }
-                    if (hmi_data_60byte.hmi_cmd == SET_STATUS_REQUEST)
-                    {      
-												//MBSetData16Bits(REG_HOLDING, 1, 1);                   // send modebus addr 0 , login ok											
-												// set dia chi modbus cho man wait
-												// MBGetData16Bits(REG_HOLDING, 2, &Modbus_result[0]);    // read state hmi feddback
-												// MBGetData16Bits(REG_HOLDING, 3, &Modbus_result[1]);    // read cmd hmi feedback
-												memset(HMidata, 0, 60);
-												HMidata[0] = 0x3;
-												HMidata[1] = 0x3;  
-											  if (RxBuf[5] == 0x4F && RxBuf[6] == 0x4B)                // master feedback login ok
+                    if (hmi_data_60byte.hmi_cmd == SET_STATUS_REQUEST)          // send feedback set status request
+                    {
+                        //MBSetData16Bits(REG_HOLDING, 1, 1);                   // send modebus addr 0 , login ok
+                        /* set dia chi modbus cho man wait */
+                        memset(HMidata, 0, 60);
+                        MBSetData16Bits(REG_HOLDING, 2, 0);
+                        HMidata[0] = 0x3;
+                        HMidata[1] = 0x3;
+                        if (RxBuf[5] == 0x4F && RxBuf[6] == 0x4B)                // master feedback check data ok
                         {
-                            MBSetData16Bits(REG_HOLDING, 71, 1);                 // send modebus addr 70 , status request ok 
+                            MBSetData16Bits(REG_HOLDING, 2, 1);
                         }
-                        else
+                        else                                                     // master feedback check data wait
                         {
-                            MBSetData16Bits(REG_HOLDING, 71, 0);                  // send modbus addr 70 , status request wait
-                        }                    
+                            MBSetData16Bits(REG_HOLDING, 2, 2);
+                            MBSetData16Bits(REG_HOLDING, 1, 0);
+                        }
                     }
 #else
 #endif
                     Rf_Send_Feedback_HMIStatus(MASTER_GET_HMI_STATUS, HMidata);        // send to master
-
                     Timer3_SetTickMs();
                     timesendstart = Timer3_GetTickMs();
                 }
@@ -416,8 +461,6 @@ uint8_t Modbus_Start(void)
     {
         (void)eMBPoll();                              // receive function code and response to Master
         err = 0 ;
-        //MBGetData16Bits(REG_HOLDING, 50, &Modbus_result[50]);
-        //MBSetData16Bits(REG_HOLDING, 1,1);
     }
     else if (device[1].Modbus_mode == 1)
     {
@@ -475,9 +518,9 @@ void Client_Get_HMI_Data(uint16_t t_modbus_result[])
 {
     uint16_t cnt = 0 ;
     int i = 0 ;
-    for (cnt = 4 ; cnt <= 40 ; cnt++)
+    for (cnt = 5 ; cnt <= 40 ; cnt++)
     {
-        MBGetData16Bits(REG_HOLDING, cnt, &t_modbus_result[ cnt - 2]);
+        MBGetData16Bits(REG_HOLDING, cnt, &t_modbus_result[ cnt - 3]);
     }
 }
 

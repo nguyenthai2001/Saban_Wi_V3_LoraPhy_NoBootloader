@@ -18,13 +18,6 @@ extern "C" {
 
 /* USER CODE END Private defines */
 
-void Radio_Start(void);
-void OnClient (void) ;
-void Modbus_Init(void);
-uint8_t Modbus_Start(void);
-void Modbus_Test_PC(void);
-void Client_Get_HMI_Data(uint16_t t_modbus_result[]);
-
 //typedef struct
 //{
 //    uint8_t machineCode[3];
@@ -53,6 +46,14 @@ typedef struct
 
 
 /* USER CODE BEGIN Prototypes */
+
+void Radio_Start(void);
+void OnClient (void) ;
+void Modbus_Init(void);
+uint8_t Modbus_Start(void);
+void Modbus_Test_PC(void);
+void Client_Get_HMI_Data(uint16_t t_modbus_result[]);
+void save_modbus_to_packet_feedback_status_request(pkg_feedback_status_request *pkg, uint16_t modbus_result[]);
 
 /* USER CODE END Prototypes */
 
