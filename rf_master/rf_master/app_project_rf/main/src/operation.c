@@ -339,7 +339,7 @@ void OnMaster(Saban *t_device, Packet_Rreceive_Data recv_pkg[], Saban_Master_Dat
                         //log_message("Check recv data : MODE_WORK_HMI !!! ");
                         memcpy(u8HMIData, RxBuf + 3, 60);
                         SendHMIDataFromMasterToPC(&hmi_pkg, CMD_GET_HMI_STATUS, hmi_pkg.addrHMI, u8HMIData);                                  // send user pass to pc
-                        Rf_Send_Request_HMIStatus(recv_pkg, master_pkg, hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, g_hmi_data_recv_pc); // send to client set status log in ok / err
+                        //Rf_Send_Request_HMIStatus(recv_pkg, master_pkg, hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, g_hmi_data_recv_pc); // send to client set status log in ok / err
                     }
                     else if (t_device->Mode_work == MODE_WORK_HMI_FEEDBACK_HMI_LOGIN)                                                         // pc send user pass ok / err
                     {

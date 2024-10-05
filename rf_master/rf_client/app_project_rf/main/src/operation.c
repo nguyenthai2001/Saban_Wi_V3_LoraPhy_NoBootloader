@@ -182,7 +182,7 @@ void save_modbus_to_packet_feedback_status_request(pkg_feedback_status_request *
     pkg->Number[1] = (modbus_result[18] >> 8) & 0xFF ;
     if (modbus_result[20] == 0x01)
     {
-        strcpy(pkg->level, "MEDIUM");
+        strcpy(pkg->level, "MED");
     }
     if (modbus_result[20] == 0x00)
     {
@@ -444,6 +444,7 @@ void Modbus_Init(Saban *t_device, Saban_Client_Dataflash *client_pkg)
     {
         eMBErrorCode eStatus = MB_ENOERR;
         UseModbus(client_pkg->Modbus_SlaveID) ;
+			  MBSetData16Bits(REG_HOLDING, 1, 0); 
     }
     if (t_device->Modbus_mode == 1)
     {
