@@ -876,7 +876,7 @@ uint8_t Creat_Packet_Master_Get_HMIStatus(unsigned char MasterID, unsigned char 
         Timer3_ResetTickMs();
 
         log_message(" PACKET CREAT DONE !!! [%d] us", TimeStop - TimeStart);
-        printArray8Bit(packet, 64);
+        //printArray8Bit(packet, 64);
         err = 0;
     }
     return err ;
@@ -945,7 +945,7 @@ uint8_t Decode_Package_Master_Send_HMIStatus(Saban *t_device, Saban_Client_Dataf
                     log_message(" MCcode : %2X ", t_device->mccode);
                     log_message(" master get hmi Status  ");
 
-                    printArray8Bit(HMIdata, 60);
+                    //printArray8Bit(HMIdata, 60);
                     Update_DataFlash_From_Master(t_device, client_pkg);
                     err = 0 ;
                 }

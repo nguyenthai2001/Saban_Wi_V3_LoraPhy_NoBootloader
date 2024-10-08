@@ -12,6 +12,7 @@
 RF_HMI_Package_Send hmi_pkg ;
 sendToHmicmd cmd_recv_pc_to_hmi ;
 
+extern int check_pc_feedback_hmi_status ;
 uint8_t g_hmi_data_recv_pc[60];       // Array address slave hmi
 
 /**
@@ -434,11 +435,20 @@ int32_t ProcessCommand(Saban t_device[], Packet_Rreceive_Data *packet_recv, Saba
             memcpy(g_hmi_data_recv_pc, hmi_pkg.HMIData, 60);
             if (hmi_pkg.HMIData[1] == GET_STATE)
             {
+                check_pc_feedback_hmi_status = 0 ;
                 t_device->Mode_work = MODE_WORK_HMI ;
+                SX1276SetOpMode(RFLR_OPMODE_SLEEP);
+                SX1276SetOpMode(RFLR_OPMODE_STANDBY);
+                CLK_SysTickDelay(1000000);
+                SX1276StartCad();
             }
-            if (hmi_pkg.HMIData[1] == SET_STATUS_LOGIN)
+            else if (hmi_pkg.HMIData[1] == SET_STATUS_LOGIN)
             {
                 t_device->Mode_work = MODE_WORK_HMI_FEEDBACK_HMI_LOGIN ;
+            }
+            else if (hmi_pkg.HMIData[1] == SET_STATUS_REQUEST)
+            {
+                t_device->Mode_work = MODE_WORK_HMI_FEEDBACK_HMI_REQUEST ;
             }
 
             log_message("CRC OK !!! ");

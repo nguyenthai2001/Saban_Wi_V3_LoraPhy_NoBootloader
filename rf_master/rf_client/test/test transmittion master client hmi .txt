@@ -1,0 +1,29 @@
+if (hmi_data_60byte.hmi_cmd == GET_STATE)                 // save user pass
+                    {
+                        log_message("receive get hmi state !!! ");
+                    }
+                    if (hmi_data_60byte.hmi_cmd == SET_STATUS_LOGIN)            // send feedback set status log in
+                    {
+                        log_message("receive set status login !!!");
+                    }
+                    if (hmi_data_60byte.hmi_cmd == SET_STATUS_REQUEST)          // send feedback set status request
+                    {
+                        log_message("receive set status request !!!");
+                        if (RxBuf[5] == 0x4F && RxBuf[6] == 0x4B)                // master feedback check data ok
+                        {
+                            log_message("receive set staus request ok !!!");
+                            HMidata[0] = 0x3;
+                            HMidata[1] = 0x3;
+                            HMidata[3] = 0x43;
+                            HMidata[4] = 0x4C;
+                            HMidata[5] = 0x4F;
+                            HMidata[6] = 0x53 ;
+                            HMidata[7] = 0x45 ;
+                        }
+                        if (RxBuf[5] == 0x57 && RxBuf[6] == 0x41)                // master feedback check data ok
+                        {
+                            log_message("receive set staus request wait !!!");
+                            HMidata[0] = 0x3;
+                            HMidata[1] = 0x3;
+                        }
+                    }

@@ -38,6 +38,10 @@ int check_pc_feedback_hmi_status = 0;
 int check_client_feedback_hmi_status = 0;
 unsigned int check_pc_feedback_timeout = 0;
 
+DecodeErrorCode errcode = NOERR ;
+
+#define TIMER_CHECK_PC_FEDDBACK 0x493e0 /* 300 ms */
+
 /*----------------------------------------------------------------*/
 void Radio_Start(Saban_Master_Dataflash *master_pkg)
 {
@@ -173,11 +177,12 @@ void OnMaster(Saban *t_device, Packet_Rreceive_Data recv_pkg[], Saban_Master_Dat
     uint8_t u8HMIData[60] = {0} ;
 
     hmi_pkg.addrHMI = 0x0a ;
+    uint32_t TimeOnAir = 0;
 
     switch (SX1276Process())
     {
     case  RF_CHANNEL_ACTIVITY_DETECTED :
-        log_message(" \nChannel Busy !!!! ");
+        log_message(" \nChannel busy !!!! ");
         break ;
 
     case  RF_CHANNEL_EMPTY:
@@ -200,22 +205,38 @@ void OnMaster(Saban *t_device, Packet_Rreceive_Data recv_pkg[], Saban_Master_Dat
                 break ;
             }
         }
-        else if (t_device->Mode_work == MODE_WORK_HMI)                       // get status hmi
+        if (t_device->Mode_work == MODE_WORK_HMI)                       // get status hmi
         {
-            check_client_feedback_hmi_status = check_client_feedback_hmi_status + 1 ;
-            Rf_Send_Request_HMIStatus(recv_pkg, master_pkg, hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, hmi_pkg.HMIData); // send to client master get status hmi
+            if (check_pc_feedback_hmi_status == 0)
+            {
+                log_message("master send set parameter for get hmi status !!! ");
+                RF_Send_Set_Parameter_HMIstatus(recv_pkg, master_pkg, hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, g_hmi_data_recv_pc);
+                SX1276LoRaSetPayloadLength(64);
+                TimeOnAir = SX1276GetTimeOnAir();
+                SX1276LoRaSetRxPacketTimeout(TimeOnAir + 250);
+            }
+            else
+            {
+                log_message("master send to client get hmi status !!! ");
+                Rf_Send_Request_HMIStatus(recv_pkg, master_pkg, hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, g_hmi_data_recv_pc); // send to client master get status hmi
+            }
         }
-        else if (t_device->Mode_work == MODE_WORK_HMI_FEEDBACK_HMI_LOGIN)                       // set state log in
+        if (t_device->Mode_work == MODE_WORK_HMI_FEEDBACK_HMI_LOGIN)                       // set state log in
         {
-            Rf_Send_Request_HMIStatus(recv_pkg, master_pkg, hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, hmi_pkg.HMIData); // send to client master set state log in
+            log_message("master send to client set status login !!!");
+            Rf_Send_Request_HMIStatus(recv_pkg, master_pkg, hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, g_hmi_data_recv_pc); // send to client master set state log in
         }
-
+        if (t_device->Mode_work == MODE_WORK_HMI_FEEDBACK_HMI_REQUEST)                       // set state log in
+        {
+            log_message("master send to client set status request login !!!");
+            Rf_Send_Request_HMIStatus(recv_pkg, master_pkg, hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, g_hmi_data_recv_pc); // send to client master set state log in
+        }
         //Timer3_SetTickMs();
         //timesendstart = Timer3_GetTickMs();
         break ;
 
     case RF_RX_RUNNING:
-        log_message(" RX Running !!! ");
+        log_message(" Rx running !!! ");
         //Timer3_SetTickMs();
         //timeresvstart = Timer3_GetTickMs();
         break;
@@ -223,7 +244,7 @@ void OnMaster(Saban *t_device, Packet_Rreceive_Data recv_pkg[], Saban_Master_Dat
     case RF_RX_TIMEOUT :
         //timeresvstop = Timer3_GetTickMs();
         //Timer3_ResetTickMs();                                           // Client disconnect
-        log_message(" RX Timeout !!![%d] us ", timeresvstop - timeresvstart);
+        log_message(" Rx timeout !!![%d] us ", timeresvstop - timeresvstart);
 
         if (t_device->Mode_work == MODE_WORK_NORMAL)
         {
@@ -249,11 +270,11 @@ void OnMaster(Saban *t_device, Packet_Rreceive_Data recv_pkg[], Saban_Master_Dat
                     Saban_Mode_I2C(recv_pkg, master_pkg, device_pkg[device_pos].ClientID, 0x01, 0xff, master_pkg->Security);
                     break ;
                 case 3 :
-                    Saban_Mode_I2C(recv_pkg, master_pkg, device_pkg[device_pos].ClientID, 0x01, 0xff, master_pkg->Security);
+
                     break ;
                 }
                 //Timer3_SetTickMs();
-                timesendstart = Timer3_GetTickMs();
+                //timesendstart = Timer3_GetTickMs();
             }
         }
         else                                              // master get hmi status
@@ -261,36 +282,7 @@ void OnMaster(Saban *t_device, Packet_Rreceive_Data recv_pkg[], Saban_Master_Dat
             log_message(" HMI Not Connect !!! ");
             if (Mode == LORA)
             {
-                if (check_client_feedback_hmi_status == 0)
-                {
-                    log_message("Check feedback from pc For master send user pass !!! ");
-                    if (check_pc_feedback_hmi_status > 2)
-                    {
-                        check_pc_feedback_timeout = Timer3_GetTickMs();
-                        if (check_pc_feedback_timeout > 0xc350)
-                        {
-                            log_message("NO feedback from pc For master send user pass !!! ");
-                            t_device->Mode_work = MODE_WORK_NORMAL ;
-                            Timer3_ResetTickMs();
-                            check_pc_feedback_hmi_status = 0;
-                            SX1276StartCad();
-                        }
-                        else
-                        {
-                            SX1276StartRx();
-                        }
-                    }
-                    else
-                    {
-                        SX1276StartCad();
-                    }
-                }
-                else
-                {
-                    log_message("NO Client feedback master send cmd get status !!!");
-                    t_device->Mode_work = MODE_WORK_NORMAL ;
-                    SX1276StartCad();
-                }
+                SX1276StartCad();
             }
         }
         break ;
@@ -300,10 +292,10 @@ void OnMaster(Saban *t_device, Packet_Rreceive_Data recv_pkg[], Saban_Master_Dat
         //Timer3_ResetTickMs();                                                  // Client Connected
         RSSIvalue = SX1276ReadRssi();
         SNRvalue = SX1276GetPacketSnr();
-		    ReceiverSensitivity = SX1276GetReceiverSensitivity();
-		    log_message(" Rx Receive Done !!! [%d] us , Rssi : [%.2f] dBm , Snr : [%d] dB , RXSensi : [%.2f] dBm", timeresvstop - timeresvstart, 
-		                RSSIvalue, SNRvalue,ReceiverSensitivity);
-		
+        ReceiverSensitivity = SX1276GetReceiverSensitivity();
+        log_message(" Rx Receive Done !!! [%d] us , Rssi : [%.2f] dBm , Snr : [%d] dB , RXSensi : [%.2f] dBm", timeresvstop - timeresvstart,
+                    RSSIvalue, SNRvalue, ReceiverSensitivity);
+
         SX1276GetRxPacket(RxBuf, (unsigned short int)sizeof(RxBuf));
         if (RxBuf > 0)
         {
@@ -314,51 +306,52 @@ void OnMaster(Saban *t_device, Packet_Rreceive_Data recv_pkg[], Saban_Master_Dat
                 switch (master_pkg->Security)
                 {
                 case 0:
-                    CheckID = Decode_Packet_Receive_CRC(recv_pkg, master_pkg, Master, RxBuf);
+                    errcode = Decode_Packet_Receive_CRC(recv_pkg, master_pkg, RxBuf);
                     break ;
                 case 1:
-                    CheckID = Decode_Packet_Receive_AESCRC(recv_pkg, master_pkg, Master, RxBuf);
+                    CheckID = Decode_Packet_Receive_AESCRC(recv_pkg, master_pkg, RxBuf);
                     break ;
                 case 2:
-                    CheckID = Decode_Packet_Receive_SHA(recv_pkg, master_pkg, Master, RxBuf);
+                    CheckID = Decode_Packet_Receive_SHA(recv_pkg, master_pkg, RxBuf);
                     break ;
                 case 3:
-                    CheckID = Decode_Packet_Receive_AESSHA(recv_pkg, master_pkg, Master, RxBuf);
+                    CheckID = Decode_Packet_Receive_AESSHA(recv_pkg, master_pkg, RxBuf);
                     break ;
                 }
-                if (CheckID == 1)
+                if (errcode == NOERR)
                 {
                     u8cmd = (device_pkg[ device_pos - 1].Systemcode & 0xF0) >> 4 ;
                     if (recv_pkg[device_pos - 1].cmd == u8cmd)
                     {
-                        log_message(" Client Connect !!!!! \n");
-                    }
-                    if (Mode == LORA)
-                    {
-                        SX1276StartCad();
-                    }
-                    if (Mode == FSK)
-                    {
-                        switch ((device_pkg[device_pos].Systemcode >> 4) & 0x0F)
+                        log_message(" client connect !!!!! ");
+                        if (Mode == LORA)
                         {
-                        case 0 :
-                            Saban_Mode_IO_Standand(recv_pkg, master_pkg, device_pkg[device_pos].ClientID, device_pkg[device_pos].DataH, device_pkg[device_pos].DataL, master_pkg->Security);
-                            break ;
-                        case 1 :
-                            Saban_Mode_RS485(recv_pkg, master_pkg, device_pkg[device_pos].ClientID, 0x01, 0xFF, master_pkg->Security);
-                            break ;
-                        case 2 :
-                            Saban_Mode_I2C(recv_pkg, master_pkg, device_pkg[device_pos].ClientID, 0x01, 0xff, master_pkg->Security);
-                            break ;
-                        case 3 :
-                            break ;
+                            SX1276StartCad();
                         }
-                        //Timer3_SetTickMs();
-                        //timesendstart = Timer3_GetTickMs();
+                        if (Mode == FSK)
+                        {
+                            switch ((device_pkg[device_pos].Systemcode >> 4) & 0x0F)
+                            {
+                            case 0 :
+                                Saban_Mode_IO_Standand(recv_pkg, master_pkg, device_pkg[device_pos].ClientID, device_pkg[device_pos].DataH, device_pkg[device_pos].DataL, master_pkg->Security);
+                                break ;
+                            case 1 :
+                                Saban_Mode_RS485(recv_pkg, master_pkg, device_pkg[device_pos].ClientID, 0x01, 0xFF, master_pkg->Security);
+                                break ;
+                            case 2 :
+                                Saban_Mode_I2C(recv_pkg, master_pkg, device_pkg[device_pos].ClientID, 0x01, 0xff, master_pkg->Security);
+                                break ;
+                            case 3 :
+                                break ;
+                            }
+                            //Timer3_SetTickMs();
+                            //timesendstart = Timer3_GetTickMs();
+                        }
                     }
                 }
                 else
                 {
+                    log_message("master decode client feddback err !!! ");
                     SX1276StartCad();
                 }
             }
@@ -367,29 +360,54 @@ void OnMaster(Saban *t_device, Packet_Rreceive_Data recv_pkg[], Saban_Master_Dat
             else                                                                         // master recv data from client for master get hmi status
             {
                 log_message("Check recv data !!! ");
-                t_check_decode_err = Decode_Packet_Client_Feddback_HMIStatus(master_pkg, MASTER_GET_HMI_STATUS, RxBuf);              // check data
-                if (t_check_decode_err == 0)                                                                              // decode data ok
+                errcode = Decode_Packet_Client_Feddback_HMIStatus(master_pkg, MASTER_GET_HMI_STATUS, RxBuf);              // check data
+                if (errcode == NOERR)                                                                              // decode data ok
                 {
-                    //Timer3_SetTickMs();
                     log_message("Check recv data OK !!! ");
                     if (t_device->Mode_work == MODE_WORK_HMI)                                                             // pc get user pass
                     {
+                        check_pc_feedback_hmi_status = 1 ;
                         log_message("Check recv data : MODE_WORK_HMI !!! ");
-                        check_client_feedback_hmi_status = 0;
                         memcpy(u8HMIData, RxBuf + 3, 60);
                         SendHMIDataFromMasterToPC(&hmi_pkg, CMD_GET_HMI_STATUS, hmi_pkg.addrHMI, u8HMIData);                                  // send user pass to pc
-                        check_pc_feedback_hmi_status = check_pc_feedback_hmi_status + 1 ;
-                        log_message("Check pc feedback status [%d] !!! ", check_pc_feedback_hmi_status);
                         Timer3_SetTickMs();
-                        //Rf_Send_Request_HMIStatus(recv_pkg, master_pkg, hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, g_hmi_data_recv_pc); // send to client set status log in ok / err
+                        check_pc_feedback_timeout = Timer3_GetTickMs();
+                        while (check_pc_feedback_timeout < TIMER_CHECK_PC_FEDDBACK)
+                        {
+                            log_message("wait check pc feedback[%d] ", check_pc_feedback_timeout);
+                            check_pc_feedback_timeout = Timer3_GetTickMs();
+                        }
+                        if (t_device->Mode_work == MODE_WORK_HMI)
+                        {
+                            t_device->Mode_work = MODE_WORK_NORMAL;
+                        }
+                        else
+                        {
+                            SX1276StartCad();
+                        }
                     }
                     else if (t_device->Mode_work == MODE_WORK_HMI_FEEDBACK_HMI_LOGIN)                                                         // pc send user pass ok / err
                     {
-                        check_pc_feedback_hmi_status = 0 ;
                         log_message("Check recv data : MODE_WORK_HMI_FEEDBACK_HMI_LOGIN !!! ");
                         memcpy(u8HMIData, RxBuf + 3, 60);
                         SendHMIDataFromMasterToPC(&hmi_pkg, CMD_GET_HMI_STATUS, hmi_pkg.addrHMI, u8HMIData);
-                        Rf_Send_Request_HMIStatus(recv_pkg, master_pkg, hmi_pkg.addrHMI, CMD_HMI_GET_STATUS, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, g_hmi_data_recv_pc); // send to client set status request Wait / ok
+                        SX1276StartCad();
+                    }
+                    else if (t_device->Mode_work == MODE_WORK_HMI_FEEDBACK_HMI_REQUEST && RxBuf[6] != 0x43 && RxBuf[7] != 0x4C)
+                    {
+                        log_message("Check recv data : MODE_WORK_HMI_FEEDBACK_HMI_REQUEST !!! ");
+                        memcpy(u8HMIData, RxBuf + 3, 60);
+                        SendHMIDataFromMasterToPC(&hmi_pkg, CMD_GET_HMI_STATUS, hmi_pkg.addrHMI, u8HMIData);
+                        SX1276StartCad();
+                    }
+                    else if (t_device->Mode_work == MODE_WORK_HMI_FEEDBACK_HMI_REQUEST && RxBuf[6] == 0x43 && RxBuf[7] == 0x4C)
+                    {
+                        log_message("Check recv data : MODE_WORK_HMI_FEEDBACK_HMI_REQUEST !!! ");
+                        t_device->Mode_work = MODE_WORK_NORMAL ;
+                        SX1276SetOpMode(RFLR_OPMODE_SLEEP);
+                        SX1276SetOpMode(RFLR_OPMODE_STANDBY);
+                        CLK_SysTickDelay(1000000);
+                        SX1276StartCad();
                     }
                 }
                 else
@@ -400,11 +418,12 @@ void OnMaster(Saban *t_device, Packet_Rreceive_Data recv_pkg[], Saban_Master_Dat
         }
         else
         {
-            log_message(" RX RECEIVE ERR !!!!!");
+            log_message(" Rx receive ERR !!!!!");
         }
         break ;
 
     case RF_TX_RUNNING :
+        /* Normal mode */
         if (t_device->Mode_work == MODE_WORK_NORMAL)
         {
             device_pos ++ ;
@@ -412,19 +431,30 @@ void OnMaster(Saban *t_device, Packet_Rreceive_Data recv_pkg[], Saban_Master_Dat
             {
                 device_pos = 0 ;
             }
-            log_message(" Tx Running Normal !!! ");
+            log_message(" Tx running normal mode !!! ");
         }
+        /*Goi lieu mode */
         else
         {
-            log_message(" Tx Running HMI Request!!! ");
+            log_message(" Tx running HMI Request!!! ");
         }
         break ;
 
     case RF_TX_DONE :
         //timesendstop = Timer3_GetTickMs();
-        // Timer3_ResetTickMs();
-        log_message(" Tx Done !!![%d]us ", timesendstop - timesendstart);
-        SX1276StartRx();
+        //Timer3_ResetTickMs();
+        /* normal mode */
+        if (t_device->Mode_work == MODE_WORK_NORMAL)
+        {
+            log_message(" Tx done normal mode !!![%d]us ", timesendstop - timesendstart);
+            SX1276StartRx();
+        }
+        /* Goi lieu mode */
+        else
+        {
+            log_message(" Tx done goi lieu mode !!![%d]us ", timesendstop - timesendstart);
+            SX1276StartRx();
+        }
         break ;
 
     default :

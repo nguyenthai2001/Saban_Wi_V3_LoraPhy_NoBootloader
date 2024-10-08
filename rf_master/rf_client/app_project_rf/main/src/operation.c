@@ -292,7 +292,7 @@ void OnClient(Saban *t_device, Saban_Client_Dataflash *client_pkg)
         timercvstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
         log_message("RX Timeout !!! [%d] us\n ", timercvstop - timercvstart);
-        SX1276StartRx();
+        SX1276StartCad();
         break ;
 
     case RF_RX_DONE :
@@ -337,6 +337,7 @@ void OnClient(Saban *t_device, Saban_Client_Dataflash *client_pkg)
             }
             else
             {
+                log_message("rx done hmi status !!!");
                 check_decode_err = Decode_Package_Master_Send_HMIStatus(t_device, client_pkg, RxBuf);
                 if (check_decode_err == 0)
                 {
@@ -393,7 +394,7 @@ void OnClient(Saban *t_device, Saban_Client_Dataflash *client_pkg)
                             MBSetData16Bits(REG_HOLDING, 2, 2);
                             MBSetData16Bits(REG_HOLDING, 1, 0);
                         }
-												memset(RxBuf,0,sizeof(RxBuf));
+                        memset(RxBuf, 0, sizeof(RxBuf));
                     }
 #else
 #endif
@@ -444,7 +445,7 @@ void Modbus_Init(Saban *t_device, Saban_Client_Dataflash *client_pkg)
     if (t_device->Modbus_mode == 0)
     {
         eMBErrorCode eStatus = MB_ENOERR;
-        UseModbus(client_pkg->Modbus_SlaveID) ;			  
+        UseModbus(client_pkg->Modbus_SlaveID) ;
     }
     if (t_device->Modbus_mode == 1)
     {

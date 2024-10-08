@@ -17,18 +17,18 @@ Saban_Device_Dataflash DeviceDataFlash[200];
 int main(void)
 {
     SB_SYS_Init();
-    
-	  SB_Master_GPIO_Init();
+
+    SB_Master_GPIO_Init();
     All_Led_ON();
     CLK_SysTickDelay(1000000);
     All_Led_Off();
     GPIO_SetMode(PA, BIT8, GPIO_PMD_OUTPUT);
-	
+
     SB_Uart_Driver_Init(UART1, 115200, 8, 0);
     SB_SPI_Driver_Init();
     SB_WDT_Driver_Init();
     SB_Timer_Driver_Init();
-    SB_Usb_Driver_Init();   
+    SB_Usb_Driver_Init();
 
     DataFlash_Master_Init(&device_word_mode, &MasterDataFlash, DeviceDataFlash);
 
@@ -36,7 +36,7 @@ int main(void)
 
     Radio_Start(&MasterDataFlash);
 
-    device_word_mode.Mode_work = MODE_WORK_HMI ;
+    device_word_mode.Mode_work = MODE_WORK_NORMAL ;
 
     while (TRUE)
     {

@@ -27,6 +27,16 @@ typedef struct
 } data_user_pass;
 extern data_user_pass hmi_user_pass ;
 
+typedef enum
+{
+    NOERR, 	
+    ERR_MASTERID,
+    ERR_CMD,
+    ERR_MCCODE,
+    ERR_CRC	,
+	  ERR_CREAT_SYSTERM_CODE,
+} DecodeErrorCode;
+
 #define Master 0
 #define Client 1
 
@@ -51,21 +61,21 @@ extern data_user_pass hmi_user_pass ;
 
 /* USER CODE END Private defines */
 
-uint8_t Creat_Packet_Request_CRC(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
-                                 unsigned char SlaveID,unsigned char u16cmd, unsigned char Data, unsigned char * packet );
-uint8_t Decode_Packet_Receive_CRC(Packet_Rreceive_Data recv_pkg[],Saban_Master_Dataflash *master_pkg,uint8_t mode, unsigned char * packet_src);
+DecodeErrorCode Creat_Packet_Request_CRC(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
+                                 unsigned char SlaveID, unsigned char u16cmd, unsigned char Data, unsigned char *packet);
+DecodeErrorCode Decode_Packet_Receive_CRC(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg,unsigned char *packet_src);
 
-uint8_t Creat_Packet_Request_AESCRC(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
-                                    unsigned char SlaveID,unsigned char u16cmd, unsigned char Data, unsigned char * packet );
-uint8_t Decode_Packet_Receive_AESCRC(Packet_Rreceive_Data recv_pkg[],Saban_Master_Dataflash *master_pkg,unsigned char mode, unsigned char * packet_src);
+DecodeErrorCode Creat_Packet_Request_AESCRC(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
+                                    unsigned char SlaveID, unsigned char u16cmd, unsigned char Data, unsigned char *packet);
+DecodeErrorCode Decode_Packet_Receive_AESCRC(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg ,unsigned char *packet_src);
 
-uint8_t Creat_Packet_Request_SHA(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
-                                 unsigned char SlaveID,unsigned char u16cmd, unsigned char Data, unsigned char * packet );
-uint8_t Decode_Packet_Receive_SHA(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg,unsigned char mode, unsigned char * packet_src);
+DecodeErrorCode Creat_Packet_Request_SHA(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
+                                 unsigned char SlaveID, unsigned char u16cmd, unsigned char Data, unsigned char *packet);
+DecodeErrorCode Decode_Packet_Receive_SHA(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg,unsigned char *packet_src);
 
-uint8_t Creat_Packet_Request_AESSHA(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
-                                    unsigned char SlaveID,unsigned char u16cmd, unsigned char Data, unsigned char * packet );
-uint8_t Decode_Packet_Receive_AESSHA(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg,unsigned char mode, unsigned char * packet_src);
+DecodeErrorCode Creat_Packet_Request_AESSHA(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
+                                    unsigned char SlaveID, unsigned char u16cmd, unsigned char Data, unsigned char *packet);
+DecodeErrorCode Decode_Packet_Receive_AESSHA(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg,unsigned char *packet_src);
 
 void Rf_Send_Request_CRC(Packet_Rreceive_Data recv_pkg[],Saban_Master_Dataflash *master_pkg,uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode);
 void Saban_Mode_IO_Standand(Packet_Rreceive_Data recv_pkg[],Saban_Master_Dataflash *master_pkg,uint8_t ClientID, uint8_t port_input_number, uint8_t port_output_number, uint8_t security);
@@ -74,7 +84,8 @@ void Saban_Mode_I2C(Packet_Rreceive_Data recv_pkg[],Saban_Master_Dataflash *mast
 void Saban_Feedback_Mode_IOStandand(uint8_t security);
 void Saban_Feedback_Mode_RS485(uint8_t rs485address, uint8_t rs485data, uint8_t security );
 
-uint8_t Decode_Packet_Client_Feddback_HMIStatus(Saban_Master_Dataflash *master_pkg,unsigned char Cmd_HMI, unsigned char * packet_src);
+DecodeErrorCode Decode_Packet_Client_Feddback_HMIStatus(Saban_Master_Dataflash *master_pkg, unsigned char Cmd_HMI, unsigned char * packet_src);
+void RF_Send_Set_Parameter_HMIstatus(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg, uint8_t deviceId,uint8_t u8cmd, uint8_t u8mccode, uint8_t Cmd_HMI, uint8_t HMIdata[]);
 void Rf_Send_Request_HMIStatus(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg,uint8_t deviceId, uint8_t u8cmd, uint8_t u8mccode, uint8_t Cmd_HMI, uint8_t HMIdata[]);
 /* USER CODE BEGIN Prototypes */
 

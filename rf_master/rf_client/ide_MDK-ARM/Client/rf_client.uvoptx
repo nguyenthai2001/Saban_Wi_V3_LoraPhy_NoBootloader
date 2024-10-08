@@ -147,50 +147,34 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>966</LineNumber>
+          <LineNumber>404</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>5942</Address>
+          <Address>10730</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\app_project_rf\packet_rf\src\RF_Transfer.c</Filename>
+          <Filename>..\..\app_project_rf\main\src\operation.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\rf_client\../../app_project_rf/packet_rf/src/RF_Transfer.c\966</Expression>
+          <Expression>\\rf_client\../../app_project_rf/main/src/operation.c\404</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>960</LineNumber>
+          <LineNumber>402</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>5924</Address>
+          <Address>10722</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\app_project_rf\packet_rf\src\RF_Transfer.c</Filename>
+          <Filename>..\..\app_project_rf\main\src\operation.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\rf_client\../../app_project_rf/packet_rf/src/RF_Transfer.c\960</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>954</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>6092</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\..\app_project_rf\packet_rf\src\RF_Transfer.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\rf_client\../../app_project_rf/packet_rf/src/RF_Transfer.c\954</Expression>
+          <Expression>\\rf_client\../../app_project_rf/main/src/operation.c\402</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -210,6 +194,14 @@
           <ItemText>client_dataflash</ItemText>
         </Ww>
       </WatchWindow1>
+      <MemoryWindow1>
+        <Mm>
+          <WinNumber>1</WinNumber>
+          <SubType>0</SubType>
+          <ItemText>0x20000474</ItemText>
+          <AccSizeX>0</AccSizeX>
+        </Mm>
+      </MemoryWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>

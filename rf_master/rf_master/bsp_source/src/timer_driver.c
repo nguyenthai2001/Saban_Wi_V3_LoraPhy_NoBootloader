@@ -116,7 +116,7 @@ void Timer3_SetTickMs(void)
     g_tick_timer.tick_timer3 = 0 ;
 }
 
-uint16_t Timer3_GetTickMs(void)
+uint32_t Timer3_GetTickMs(void)
 {
     return g_tick_timer.tick_timer3 ;
 }

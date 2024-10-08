@@ -32,9 +32,6 @@ extern "C" {
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
-#define SABAN_CLIENT 0
-
-void Error_Handler(void);
 extern volatile uint32_t g_u32WDTINTCounts;
 extern volatile uint32_t g_u8IsWDTWakeupINT ;
 
@@ -85,6 +82,7 @@ typedef struct
 #define MODE_WORK_NORMAL  0 
 #define MODE_WORK_HMI     1
 #define MODE_WORK_HMI_FEEDBACK_HMI_LOGIN     2
+#define MODE_WORK_HMI_FEEDBACK_HMI_REQUEST 3
 
 extern Saban device_word_mode ;
 extern Saban_Master_Dataflash MasterDataFlash;

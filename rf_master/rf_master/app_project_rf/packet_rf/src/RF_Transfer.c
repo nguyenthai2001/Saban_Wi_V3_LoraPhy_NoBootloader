@@ -41,13 +41,13 @@ void Save_Receive_Data_RF_Transfer(Packet_Rreceive_Data pkg[],  unsigned char Ma
 /*-----------------------------------------------------------------------------------------------------------------*/
 /* Su dung CRC xac thuc , khong co ma hoa  */
 /*-----------------------------------------------------------------------------------------------------------------*/
-uint8_t Creat_Packet_Request_CRC(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
-                                 unsigned char SlaveID, unsigned char u16cmd, unsigned char Data, unsigned char *packet)
+DecodeErrorCode Creat_Packet_Request_CRC(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
+        unsigned char SlaveID, unsigned char u16cmd, unsigned char Data, unsigned char *packet)
 {
     int TimeStart  = 0 ;
     int TimeStop = 0 ;
 
-    uint8_t err = 0 ;
+    DecodeErrorCode err = NOERR ;
     uint8_t system_code = 0 ;
     uint8_t temp_packet[4] = {0} ;
     uint16_t crc = 0 ;
@@ -55,13 +55,13 @@ uint8_t Creat_Packet_Request_CRC(unsigned char MasterID, unsigned char Commnad, 
     uint8_t crc_l = 0 ;
 
     //Timer3_SetTickMs();
-    TimeStart = Timer3_GetTickMs();
+    //TimeStart = Timer3_GetTickMs();
 
     // kiem tra gia tri ma he thong
     if (MasterID >= 16 || Commnad >= 4 || MCCode >= 4)
     {
-        //log_message(" SYSTERM CODE ERR !!! \n");
-        err = 1 ;
+        log_message(" creat systerm code err !!! ");
+        err = ERR_CREAT_SYSTERM_CODE ;
     }
     else
     {
@@ -86,24 +86,22 @@ uint8_t Creat_Packet_Request_CRC(unsigned char MasterID, unsigned char Commnad, 
         packet [4] = crc_h ;
         packet [5] = crc_l ;
 
-        TimeStop = Timer3_GetTickMs();
+        //TimeStop = Timer3_GetTickMs();
         //Timer3_ResetTickMs();
-
-        //log_message(" PACKET CREAT DONE !!! [%d] us", TimeStop - TimeStart);
-        err = 0;
+        log_message(" creat packet done !!! [%d] us", TimeStop - TimeStart);
+        err = NOERR;
     }
     return err ;
 }
 
-uint8_t Decode_Packet_Receive_CRC(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg,
-                                  uint8_t mode, unsigned char *packet_src)
+DecodeErrorCode Decode_Packet_Receive_CRC(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg, unsigned char *packet_src)
 {
     int TimeStart = 0 ;
     int TimeStop = 0 ;
 
     uint8_t masteridcurrent;
 
-    uint8_t err = 0 ;
+    DecodeErrorCode err = NOERR ;
     uint8_t system_code = 0 ;
     uint8_t receive_crc_h = 0 ;
     uint8_t receive_crc_l = 0 ;
@@ -146,18 +144,28 @@ uint8_t Decode_Packet_Receive_CRC(Packet_Rreceive_Data recv_pkg[], Saban_Master_
     // check crc receive and crc calculated
     if (calculated_crc != receive_crc)
     {
-        err = 0;
-        //log_message(" DECODE DATA ERR !!! ");
+        err = ERR_CRC;
+        log_message("master decode crc err : recv crc[%2x] , cal crc [%2x]", receive_crc, calculated_crc);
     }
     else
     {
-        TimeStop = Timer3_GetTickMs();
+        //TimeStop = Timer3_GetTickMs();
         //Timer3_ResetTickMs();
-        //printf(" DECODE DATA SLAVE [%2X] OK !!! [%d] us " , SlaveID , TimeStop - TimeStart);
-        if (MCCode == MCCODE_SLAVE_FEEDBACK && master_pkg-> Masterid == MasterID)                // decode for master
+        if (master_pkg->Masterid == MasterID)
         {
-            Save_Receive_Data_RF_Transfer(recv_pkg, MasterID, Commnad, MCCode, SlaveID, u16cmd, Data, receive_crc);
-            err = 1 ;
+            if (MCCode == MCCODE_SLAVE_FEEDBACK)
+            {
+                Save_Receive_Data_RF_Transfer(recv_pkg, MasterID, Commnad, MCCode, SlaveID, u16cmd, Data, receive_crc);
+                err = NOERR ;
+            }
+            else
+            {
+                err = ERR_MCCODE ;
+            }
+        }
+        else
+        {
+            err = ERR_MASTERID ;
         }
     }
     return err ;
@@ -194,8 +202,8 @@ void Rf_Send_Request_CRC(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Su dung ma hao AES va xac thuc CRC  */
 /*--------------------------------------------------------------------------------------------------------------------*/
-uint8_t Creat_Packet_Request_AESCRC(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
-                                    unsigned char SlaveID, unsigned char u16cmd, unsigned char Data, unsigned char *packet)
+DecodeErrorCode Creat_Packet_Request_AESCRC(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
+        unsigned char SlaveID, unsigned char u16cmd, unsigned char Data, unsigned char *packet)
 {
     int TimeStart = 0 ;
     int TimeStop = 0 ;
@@ -211,7 +219,7 @@ uint8_t Creat_Packet_Request_AESCRC(unsigned char MasterID, unsigned char Commna
     uint8_t padded_data[16];
     memset(padded_data, 0, 16);
 
-    uint8_t err = 0 ;
+    DecodeErrorCode err = NOERR ;
     uint8_t system_code = 0 ;
     uint8_t temp_packet[4] = {0} ;
     uint16_t crc = 0 ;
@@ -224,7 +232,7 @@ uint8_t Creat_Packet_Request_AESCRC(unsigned char MasterID, unsigned char Commna
     if (MasterID >= 16 || Commnad >= 4 || MCCode >= 4)
     {
         //log_message(" SYSTERM CODE ERR !!! \n");
-        err = 1 ;
+        err = ERR_CREAT_SYSTERM_CODE ;
     }
     else
     {
@@ -258,15 +266,13 @@ uint8_t Creat_Packet_Request_AESCRC(unsigned char MasterID, unsigned char Commna
         TimeStop = Timer3_GetTickMs();
         //Timer3_ResetTickMs();
         //log_message(" PACKET CREAT DONE !!! [%d] us", TimeStop - TimeStart);
-        err = 0;
+        err = NOERR;
     }
-
     return err ;
 }
 
 
-uint8_t Decode_Packet_Receive_AESCRC(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg
-                                     , unsigned char mode, unsigned char *packet_src)
+DecodeErrorCode Decode_Packet_Receive_AESCRC(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg, unsigned char *packet_src)
 {
     int TimeStart = 0 ;
     int TimeStop = 0 ;
@@ -279,9 +285,7 @@ uint8_t Decode_Packet_Receive_AESCRC(Packet_Rreceive_Data recv_pkg[], Saban_Mast
                        0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f
                      };
 
-    uint8_t masteridcurrent;
-
-    uint8_t err = 0 ;
+    DecodeErrorCode err = NOERR ;
     uint8_t system_code = 0 ;
     uint8_t receive_crc_h = 0 ;
     uint8_t receive_crc_l = 0 ;
@@ -300,7 +304,7 @@ uint8_t Decode_Packet_Receive_AESCRC(Packet_Rreceive_Data recv_pkg[], Saban_Mast
     unsigned char Data ;
 
     //Timer3_SetTickMs();
-    TimeStart = Timer3_GetTickMs();
+    //TimeStart = Timer3_GetTickMs();
 
     memcpy(packet, packet_src, 16);
 
@@ -331,18 +335,28 @@ uint8_t Decode_Packet_Receive_AESCRC(Packet_Rreceive_Data recv_pkg[], Saban_Mast
     // check crc receive and crc calculated
     if (calculated_crc != receive_crc)
     {
-        err = 0;
-        //log_message(" DECODE DATA ERR !!! ");
+        err = ERR_CRC;
+        log_message(" master decode crc err : recv_crc [%2x] , cal_crc [%2x] ", receive_crc, calculated_crc);
     }
     else
     {
-        TimeStop = Timer3_GetTickMs();
+        //TimeStop = Timer3_GetTickMs();
         //Timer3_ResetTickMs();
-        //log_message(" DECODE DATA SLAVE [%2X] OK !!! [%d] us ", SlaveID, TimeStop - TimeStart);
-        if (MCCode == MCCODE_SLAVE_FEEDBACK && master_pkg-> Masterid == MasterID)               // decode for master
+        if (master_pkg-> Masterid == MasterID)
         {
-            Save_Receive_Data_RF_Transfer(recv_pkg, MasterID, Commnad, MCCode, SlaveID, u16cmd, Data, receive_crc);
-            err = 1 ;
+            if (MCCode == MCCODE_SLAVE_FEEDBACK)
+            {
+                Save_Receive_Data_RF_Transfer(recv_pkg, MasterID, Commnad, MCCode, SlaveID, u16cmd, Data, receive_crc);
+                err = NOERR ;
+            }
+            else
+            {
+                err = ERR_MCCODE ;
+            }
+        }
+        else
+        {
+            err = ERR_MASTERID ;
         }
     }
     return err ;
@@ -379,8 +393,8 @@ void Rf_Send_Request_AESCRC(Packet_Rreceive_Data recv_pkg[], Saban_Master_Datafl
 /*--------------------------------------------------------------------------------------------------------*/
 /* Khong ma hoa, xac thuc SHA  */
 /*--------------------------------------------------------------------------------------------------------*/
-uint8_t Creat_Packet_Request_SHA(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
-                                 unsigned char SlaveID, unsigned char u16cmd, unsigned char Data, unsigned char *packet)
+DecodeErrorCode Creat_Packet_Request_SHA(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
+        unsigned char SlaveID, unsigned char u16cmd, unsigned char Data, unsigned char *packet)
 {
     int TimeStart = 0 ;
     int TimeStop = 0 ;
@@ -389,7 +403,7 @@ uint8_t Creat_Packet_Request_SHA(unsigned char MasterID, unsigned char Commnad, 
     SHA256_HASH     sha256Hash;
     uint16_t        i;
 
-    uint8_t err = 0 ;
+    DecodeErrorCode err = 0 ;
     uint8_t system_code = 0 ;
     uint8_t temp_packet[4] = {0} ;
 
@@ -399,7 +413,7 @@ uint8_t Creat_Packet_Request_SHA(unsigned char MasterID, unsigned char Commnad, 
     if (MasterID >= 16 || Commnad >= 4 || MCCode >= 4)
     {
         //log_message(" SYSTERM CODE ERR !!! \n");
-        err = 1 ;
+        err = ERR_CREAT_SYSTERM_CODE ;
     }
     else
     {
@@ -428,13 +442,12 @@ uint8_t Creat_Packet_Request_SHA(unsigned char MasterID, unsigned char Commnad, 
         TimeStop = Timer3_GetTickMs();
         //Timer3_ResetTickMs();
         //log_message(" PACKET CREAT SHA DONE !!! [%d] us", TimeStop - TimeStart);
-        err = 0;
+        err = NOERR;
     }
     return err ;
 }
 
-uint8_t Decode_Packet_Receive_SHA(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg,
-                                  unsigned char mode, unsigned char *packet_src)
+DecodeErrorCode Decode_Packet_Receive_SHA(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg, unsigned char *packet_src)
 {
 
     int TimeStart = 0 ;
@@ -444,9 +457,7 @@ uint8_t Decode_Packet_Receive_SHA(Packet_Rreceive_Data recv_pkg[], Saban_Master_
     SHA256_HASH     sha256Hash;
     uint8_t        i;
 
-    uint8_t masteridcurrent;
-
-    uint8_t err = 0 ;
+    DecodeErrorCode err = 0 ;
     uint8_t system_code = 0 ;
     uint8_t receive_sha[32]  ;
     uint8_t temp_packet[4];
@@ -464,7 +475,7 @@ uint8_t Decode_Packet_Receive_SHA(Packet_Rreceive_Data recv_pkg[], Saban_Master_
     Data = packet_src[3];
 
     //Timer3_SetTickMs();
-    TimeStart = Timer3_GetTickMs();
+    //TimeStart = Timer3_GetTickMs();
 
     for (i = 0; i < sizeof(receive_sha); i++)
     {
@@ -490,18 +501,28 @@ uint8_t Decode_Packet_Receive_SHA(Packet_Rreceive_Data recv_pkg[], Saban_Master_
     // check crc receive and crc calculated
     if (0 != memcmp((char *) receive_sha, (char *) sha256Hash.bytes, 32))
     {
-        err = 0;
-        //log_message(" DECODE DATA SHA ERR !!! ");
+        err = ERR_CRC;
+        log_message(" master decode SHA err : recv_crc [%2x] , cal_crc [%2x] ", receive_sha, sha256Hash.bytes);
     }
     else
     {
-        TimeStop = Timer3_GetTickMs();
+        //TimeStop = Timer3_GetTickMs();
         //Timer3_ResetTickMs();
-        //log_message(" DECODE DATA SHA SLAVE [%2X] OK !!! [%d] us", SlaveID, TimeStop - TimeStart);
-        if (MCCode == MCCODE_SLAVE_FEEDBACK && master_pkg->Masterid == MasterID)               // decode for master
+        if (master_pkg->Masterid == MasterID)
         {
-            Save_Receive_Data_RF_Transfer(recv_pkg, MasterID, Commnad, MCCode, SlaveID, u16cmd, Data, 0);
-            err = 1 ;
+            if (MCCode == MCCODE_SLAVE_FEEDBACK)
+            {
+                Save_Receive_Data_RF_Transfer(recv_pkg, MasterID, Commnad, MCCode, SlaveID, u16cmd, Data, 0);
+                err = NOERR ;
+            }
+            else
+            {
+                err = ERR_MCCODE ;
+            }
+        }
+        else
+        {
+            err = ERR_MASTERID ;
         }
     }
     return err ;
@@ -538,8 +559,8 @@ void Rf_Send_Request_SHA(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash
 /*---------------------------------------------------------------------------------------------------------------------*/
 /* Su dung ma hoa AES va Xac thuc SHA  */
 /*---------------------------------------------------------------------------------------------------------------------*/
-uint8_t Creat_Packet_Request_AESSHA(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
-                                    unsigned char SlaveID, unsigned char u16cmd, unsigned char Data, unsigned char *packet)
+DecodeErrorCode Creat_Packet_Request_AESSHA(unsigned char MasterID, unsigned char Commnad, unsigned char MCCode,
+        unsigned char SlaveID, unsigned char u16cmd, unsigned char Data, unsigned char *packet)
 {
     int TimeStart = 0;
     int TimeStop = 0 ;
@@ -559,7 +580,7 @@ uint8_t Creat_Packet_Request_AESSHA(unsigned char MasterID, unsigned char Commna
     SHA256_HASH     sha256Hash;
     uint8_t        i;
 
-    uint8_t err = 0 ;
+    DecodeErrorCode err = NOERR ;
     uint8_t system_code = 0 ;
     uint8_t temp_packet[4] = {0} ;
 
@@ -568,12 +589,11 @@ uint8_t Creat_Packet_Request_AESSHA(unsigned char MasterID, unsigned char Commna
     // kiem tra gia tri ma he thong
     if (MasterID >= 16 || Commnad >= 4 || MCCode >= 4)
     {
-        //log_message(" SYSTERM CODE ERR !!! \n");
-        err = 1 ;
+        log_message(" creat systerm code err !!! ");
+        err = ERR_CREAT_SYSTERM_CODE ;
     }
     else
     {
-        ////log_message(" SYSTERM CODE OK !!! ");
         // creat 1 byte ma he thong
         system_code = (MasterID << 4) | (Commnad << 2) | MCCode ;
         // Creat packet data
@@ -603,13 +623,12 @@ uint8_t Creat_Packet_Request_AESSHA(unsigned char MasterID, unsigned char Commna
         TimeStop = Timer3_GetTickMs();
         //Timer3_ResetTickMs();
         // //log_message(" PACKET CREAT DONE !!! [ %d ] us", TimeStop - TimeStart);
-        err = 0;
+        err = NOERR;
     }
     return err ;
 }
 
-uint8_t Decode_Packet_Receive_AESSHA(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg,
-                                     unsigned char mode, unsigned char *packet_src)
+DecodeErrorCode Decode_Packet_Receive_AESSHA(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg, unsigned char *packet_src)
 {
     int TimeStart  = 0 ;
     int TimeStop = 0 ;
@@ -627,7 +646,7 @@ uint8_t Decode_Packet_Receive_AESSHA(Packet_Rreceive_Data recv_pkg[], Saban_Mast
     SHA256_HASH     sha256Hash;
     uint8_t        i;
 
-    uint8_t err = 0 ;
+    DecodeErrorCode err = NOERR ;
     uint8_t system_code = 0 ;
     uint8_t packet[16] ;
     uint8_t receive_crc[32] ;
@@ -651,7 +670,7 @@ uint8_t Decode_Packet_Receive_AESSHA(Packet_Rreceive_Data recv_pkg[], Saban_Mast
     }
 
     //Timer3_SetTickMs();
-    TimeStart = Timer3_GetTickMs();
+    //TimeStart = Timer3_GetTickMs();
     struct AES_ctx ctx;
     AES_init_ctx_iv(&ctx, key, iv);
     AES_CBC_decrypt_buffer(&ctx, packet, 16);
@@ -678,31 +697,28 @@ uint8_t Decode_Packet_Receive_AESSHA(Packet_Rreceive_Data recv_pkg[], Saban_Mast
     // check crc receive and crc calculated
     if (0 != memcmp((char *) receive_crc, (char *) sha256Hash.bytes, 32))
     {
-        err = 0;
-        ////log_message(" DECODE DATA ERR !!! ");
+        err = ERR_CRC;
+        log_message(" master decode aes sha err : recv_crc [%2x] , cal_crc [%2x] ", receive_crc, sha256Hash.bytes);
     }
     else
     {
-        Timer3_GetTickMs();
+        //Timer3_GetTickMs();
         //Timer3_ResetTickMs();
-        ////log_message(" DECODE DATA SLAVE [%2X] OK !!! [%d] us ", SlaveID, TimeStop - TimeStart);
-        if (MCCode == MCCODE_SLAVE_FEEDBACK &&  MasterID == master_pkg->Masterid)               // decode for master
+        if (master_pkg->Masterid == MasterID)
         {
-            //Save_Receive_Data_RF_Transfer(recv_pkg, MasterID, Commnad, MCCode, SlaveID, u16cmd, Data, (uint16_t)receive_crc);
-            recv_pkg[SlaveID].masterid = MasterID ;
-            recv_pkg[SlaveID].cmd = Commnad ;
-            recv_pkg[SlaveID].mccode = MCCode ;
-            recv_pkg[SlaveID].slaveid = SlaveID ;
-            recv_pkg[SlaveID].data_h = u16cmd ;
-            recv_pkg[SlaveID].data_l = Data ;
-            recv_pkg[SlaveID].crc_result = 0 ;
-
-            printf(" SlaveID : %2X ", recv_pkg[SlaveID].slaveid);
-            printf(" Command : %2X ", recv_pkg[SlaveID].cmd);
-            printf(" MCcode : %2X ", recv_pkg[SlaveID].mccode);
-            printf(" Data : %2X ", recv_pkg[SlaveID].data_h);
-            printf("%2X ", recv_pkg[SlaveID].data_l);
-            err = 1 ;
+            if (MCCode == MCCODE_SLAVE_FEEDBACK)
+            {
+                Save_Receive_Data_RF_Transfer(recv_pkg, MasterID, Commnad, MCCode, SlaveID, u16cmd, Data, 0);
+                err = NOERR ;
+            }
+            else
+            {
+                err = ERR_MCCODE ;
+            }
+        }
+        else
+        {
+            err = ERR_MASTERID ;
         }
     }
     return err ;
@@ -863,12 +879,12 @@ uint8_t Creat_Packet_Master_Get_HMIStatus(unsigned char MasterID, unsigned char 
     return err ;
 }
 
-uint8_t Decode_Packet_Client_Feddback_HMIStatus(Saban_Master_Dataflash *master_pkg, unsigned char Cmd_HMI, unsigned char * packet_src)
+DecodeErrorCode Decode_Packet_Client_Feddback_HMIStatus(Saban_Master_Dataflash *master_pkg, unsigned char Cmd_HMI, unsigned char * packet_src)
 {
     int TimeStart = 0 ;
     int TimeStop = 0 ;
 
-    uint8_t err = 0 ;
+    DecodeErrorCode err = 0 ;
     int check_user_pass = 0 ;
     uint8_t system_code = 0 ;
 
@@ -880,7 +896,7 @@ uint8_t Decode_Packet_Client_Feddback_HMIStatus(Saban_Master_Dataflash *master_p
     uint8_t HMIdata[60] = {0} ;
 
     //Timer3_SetTickMs();
-    TimeStart = Timer3_GetTickMs();
+    //TimeStart = Timer3_GetTickMs();
 
     system_code = packet_src[0];
     SlaveID = packet_src[1];
@@ -890,32 +906,56 @@ uint8_t Decode_Packet_Client_Feddback_HMIStatus(Saban_Master_Dataflash *master_p
     Commnad = (system_code >> 2) & 0x03 ;
     MCCode = system_code & 0x03 ;
 
-    TimeStop = Timer3_GetTickMs();
+    //TimeStop = Timer3_GetTickMs();
     //Timer3_ResetTickMs();
-
     if (master_pkg->Masterid == MasterID)          //  master id ok
     {
         //printf(" DECODE DATA SLAVE [%2X] OK !!! [%d] us ", SlaveID, TimeStop - TimeStart);
-
         if (hmi_status == Cmd_HMI)          // decode for master
         {
-            //log_message(" Master Check HMI status ok  !!!!!");
             memcpy(HMIdata, packet_src + 3, 60);
-           // printArray8Bit(packet_src, 64);
-            err = 0 ;                                     // client feedback master get hmi status
+            //printArray8Bit(packet_src, 64);
+            err = NOERR ;                                     // client feedback master get hmi status
         }
         else
         {
-            printf("client feddback not cmd hmi !!!");
-            err  = 2 ;                                    // Not master get hmi status
+            log_message("client feddback not cmd hmi !!!");
+            err  = ERR_CMD ;                                    // Not master get hmi status
         }
     }
     else
     {
-        printf("master id err !!!");
-        err = 1 ;                                         // master id Err
+        log_message("master id err !!!");
+        err = ERR_MASTERID ;                                         // master id Err
     }
     return err ;
+}
+
+void RF_Send_Set_Parameter_HMIstatus(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg, uint8_t deviceId,
+                                     uint8_t u8cmd, uint8_t u8mccode, uint8_t Cmd_HMI, uint8_t HMIdata[])
+{
+    Mode1 = SX1276GetMode();
+    unsigned char TxBuf[64] = {0};
+    uint8_t test_cout = 0;
+    uint32_t TimeOnAir = 0;
+
+    if (Mode1 == LORA)
+    {
+        SX1276LoRaSetPayloadLength(8);
+        TimeOnAir = SX1276GetTimeOnAir();
+        SX1276LoRaSetRxPacketTimeout(TimeOnAir + 40);
+    }
+    if (Mode1 == FSK)
+    {
+        SX1276FskSetPayloadLength(64);
+    }
+    recv_pkg[deviceId].masterid = master_pkg->Masterid ;
+    recv_pkg[deviceId].cmd = u8cmd ;
+    recv_pkg[deviceId].mccode = u8mccode ;
+    recv_pkg[deviceId].slaveid = deviceId ;
+    Creat_Packet_Master_Get_HMIStatus(recv_pkg[deviceId].masterid, recv_pkg[deviceId].cmd, recv_pkg[deviceId].mccode,
+                                      recv_pkg[deviceId].slaveid, Cmd_HMI, HMIdata, TxBuf);
+    SX1276SetTxPacket(TxBuf, 8);
 }
 
 void Rf_Send_Request_HMIStatus(Packet_Rreceive_Data recv_pkg[], Saban_Master_Dataflash *master_pkg, uint8_t deviceId,
