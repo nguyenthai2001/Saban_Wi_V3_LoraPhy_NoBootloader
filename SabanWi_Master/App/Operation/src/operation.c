@@ -53,7 +53,7 @@ void Radio_Start(void)
         while (version != 0x12 && CheckConfigErr != 0x0)
         {
             SX1276Init();
-            //log_message("LoRa Init Fail !!!!!\n");
+            log_message("LoRa Init Fail !!!!!\n");
         }
         switch (MasterDataFlash[1].RfFrequence)
         {
@@ -96,9 +96,9 @@ void Radio_Start(void)
         SX1276LoRaSetSpreadingFactor(MasterDataFlash[1].RFSpreadingFactor);
         SX1276LoRaSetErrorCoding(MasterDataFlash[1].ErrCode);
 
-        //log_message("LoRa Init Done !!!!!\n");
+        log_message("LoRa Init Done !!!!!\n");
         TimeOnAir = SX1276GetTimeOnAir();
-        //log_message("LoRa TimeOnAir : %d [ms] !!!!!\n", TimeOnAir);
+        log_message("LoRa TimeOnAir : %d [ms] !!!!!\n", TimeOnAir);
         SX1276StartCad();
     }
 
@@ -110,7 +110,7 @@ void Radio_Start(void)
         while (version != 0x12)
         {
             SX1276Init();
-            //log_message("FSK Init Fail !!!!!\n");
+            log_message("FSK Init Fail !!!!!\n");
         }
 
         switch (MasterDataFlash[1].RfFrequence)
@@ -150,9 +150,9 @@ void Radio_Start(void)
         }
         bitrate = 0 << 24 | (uint32_t)MasterDataFlash[1].RFBandwidth << 16 | (uint32_t)MasterDataFlash[1].RFSpreadingFactor << 8 | (uint32_t)MasterDataFlash[1].ErrCode;
         SX1276FskSetBitrate(bitrate);
-        //log_message("FSK Init Done !!!!!\n");
+        log_message("FSK Init Done !!!!!\n");
         TimeOnAir = SX1276FskGetTimeOnAir();
-        //log_message("FSK TimeOnAir : %d [ms] !!!!!\n", TimeOnAir);
+        log_message("FSK TimeOnAir : %d [ms] !!!!!\n", TimeOnAir);
         SX1276StartRx();
     }
     device[1].Mode_work = MODE_WORK_HMI ;
@@ -175,14 +175,14 @@ void OnMaster(void)
     switch (SX1276Process())
     {
     case  RF_CHANNEL_ACTIVITY_DETECTED :
-        //log_message(" \nChannel Busy !!!! ");
+        log_message(" \nChannel Busy !!!! ");
         break ;
 
     case  RF_CHANNEL_EMPTY:
-        //log_message(" \nChannel empty !!!");
+        log_message(" \nChannel empty !!!");
         if (device[1].Mode_work == MODE_WORK_NORMAL)
         {
-            //log_message(" Client ID : %2X ", DeviceDataFlash[device_pos].ClientID);
+            log_message(" Client ID : %2X ", DeviceDataFlash[device_pos].ClientID);
             switch ((DeviceDataFlash[device_pos].Systemcode >> 4) & 0x0F)
             {
             case 0 :
@@ -211,7 +211,7 @@ void OnMaster(void)
         break ;
 
     case RF_RX_RUNNING:
-        //log_message(" RX Running !!! ");
+        log_message(" RX Running !!! ");
         Timer3_SetTickMs();
         timeresvstart = Timer3_GetTickMs();
         break;
@@ -219,7 +219,7 @@ void OnMaster(void)
     case RF_RX_TIMEOUT :
         timeresvstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();                                           // Client disconnect
-        //log_message(" RX Timeout !!![%d] us ", timeresvstop - timeresvstart);
+        log_message(" RX Timeout !!![%d] us ", timeresvstop - timeresvstart);
 
         if (device[1].Mode_work == MODE_WORK_NORMAL)
         {
@@ -253,7 +253,7 @@ void OnMaster(void)
         }
         else                                              // master get hmi status
         {
-            //log_message(" HMI Not Connect !!! ");
+            log_message(" HMI Not Connect !!! ");
             if (Mode == LORA)
             {
                 SX1276StartCad();                         // khong phan hoi tu client thi send lai
@@ -266,7 +266,7 @@ void OnMaster(void)
         Timer3_ResetTickMs();                                                  // Client Connected
         RSSIvalue = SX1276ReadRssi();
         SNRvalue = SX1276GetPacketSnr();
-        //log_message(" Rx Receive Done !!! [%d] us , Rssi : [%.2f] dBm , Snr : [%d] dB", timeresvstop - timeresvstart, RSSIvalue, SNRvalue);
+        log_message(" Rx Receive Done !!! [%d] us , Rssi : [%.2f] dBm , Snr : [%d] dB", timeresvstop - timeresvstart, RSSIvalue, SNRvalue);
         SX1276GetRxPacket(RxBuf, (unsigned short int)sizeof(RxBuf));
         if (RxBuf > 0)
         {
@@ -293,7 +293,7 @@ void OnMaster(void)
                     u8cmd = (DeviceDataFlash[ device_pos - 1].Systemcode & 0xF0) >> 4 ;
                     if (pkg_client_recv[device_pos - 1].cmd == u8cmd)
                     {
-                        //log_message(" Client Connect !!!!! \n");
+                        log_message(" Client Connect !!!!! \n");
                     }
                     if (Mode == LORA)
                     {
@@ -326,21 +326,21 @@ void OnMaster(void)
             }
             else                                                                         // master recv data from client for master get hmi status
             {
-                //log_message("Check recv data !!! ");
+                log_message("Check recv data !!! ");
                 t_check_decode_err = Decode_Packet_Client_Feddback_HMIStatus(MASTER_GET_HMI_STATUS, RxBuf);               // check data
                 if (t_check_decode_err == 0)                                                                              // decode data ok
                 {
-                    //log_message("Check recv data OK !!! ");
+                    log_message("Check recv data OK !!! ");
                     if (device[1].Mode_work == MODE_WORK_HMI)                                                             // pc get user pass
                     {
-                        //log_message("Check recv data : MODE_WORK_HMI !!! ");
+                        log_message("Check recv data : MODE_WORK_HMI !!! ");
                         memcpy(u8HMIData, RxBuf + 3, 60);
                         SendHMIDataFromMasterToPC(&hmi_pkg, CMD_GET_HMI_STATUS, hmi_pkg.addrHMI, u8HMIData);                                  // send user pass to pc                        
                         Rf_Send_Request_HMIStatus(hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, g_hmi_data_recv_pc); // duy tri duong truyen tin hieu
 
 //                        if (RxBuf[5] == 0x61 && RxBuf[6] == 0x64)
 //                        {
-//                            //log_message("Check recv data : test !!!  ");
+//                            log_message("Check recv data : test !!!  ");
 //                            hmi_pkg.HMIData[1] = SET_STATUS_LOGIN ;
 //                            hmi_pkg.HMIData[2] = 0x4F ;
 //                            hmi_pkg.HMIData[3] = 0x4B;
@@ -350,7 +350,7 @@ void OnMaster(void)
                     }
                     else if (device[1].Mode_work == MODE_WORK_HMI_FEEDBACK_HMI_LOGIN)                                                         // pc send user pass ok / err
                     {
-                        //log_message("Check recv data : MODE_WORK_HMI_FEEDBACK_HMI_LOGIN !!! ");
+                        log_message("Check recv data : MODE_WORK_HMI_FEEDBACK_HMI_LOGIN !!! ");
 											  memcpy(u8HMIData, RxBuf + 3, 60);
                         SendHMIDataFromMasterToPC(&hmi_pkg, CMD_GET_HMI_STATUS, hmi_pkg.addrHMI, u8HMIData);  
                         Rf_Send_Request_HMIStatus(hmi_pkg.addrHMI, CMD_I2C, MCCODE_REQUEST_FEEDBACK, MASTER_GET_HMI_STATUS, g_hmi_data_recv_pc);  // send to client check user pass from pc
@@ -364,7 +364,7 @@ void OnMaster(void)
         }
         else
         {
-            //log_message(" RX RECEIVE ERR !!!!!");
+            log_message(" RX RECEIVE ERR !!!!!");
         }
         break ;
 
@@ -376,18 +376,18 @@ void OnMaster(void)
             {
                 device_pos = 0 ;
             }
-            //log_message(" Tx Running Normal !!! ");
+            log_message(" Tx Running Normal !!! ");
         }
         else
         {
-            //log_message(" Tx Running HMI Request!!! ");
+            log_message(" Tx Running HMI Request!!! ");
         }
         break ;
 
     case RF_TX_DONE :
         timesendstop = Timer3_GetTickMs();
         Timer3_ResetTickMs();
-        //log_message(" Tx Done !!![%d]us ", timesendstop - timesendstart);
+        log_message(" Tx Done !!![%d]us ", timesendstop - timesendstart);
         SX1276StartRx();
         break ;
 
